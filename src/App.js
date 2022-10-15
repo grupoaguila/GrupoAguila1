@@ -6,6 +6,7 @@ import NavBar from "./Componets/NavBar/NavBar";
 import Users from "./Componets/Users/Users";
 import Profile from "./Componets/Profile/Profile";
 import AddCases from "./Componets/InputsSelects/AddCase/AddCases";
+import Register from "./Componets/Login/Register";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/servicios" element={<Contacto />} />
         <Route path="/user" element={<Users />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/contacto" element={<Profile />} />
         <Route path="/añadirCasos" element={<AddCases />} />
       </Routes>
