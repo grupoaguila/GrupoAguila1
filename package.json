@@ -22,11 +22,8 @@
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "react-select": "^5.5.0",
-<<<<<<< HEAD
     "react-super-responsive-table": "^5.2.1",
-=======
     "react-whatsapp": "^0.3.0",
->>>>>>> 5e6e3630629194ecf88f88a4d4b94f4f192b58ae
     "redux-thunk": "^2.4.1",
     "request": "^2.88.2",
     "web-vitals": "^2.1.4"
