@@ -20,7 +20,7 @@ import {
   getCases,
   getCasesByCondition,
   deleteItem,
-} from "../../assets/Controller/llamados";
+} from "../../Controller/llamados";
 const initialState = {
   cases: [],
   peritos: [],

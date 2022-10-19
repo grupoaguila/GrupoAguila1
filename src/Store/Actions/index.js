@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getPer, getCases } from "../../assets/Controller/llamados";
+import { getPer, getCases } from "../../Controller/llamados";
 import {
   GET_PERITOS,
   POST_WHATSAPP,

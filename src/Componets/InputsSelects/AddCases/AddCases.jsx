@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createCase } from "../../../assets/Controller/llamados";
+import { createCase } from "../../../Controller/llamados";
 import { validate } from "./Validate";
 import FormAddCase2 from "./FormAddCase2";
 import { postWhatsapp } from "../../../Store/Actions/index";

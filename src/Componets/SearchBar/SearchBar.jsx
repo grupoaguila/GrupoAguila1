@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getCasesByCondition } from "../../assets/Controller/llamados";
+import { getCasesByCondition } from "../../Controller/llamados";
 import Card from "../CardHome/Card";
 import "./SearchBar.css";
 

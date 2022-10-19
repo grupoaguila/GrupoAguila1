@@ -1,5 +1,5 @@
 import { collection, getDocs, query, doc, getDoc, addDoc, deleteDoc, updateDoc, setDoc, where} from "firebase/firestore";
-import { db } from "../../Credentials/Index";
+import { db } from "../Credentials/Index";
 import { useCollection } from "react-firebase-hooks/firestore"
 
 // CREATE
