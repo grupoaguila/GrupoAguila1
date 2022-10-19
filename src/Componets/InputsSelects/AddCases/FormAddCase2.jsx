@@ -3,7 +3,6 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import { day, month, years, location, customStyles, customStyles1 } from "./utilsFunctions";
 import Select from "react-select";
-import { Button } from "react-bootstrap";
 import AddModals from "../../Modals/AddModals";
 
 function FormAddCase2({
@@ -20,8 +19,8 @@ function FormAddCase2({
   return (
     <div >
       <div style={{paddingRight: '30%',
-    paddingLeft: '25%'}}>>
-      <h2 >FormAddCase2</h2>
+    paddingLeft: '25%'}}>
+      <h2 >AÑADIR CASOS</h2>
 
       </div>
       {/* <FloatingLabel
@@ -66,7 +65,7 @@ function FormAddCase2({
     flexDirection: 'row',
     justifyContent: 'space-between'}}>
           <Form.Label>Día: </Form.Label>
-          <div  style={{width: '80px'}}>
+          <div  style={{width: '75px', textAlign:'left'}}>
           <Select
             onChange={handleSelect}
             name={"day"}
@@ -76,7 +75,7 @@ function FormAddCase2({
           />
           </div>
           <Form.Label>Mes: </Form.Label>
-          <div style={{width: '80px'}}>
+          <div style={{width: '80px', textAlign:'left'}}>
           <Select
             onChange={handleSelect}
             name={"month"}
@@ -88,7 +87,7 @@ function FormAddCase2({
           </div>
 
           <Form.Label>Año: </Form.Label>
-          <div style={{width: '100px'}}>
+          <div style={{width: '95px', textAlign:'left'}}>
           <Select
             onChange={handleSelect}
             name={"year"}

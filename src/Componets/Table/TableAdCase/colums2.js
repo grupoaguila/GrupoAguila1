@@ -1,4 +1,6 @@
+import React from "react";
 import { textFilter } from "react-bootstrap-table2-filter";
+import EditModal from "../../Modals/EditModal";
 // import './Paginas.css'
 export const defaultSorted = [{
     dataField: 'Vencimiento',
@@ -106,9 +108,23 @@ export const columns=[
         text:'Notas Extras',
         // sortable: false,
         // grow:'flex-grow'
+    },
+    {
+       // dataField:'Editar',
+        text:'Para Editar',
+        // sortable: false,
+        // grow:'flex-grow'
+        vehicle:(
+          <div>
+          <h1>hola</h1>
+          <EditModal />
+          </div>
+        )
+       
+      
     }
   ]
-
+ 
   export  const sizePerPageRenderer = ({
     options,
     currSizePerPage,

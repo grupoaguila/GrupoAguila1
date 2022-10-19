@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import firebaseApp from "../../Credentials/Index";
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link } from "react-router-dom";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -19,7 +19,6 @@ function Register() {
         registerEmail,
         registerPassword
       );
-      console.log(user);
     } catch (error) {
       return alert("comuniquese con su administrador");
     }

@@ -13,7 +13,7 @@ function Card({consult}) {
     }, 3000)
 }, [])
 
-  console.log('Cardconsult', consult)
+
   
 
   
@@ -21,7 +21,7 @@ function Card({consult}) {
     <div>
         {
           loader ? (
-            <img src={car} alt="Cargando" width="250px" />
+            <img src={car} alt="Cargando" width="350px" />
           ): <div> 
             <p>hola {consult[0].Nombre}
             </p>
