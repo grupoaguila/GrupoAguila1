@@ -8,6 +8,7 @@ import {
   DETAIL_PERITO,
   LOADING_CASE,
   POST_CASE,
+  POST_WHATSAPP,
   POST_PERITO,
 } from "../utils/constantes";
 import {
@@ -19,7 +20,7 @@ import {
   getCases,
   getCasesByCondition,
   deleteItem,
-} from "../../assets/Controller/llamados";
+} from "../../Controller/llamados";
 const initialState = {
   cases: [],
   peritos: [],
@@ -30,28 +31,20 @@ const initialState = {
 let rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PERITOS:
-      console.log("reducerEntre");
-
-      console.log("allPerReducer", action.payload);
       return {
         ...state,
         peritos: action.payload,
       };
     case GET_CASES:
-      console.log("reducerEntrecases");
-
-      console.log("allCasesReducer", action.payload);
       return {
         ...state,
         cases: action.payload,
       };
     case GET_PERITOBYNAME:
       const per = [...state.peritos];
-      console.log("peritosCopia", per);
       let namePeritos = per.map((el) => {
         return el.nombre;
       });
-      console.log("namePeritosReducer", namePeritos);
       return {
         ...state,
         peritosByName: namePeritos,

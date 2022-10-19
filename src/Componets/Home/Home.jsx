@@ -1,30 +1,27 @@
-import React, { useEffect } from 'react'
-// import Users from '../Users/Users'
-import { useDispatch } from 'react-redux'
-import { getCasesAction, getPeritos, peritosByName } from '../../Store/Actions'
-import SearchBar from '../SearchBar/SearchBar'
-// import AddCases from '../InputsSelects/AddCase/Ad
-// import AddModals from '../Modals/AddModals'
-
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
+import SearchBar from "../SearchBar/SearchBar";
+import EditModal from "../Modals/EditModal";
 function Home() {
-    let dispatch= useDispatch()
-    useEffect(()=>{
-     dispatch(getPeritos())
-     dispatch(getCasesAction())
-    },[])
-   
-    useEffect(()=>{      
-     setTimeout(()=>{
-       dispatch(peritosByName())
-     },2500)
-    
-    },[])
+  let dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getPeritos());
+    dispatch(getCasesAction());
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(peritosByName());
+    }, 2500);
+  }, []);
   return (
     <div>
       <h1>Buscar como va su patente</h1>
       <SearchBar />
+      <EditModal />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
