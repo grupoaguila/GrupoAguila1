@@ -21,7 +21,8 @@ function NavBar() {
       <li><NavLink className="a" to="/nosotros" exact>¿Quiénes Somos?</NavLink></li>
       <li><NavLink className="a" to="/servicios" exact>Servicios</NavLink></li>
       <li><NavLink className="a" to="/user" exact>Usuarios</NavLink></li>
-      <li><NavLink className="a" to="/contacto" exact>contacto</NavLink></li>
+      <li><NavLink className="a" to="/tabletest" exact>contacto</NavLink></li>  
+      {/* tabletest provisorio */}
    </ul>
   </nav>
   </div>

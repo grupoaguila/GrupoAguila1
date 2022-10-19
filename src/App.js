@@ -7,6 +7,7 @@ import Users from "./Componets/Users/Users";
 import Profile from "./Componets/Profile/Profile";
 import AddCases from "./Componets/InputsSelects/AddCase/AddCases";
 import Register from "./Componets/Login/Register";
+import TableTest from "./Componets/tableTest/TableTest";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/contacto" element={<Profile />} />
         <Route path="/añadirCasos" element={<AddCases />} />
+        <Route path="/tabletest" element={<TableTest />} />
       </Routes>
     </div>
   );
