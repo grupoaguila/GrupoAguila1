@@ -28,6 +28,8 @@ tr:nth-child(even){
     .editBtn{
       width: 12%;
       text-align: center;
+      border: 1px solid rgb(94, 92, 92) ;
+      border-radius: 25px;
     }
 
     .pivoted:nth-child(even){
