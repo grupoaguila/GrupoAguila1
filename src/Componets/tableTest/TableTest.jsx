@@ -4,36 +4,26 @@ import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import './tabletest.css';
 import { TbEdit } from "react-icons/tb";
+import TableTestModal from "./TableTestModal";  
 
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Form from 'react-bootstrap/Form';
 
 function TableResponsive() {
-    //modal state and functions
-    const [show, setShow] = React.useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+    
     //cases from Redux (store)
     const cases = useSelector((state) => state.cases)
-
+    
     //Modal Form data
     const [caseData, setCaseData] = React.useState([]);
-
+    
+    //modal state 
+    const [showModal, setShowModal] = React.useState(false);
     //when Edit button is clicked
     function showModalEdit(id) {
         setCaseData(cases.length > 0 && cases.filter(el => el.id === id))
-        handleShow()
+        setShowModal(true)
     }
 
    
-
-
-
-
-
-
     return (
         <>
             {cases?.length === 0 ?
@@ -82,76 +72,9 @@ function TableResponsive() {
                     </Tbody>
                 </Table>
             }
-
-            {/*Modal  */}
-            {
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Edite la informacion del siniestro </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <Form>
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Vencimiento: ${caseData[0]?.Vencimiento}`}
-                             />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Denuncia: ${caseData[0]?.Numero}`} />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Compañía: ${caseData[0]?.Compañia}`} />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Nombre Completo: ${caseData[0]?.Nombre}`} />
-                            <br />
-                            <Form.Control 
-                            type="text" placeholder={`Patente: ${caseData[0]?.Patente}`} />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Marca: ${caseData[0]?.Marca}`} />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Dirección: ${caseData[0]?.direccion}`} />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Localidad: ${caseData[0]?.localidad}`} />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Teléfono: ${caseData[0]?.celular}`} />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Estado del Caso: ${caseData[0]?.estado}`} />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Perito Asignado: ${caseData[0]?.perito} `} />
-                            <br />
-                            <Form.Control 
-                            type="text" 
-                            placeholder={`Notas: ${caseData[0]?.notas}`} />
-                            <br />
-
-
-                            <Button variant="secondary" onClick={handleClose}>
-                                Cerrar
-                            </Button>
-                            <Button variant="success" onClick={handleClose}>
-                                Guardar
-                            </Button>   
-                        </Form>
-                    </Modal.Body>
-
-                </Modal>
-            }
+            {/* Modal rendering */}
+            <TableTestModal show={showModal} close={() => setShowModal(false)} caseData={caseData} />   
+            
         </>
     )
 
