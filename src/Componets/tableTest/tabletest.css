@@ -1,3 +1,5 @@
+
+
 .thEdit{
     background-color: cadetblue;
     border: 1px rgb(0, 0, 0) solid;
@@ -10,6 +12,11 @@
 tr:nth-child(even){
   background-color: rgb(235, 225, 225);
 }
+.editBtn:hover{
+  cursor: pointer;
+  background-color: darkgray;
+  border-radius: 25px;
+}
 
 
 
@@ -18,6 +25,11 @@ tr:nth-child(even){
       Force table elements to not behave like tables anymore
       Hide table headers (but not display: none;, for accessibility)
     */
+    .editBtn{
+      width: 12%;
+      text-align: center;
+    }
+
     .pivoted:nth-child(even){
       background-color: rgb(235, 225, 225);
     }

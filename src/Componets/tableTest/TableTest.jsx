@@ -3,11 +3,18 @@ import { useSelector } from "react-redux";
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import './tabletest.css';
+import { TbEdit } from "react-icons/tb";
+
+
+
+
+
 
 function TableResponsive() {
 
     const cases = useSelector((state) => state.cases)
-    
+
+
     return (
         <>
             {cases.length === 0 ?
@@ -33,6 +40,9 @@ function TableResponsive() {
                     <Tbody>
                         {
                             cases.map((el) => (
+                                // Patente is a notnull field meaning that an empty register won't be allowed.
+
+                                el.Patente &&
                                 <Tr>
                                     <Td className="tdEdit">{el.Vencimiento}</Td>
                                     <Td className="tdEdit">{el.Numero}</Td>
@@ -46,8 +56,10 @@ function TableResponsive() {
                                     <Td className="tdEdit">{!el.estado ? "Sin Completar" : el.estado}</Td>
                                     <Td className="tdEdit">{el.perito}</Td>
                                     <Td className="tdEdit">{!el.notas ? "Sin Completar" : el.notas}</Td>
-                                    <Td className="tdEdit"><button>Editar</button></Td>
+                                    <Td className="tdEdit"><div className="editBtn"><TbEdit /></div></Td>
                                 </Tr>
+
+
                             ))
                         }
                     </Tbody>
