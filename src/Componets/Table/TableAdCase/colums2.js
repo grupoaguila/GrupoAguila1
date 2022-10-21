@@ -114,12 +114,14 @@ export const columns=[
         text:'Para Editar',
         // sortable: false,
         // grow:'flex-grow'
-        vehicle:(
-          <div>
-          <h1>hola</h1>
-          <EditModal />
-          </div>
-        )
+        cursor:PointerEvent,
+        onclick:e=><EditModal/>
+        // vehicle:(
+        //   <div>
+        //   <h1>hola</h1>
+        //   <EditModal />
+        //   </div>
+        // )
        
       
     }

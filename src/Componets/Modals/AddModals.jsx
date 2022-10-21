@@ -14,6 +14,10 @@ function AddModals({
   style,
 }) {
   const [show, setShow] = useState(false);
+  console.log('title',title)
+  console.log('body',body)
+  console.log('titleBotton',  titleBotton)
+  console.log('titleBotton',  titleBotton)
   let bodyA;
   if (body) {
     bodyA = Object.values(body);

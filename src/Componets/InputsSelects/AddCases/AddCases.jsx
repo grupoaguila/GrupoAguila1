@@ -4,6 +4,7 @@ import { createCase } from "../../../Controller/llamados";
 import { validate } from "./Validate";
 import FormAddCase2 from "./FormAddCase2";
 import { postWhatsapp } from "../../../Store/Actions/index";
+import { Alert } from "react-bootstrap";
 
 function AddCases() {
   const dispatch = useDispatch();
@@ -12,8 +13,12 @@ function AddCases() {
   let namePeritos = namePeritos1.map((e) => {
     return { value: e, label: e };
   });
-  const [acept, setAcept] = useState(false);
-  const [creado, setCreado] = useState(false);
+
+  const [show, setShow] = useState(false);
+  const [showE, setShowE] = useState(false);
+  const [err, setErr] = useState({});
+
+  const [created, setCreated]= useState('')
   const [post, setPost] = useState({
     Nombre: "",
     Compañia: "",
@@ -30,7 +35,7 @@ function AddCases() {
     perito: "",
     notas: "",
   });
-
+  //======= HANDLE CHANGE ==================
   const handleChange = (e) => {
     e.preventDefault();
 
@@ -40,7 +45,7 @@ function AddCases() {
       [e.target.name]: e.target.value,
     });
   };
-
+  //======= HANDLE SELECT ==================
   let handleSelect = (value, action) => {
     if (action.name === "day") {
       setPost({
@@ -74,23 +79,29 @@ function AddCases() {
       });
     }
   };
-
+  //======= VARIABLES ==================
   let cases = {
-    Nombre: post.Nombre,
-    Compañia: post.Compañia,
-    Marca: post.Marca,
-    Numero: post.Numero, //num de denuncia
-    Patente: post.Patente,
     Vencimiento: post.dia + "-" + post.mes + "-" + post.año,
-    celular: "+54" + post.celular,
+    Numero: post.Numero, //num de denuncia
+    Compañia: post.Compañia.split(" ")
+      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+      .join(" "),
+    Nombre: post.Nombre.split(" ")
+      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+      .join(" "),
+    Patente: post.Patente.toLocaleUpperCase(),
+    Marca: post.Marca.split(" ")
+      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+      .join(" "),
     direccion: post.direccion,
-    estado: post.estado,
     localidad: post.localidad,
+    celular: "+54" + post.celular,
+    estado: post.estado,
     perito: post.perito,
     notas: post.notas,
   };
   let cases1 = Object.values(cases);
-
+  
   let body;
   if (
     cases1[0] !== "" &&
@@ -101,24 +112,27 @@ function AddCases() {
     cases1[5] !== "" &&
     cases1[6] !== "" &&
     cases1[7] !== "" &&
-    cases1[9] !== "" &&
+    cases1[8] !== "" &&
     cases1[10] !== ""
   ) {
     body = [
-      `Número de Denuncia : ${cases1[3]}`,
-      `Compañia: ${cases1[1]}`,
-      `Vencimiento: ${cases1[5]}`,
-      `Marca: ${cases1[2]}`,
+      `Número de Denuncia : ${cases1[1]}`,
+      `Compañia: ${cases1[2]}`,
+      `Vencimiento: ${cases1[0]}`,
+      `Marca: ${cases1[5]}`,
       `Patente: ${cases1[4]}`,
-      `Numero de Contacto: ${cases1[6]}`,
-      `Apellido y Nombre: ${cases1[0]}`,
-      `Dirección: ${cases1[7]}`,
-      `Localidad: ${cases1[9]}`,
+      `Numero de Contacto: ${cases1[8]}`,
+      `Apellido y Nombre: ${cases1[3]}`,
+      `Dirección: ${cases1[6]}`,
+      `Localidad: ${cases1[7]}`,
       `Perito Asignado: ${cases1[10]}`,
     ];
   } else {
     body = ["Faltan completar Datos"];
   }
+  console.log("body", body);
+
+  //======= HANDLE SUBMIT ==================
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -134,8 +148,10 @@ function AddCases() {
           body: `${peritoWhatsap.nombre} se te ha asignado una nueva pericia`,
           priority: "10",
         };
-        dispatch(postWhatsapp(body));
-        setCreado(true);
+        setCreated(cases.Numero)
+        setShow(true)
+        // dispatch(postWhatsapp(body));
+
         setPost({
           Nombre: "",
           Compañia: "",
@@ -152,19 +168,71 @@ function AddCases() {
           perito: "",
           notas: "",
         });
+
+       
       } catch (e) {
         console.log("error de firebase", error);
       }
     } else {
       let errorA = Object.values(error);
-      alert(`No se puede guardar el caso presenta el/los siguiente/s error/s:
-               ${errorA}    
-        `);
+      setShowE(true)
+      setErr(errorA)
+      // alert(`No se puede guardar el caso presenta el/los siguiente/s error/s:
+      //          ${errorA}    
+      //   `);
     }
   };
   return (
     <div style={{ paddingTop: "0%" }}>
-      {}
+      {show && (
+        <div
+          style={{
+            paddingRight: "20%",
+            paddingLeft: "26%",
+            marginTop: "10px",
+            fontSize: "20px",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Alert
+            variant="success"
+            onClose={() => window.location.reload()}
+            dismissible
+            style={{ paddingRight: "10%", paddingLeft: "10%" }}
+          >
+            <Alert.Heading>{created} fue añadido correctamente</Alert.Heading>
+          </Alert>
+        </div>
+      )}
+      {showE && (
+        <div
+          style={{
+            paddingRight: "10%",
+            paddingLeft: "25%",
+            marginTop: "10px",
+            fontSize: "20px",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Alert
+            variant="danger"
+            onClose={() => window.location.reload()}
+            dismissible
+            style={{ paddingRight: "8%", paddingLeft: "5%" }}
+          >
+            <Alert.Heading>
+              <p style={{ color: "black", fontSize: "15px" }}>
+                No se puede guardar el caso presenta el/los siguiente/s error/s:
+              </p>
+              {err?.map((el) => {
+                return <ol style={{ fontSize: "15px" }}>{el}</ol>;
+              })}
+            </Alert.Heading>
+          </Alert>
+        </div>
+      )}
       <FormAddCase2
         handleChange={handleChange}
         handleSubmit={handleSubmit}

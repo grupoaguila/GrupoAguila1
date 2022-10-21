@@ -7,6 +7,7 @@ import Users from "./Componets/Users/Users";
 import Profile from "./Componets/Profile/Profile";
 import AddCases from "./Componets/InputsSelects/AddCases/AddCases";
 import Register from "./Componets/Login/Register";
+import AddPeritos from "./Componets/InputsSelects/AddPeritos/AddPeritos";
 
 
 function App() {
@@ -19,7 +20,8 @@ function App() {
         <Route path="/user" element={<Users />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contacto" element={<Profile />} />
-        <Route path="/añadirCasos" element={<AddCases />} />
+        <Route path="/addCases" element={<AddCases />} />
+        <Route path="/addPerito" element={<AddPeritos />} />
         
       </Routes>
     </div>

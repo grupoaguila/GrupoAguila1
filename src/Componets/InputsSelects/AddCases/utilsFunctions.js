@@ -1,4 +1,5 @@
 export const day=Array.from({length: 31}, (_, i) => i + 1).map(e=>{return {value:e, label:e}})
+
 export const month=Array.from({length: 12}, (_, i) => i + 1).map(e=>{return {value:e, label:e}})
 const hoy = new Date()
 const yearNow=hoy.getFullYear()
