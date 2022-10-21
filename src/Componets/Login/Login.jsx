@@ -36,18 +36,18 @@ function Login() {
   async function loginEmailPassword(email, password) {
     signInWithEmailAndPassword(auth, email, password);
   }
-
-  async function submitHandler(e) {
-    e.preventDefault();
-    let booll = peritos.some((el) => el.email === "email");
-    if (booll) {
-      const email = e.target.elements.email.value;
-      const password = e.target.elements.password.value;
-      // const correo = document.getElementById("formCorreo").value;
-      // const contra = e.target.formContra.value;
-      await loginEmailPassword(email, password);
-    }
-  }
+ 
+  // async function submitHandler(e) {
+  //   e.preventDefault();
+  //   let booll = peritos.some((el) => el.email === "email");
+  //   if (booll) {
+  //     const email = e.target.elements.email.value;
+  //     const password = e.target.elements.password.value;
+  //     // const correo = document.getElementById("formCorreo").value;
+  //     // const contra = e.target.formContra.value;
+  //     await loginEmailPassword(email, password);
+  //   }
+  // }
 
   const submitHandlerGoogle = (e) => {
     let booll = peritos.some((el) => el.email === "email");
@@ -74,7 +74,7 @@ function Login() {
       <div className="contenedor">
         <div className="screen">
           <div className="screen__content">
-            <form className="login" onSubmit={submitHandler}>
+            {/* <form className="login" onSubmit={submitHandler}>
               <div className="login__field">
                 <i className="login__icon fas fa-user"></i>
                 <input
@@ -95,7 +95,7 @@ function Login() {
               </div>
 
               <div className="login__field">
-                <i className="login__icon fas fa-lock"></i>
+                <i className="login__icon fas fa-lock"></i> */}
                 {/* <select
                   id="rol"
                   defaultValue="default"
@@ -108,17 +108,17 @@ function Login() {
                   <option value="admin">Admin</option>
                   <option value="perito">Perito</option>
                 </select> */}
-              </div>
+            {/*   </div>
 
               <button className="button login__submit">
                 <span className="button__text">Inicia Sesión</span>
                 <i className="button__icon fas fa-chevron-right"></i>
               </button>
-            </form>
+            </form> */}
             <div className="social-login">
-              <Link to={"/register"}>
+              {/* <Link to={"/register"}>
                 <h4>Registrarse</h4>
-              </Link>
+              </Link> */}
               <div className="social-icons">
                 <Button
                 variant="primary"

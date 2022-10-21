@@ -5,8 +5,9 @@ import NavBar from "./Componets/NavBar/NavBar";
  import Home from "./Componets/Home/Home";
 import Users from "./Componets/Users/Users";
 import Profile from "./Componets/Profile/Profile";
-import AddCases from "./Componets/InputsSelects/AddCases/AddCases";
+import AddCases from "./Componets/InputsSelects/AddCases/AddCases"; 
 import Register from "./Componets/Login/Register";
+import AddPeritos from "./Componets/InputsSelects/AddPeritos/AddPeritos";
 import TableTest from "./Componets/tableTest/TableTest";
 
 
@@ -20,6 +21,9 @@ function App() {
         <Route path="/user" element={<Users />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contacto" element={<Profile />} />
+        <Route path="/addCases" element={<AddCases />} />
+        <Route path="/addPerito" element={<AddPeritos />} />
+        
         <Route path="/añadirCasos" element={<AddCases />} />
         <Route path="/tabletest" element={<TableTest />} />
       </Routes>
