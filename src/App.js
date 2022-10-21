@@ -8,6 +8,7 @@ import Profile from "./Componets/Profile/Profile";
 import AddCases from "./Componets/InputsSelects/AddCases/AddCases";
 import Register from "./Componets/Login/Register";
 import AddPeritos from "./Componets/InputsSelects/AddPeritos/AddPeritos";
+import TableTest from "./Componets/tableTest/TableTest";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         <Route path="/addCases" element={<AddCases />} />
         <Route path="/addPerito" element={<AddPeritos />} />
         
+        <Route path="/añadirCasos" element={<AddCases />} />
+        <Route path="/tabletest" element={<TableTest />} />
       </Routes>
     </div>
   );
