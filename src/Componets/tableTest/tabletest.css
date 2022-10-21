@@ -26,10 +26,10 @@ tr:nth-child(even){
       Hide table headers (but not display: none;, for accessibility)
     */
     .editBtn{
-      width: 12%;
+      width: 20%;
       text-align: center;
       border: 1px solid rgb(94, 92, 92) ;
-      border-radius: 25px;
+      border-radius: 12px;
     }
 
     .pivoted:nth-child(even){
