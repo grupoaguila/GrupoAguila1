@@ -19,7 +19,7 @@ function SuperAdmin() {
     navigate('/addPerito')
   }
   return (
-    <div>
+    <div> 
        
         <Button onClick={handleClick}>Añadir Casos</Button>
      

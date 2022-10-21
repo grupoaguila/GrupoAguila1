@@ -186,7 +186,7 @@ function AddCases() {
     <div style={{ paddingTop: "0%" }}>
       {show && (
         <div
-          style={{
+          style={{ 
             paddingRight: "20%",
             paddingLeft: "26%",
             marginTop: "10px",

@@ -10,7 +10,7 @@ function FormAddPeritos({
   handleSubmit,
   post,
   perito,
-  errors
+  errors 
 }) {
   let style = { display: "flex", alignItems: "flex-end" };
   return (

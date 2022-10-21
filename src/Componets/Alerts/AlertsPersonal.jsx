@@ -5,7 +5,7 @@ function AlertsPersonal(type, message) {
        console.log('type',type)
        console.log('message',message)
           switch (type) {
-            case 'info':
+            case 'info': 
                 console.log('entre en info')
               NotificationManager.info({message})
               return(

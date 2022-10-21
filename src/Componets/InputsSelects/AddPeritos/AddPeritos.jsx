@@ -13,7 +13,7 @@ import { validate } from "./Validate";
   
 //   return erros;
 // }
-
+ 
 
 function AddPeritos() {
   const dispatch = useDispatch();

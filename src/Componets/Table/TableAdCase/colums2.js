@@ -109,7 +109,7 @@ export const columns=[
         // sortable: false,
         // grow:'flex-grow'
     },
-    {
+    { 
        // dataField:'Editar',
         text:'Para Editar',
         // sortable: false,

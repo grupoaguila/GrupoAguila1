@@ -36,7 +36,7 @@ function Login() {
   async function loginEmailPassword(email, password) {
     signInWithEmailAndPassword(auth, email, password);
   }
-
+ 
   // async function submitHandler(e) {
   //   e.preventDefault();
   //   let booll = peritos.some((el) => el.email === "email");

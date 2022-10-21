@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 function AddModals({
   details,
   title,
-  body,
+  body, 
   agreeBotton,
   titleBotton,
   nameBottom,

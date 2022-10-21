@@ -4,7 +4,7 @@ export function validate(input) {
     //    Nombre: /^[a-zA-ZÀ-ÿ\s]{ 1,40 }$/,
     //   /^[a-zA-ZÀ-ÿ\s]{1,40}$/      Letras y espacios, pueden llevar acentos.
     celular: /^\d{1,11}$/, // 1 a 11 numeros.
-  };
+  }; 
 
   if (input.Nombre.length < 3) {
     errors.Nombre = "Debe agregar Apellido y Nombre";

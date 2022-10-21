@@ -75,7 +75,7 @@ function EditModal({
                   Compañia: e.target.value,
                 })
               }
-            />
+            /> 
             <Form.Control
               id="Marca"
               placeholder="Marca"
