@@ -11,7 +11,7 @@ function Profile() {
     },[])
    
     useEffect(()=>{      
-     setTimeout(()=>{
+     setTimeout(()=>{ 
        dispatch(peritosByName())
      },2500)
     

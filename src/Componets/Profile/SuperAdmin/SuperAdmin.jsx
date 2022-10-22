@@ -6,6 +6,7 @@ import AddCases from '../../InputsSelects/AddCases/AddCases'
 import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import EditModal from '../../Modals/EditModal';
+import TableResponsive from '../../tableTest/TableTest';
 
 
 function SuperAdmin() {
@@ -14,19 +15,20 @@ function SuperAdmin() {
   const peritosByName = useSelector(state=>state.peritosByName)
   const handleClick =(e)=>{
     navigate('/addCases')
-  }
+  } 
   const handleClick1 =(e)=>{
     navigate('/addPerito')
   }
   return (
     <div> 
        
-        <Button onClick={handleClick}>Añadir Casos</Button>
+        <Button variant='primary' onClick={handleClick}>Añadir Casos</Button>
      
         
         <Button onClick={handleClick1}>Añadir Perito</Button>
         
-        <TableCase cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} />
+        {/* <TableCase cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} /> */}
+        <TableResponsive cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} />
         
         <EditModal cases={cases} peritos={peritosByName}/>
     </div>
