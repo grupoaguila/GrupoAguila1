@@ -1,0 +1,7 @@
+.addPerito:hover{
+    cursor:pointer;
+    background-color: rgb(255, 0, 0);
+}
+.addPerito{
+    width: 10%;
+}
