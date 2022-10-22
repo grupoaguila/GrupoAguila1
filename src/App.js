@@ -25,10 +25,10 @@ function App() {
         <Route path="/addPerito" element={<AddPeritos />} />
         
         <Route path="/añadirCasos" element={<AddCases />} />
-        <Route path="/tabletest" element={<TableTest />} />
+        {/* <Route path="/tabletest" element={<TableTest />} /> */}
       </Routes>
     </div>
   );
-}
+} 
 
 export default App;

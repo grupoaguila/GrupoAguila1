@@ -1,4 +1,4 @@
-import { collection, getDocs, query, doc, getDoc, addDoc, deleteDoc, updateDoc, setDoc, where} from "firebase/firestore";
+import { collection, getFirestore, getDocs, query, doc, getDoc, addDoc, deleteDoc, updateDoc, setDoc, where} from "firebase/firestore";
 import { db } from "../Credentials/Index";
 import { useCollection } from "react-firebase-hooks/firestore"
 
@@ -67,6 +67,41 @@ export const getCasesByCondition = async (value) => {
   console.log('docusFiltrado', docusFiltrado)
   return docusFiltrado;
 }
+export const getCasesByOptions = async (value) => {
+    // const colRef = collection(db, 'Casos');
+    // const result = await getDocs(query(colRef, where('Patente', '==', value)));
+    // return getArrayFromCollection(result);
+    const docusFiltrado = [];
+
+  const collecionRef = collection(db, "Casos");
+  const queryTitulo = query(
+    collecionRef,
+    where('Numero', "==", value) 
+  );
+  const queryCompañia = query(collecionRef, where("Compañia", "==", value));
+  const queryLocalidad = query(collecionRef, where("localidad", "==", value));
+  const queryPatente = query(collecionRef, where("Patente", "==", value));
+  const queryPerito = query(collecionRef, where("perito", "==", value));
+  const queryNombre = query(collecionRef, where("Nombre", "==", value));
+  
+
+  const arraySnapshots = await Promise.all([
+    getDocs(queryTitulo),
+    getDocs(queryCompañia),
+    getDocs(queryLocalidad),
+    getDocs(queryPatente),
+    getDocs(queryPerito),
+    getDocs(queryNombre),
+  ]);
+
+  arraySnapshots.forEach((snapshot) => {
+    snapshot.forEach((doc) => {
+      docusFiltrado.push(doc.data());
+    });
+  });
+  console.log('docusFiltrado', docusFiltrado)
+  return docusFiltrado;
+}
 
 export const getItemById = async (id) => {
     const colRef = collection(db, 'items');
@@ -85,3 +120,12 @@ const getArrayFromCollection = (collection) => {
         return { ...doc.data(), id: doc.id };
     });
 }
+
+//EDIT
+export const editCasos = (id) => {
+ const casoEditar = getFirestore(db)
+ const collectionRef = collection(casoEditar, "Casos");
+  const docRef = doc(collectionRef, id);
+  setDoc(docRef );
+}
+

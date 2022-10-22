@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
@@ -7,9 +7,11 @@ import { TbEdit } from "react-icons/tb";
 import TableTestModal from "./TableTestModal";  
 
 
+
+
 function TableResponsive() {
 
-    //filter 
+    //filter  
     const [filter, setFilter] = React.useState('');
     
     //cases from Redux (store)
@@ -103,4 +105,3 @@ function TableResponsive() {
 
 }
 export default TableResponsive;
-
