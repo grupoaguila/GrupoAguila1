@@ -10,8 +10,9 @@ function SearchBar() {
     e.preventDefault();
     setPatents(e.target.value);
   };
+ 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
 
     const doc = await getCasesByCondition(patents);
     setConsult(doc);

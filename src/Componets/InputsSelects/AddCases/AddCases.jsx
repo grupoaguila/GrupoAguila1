@@ -11,7 +11,7 @@ function AddCases() {
   let namePeritos1 = useSelector((state) => state.peritosByName);
   let peritos = useSelector((state) => state.peritos);
   let namePeritos = namePeritos1.map((e) => {
-    return { value: e, label: e };
+    return { value: e, label: e }; 
   });
 
   const [show, setShow] = useState(false);
@@ -143,7 +143,7 @@ function AddCases() {
         createCase(cases);
         let peritoWhatsap = peritos.find((el) => el.nombre === post.perito);
         let body = {
-          token: "mpkk35zx83ki4ft0",
+          token: "l7sc1htbsdfju8ty",
           to: `${peritoWhatsap.celular}`,
           body: `${peritoWhatsap.nombre} se te ha asignado una nueva pericia`,
           priority: "10",
