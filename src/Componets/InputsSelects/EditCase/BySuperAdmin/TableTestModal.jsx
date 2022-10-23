@@ -3,13 +3,20 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import "./TableTestModal.css";
-import { editCasos, updateCases } from "../../Controller/llamados";
-import AlertsPersonal from "../Alerts/AlertsPersonal";
-import { postWhatsapp } from "../../Store/Actions";
+import { editCasos, updateCases } from "../../../../Controller/llamados";
+import AlertsPersonal from "../../../Alerts/AlertsPersonal";
+import { postWhatsapp } from "../../../../Store/Actions";
 import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select"
+import {stateCase, location, customStyles, customStyles1} from '../../AddCases/utilsFunctions';
+import PropTypes from "prop-types";
 
 const TableTestModal = (props) => {
     let peritos = useSelector((state) => state.peritos);
+    let namePeritos1 = useSelector((state) => state.peritosByName);
+    let namePeritos = namePeritos1.map((e) => {
+    return { value: e, label: e }; 
+  });
     const caseData = props.caseData[0];
     const  [editFormInput, setEditFormInput] = useState({});
     const dispatch = useDispatch();
@@ -33,10 +40,9 @@ const TableTestModal = (props) => {
 
   //form state
   const [alert, setAlert] = useState(false);
+  //========== HANDLE CHANGE =======
   function handleOnChange(e) {
       e.preventDefault();
-      console.log('e.target.name', e.target.name)
-      console.log('e.target.value', e.target.value)
       if (e.target.value !== undefined) {
           setEditFormInput({ ...editFormInput, [e.target.name]: e.target.value });
         }
@@ -45,20 +51,41 @@ const TableTestModal = (props) => {
             setEditFormInput({...editFormInput,[e.target.name]:caseData[e.target.name]})
         }
     }
-    console.log("editForm", editFormInput);
-
+//========== HANDLE SELECT =======
+    let handleSelect = (value, action) => {
+      if (action.name === "estado") {
+        setEditFormInput({
+          ...editFormInput,
+          estado: value.value,
+        });
+      }
+  
+      if (action.name === "localidad") {
+        setEditFormInput({
+          ...editFormInput,
+          localidad: value.value,
+        });
+      }
+      if (action.name === "peritos") {
+        setEditFormInput({
+          ...editFormInput,
+          perito: value.value,
+        });
+      }
+    };
+  //========== HANDLE SUBMIT =======
+  console.log('editForm', editFormInput)
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log("este es el handle Submit", editFormInput);
+    
     try {
       let edit = await updateCases(props.caseData[0].id, editFormInput);
-      console.log("edit", edit);
-      console.log("props.caseData[0].id", props.caseData[0].id);
+  
       //  console.log('caseData[0].id',caseData[0].id)
       let peritoWhatsap = peritos.find(
         (el) => el.nombre === editFormInput.perito
       );
-      console.log("peritoWhatsap", peritoWhatsap);
+    
       let body = {
         token: "l7sc1htbsdfju8ty",
         to: `${peritoWhatsap.celular}`,
@@ -140,13 +167,14 @@ const TableTestModal = (props) => {
               onChange={handleOnChange}
             />
             <br />
-            <Form.Control
-              type="text"
-              placeholder={`Localidad: ${props.caseData[0]?.localidad}`}
-              name="localidad"
-              value={editFormInput.localidad}
-              onChange={handleOnChange}
-            />
+            <Select
+            onChange={handleSelect}
+            name={"localidad"}
+            options={location}
+            placeholder="Seleccione una localidad"
+            styles={customStyles1}
+            defaultValue={{ label:caseData?.localidad, value:caseData?.localidad }}
+          />
             <br />
             <Form.Control
               type="text"
@@ -156,21 +184,24 @@ const TableTestModal = (props) => {
               onChange={handleOnChange}
             />
             <br />
-            <Form.Control
-              type="text"
-              placeholder={`Estado del Caso: ${props.caseData[0]?.estado}`}
-              name="estado"
-              value={editFormInput.estado}
-              onChange={handleOnChange}
-            />
+            <Select
+                onChange={handleSelect}
+                name={"estado"}
+                options={stateCase}
+                placeholder="Estado"
+                styles={customStyles}
+                hideSelectedOptions={true}
+                defaultValue={{ label:caseData?.estado, value:caseData?.estado }}
+              />
             <br />
-            <Form.Control
-              type="text"
-              placeholder={`Perito Asignado: ${props.caseData[0]?.perito} `}
-              name="perito"
-              value={editFormInput.perito}
-              onChange={handleOnChange}
-            />
+            <Select
+            onChange={handleSelect}
+            name={"peritos"}
+            options={namePeritos}
+            defaultValue={{ label:caseData?.perito, value:caseData?.perito }}
+            // placeholder="Seleccione un perito"
+            styles={customStyles1}
+          />
             <br />
             <Form.Control
               type="text"

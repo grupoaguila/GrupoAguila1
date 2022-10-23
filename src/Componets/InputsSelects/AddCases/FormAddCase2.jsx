@@ -20,22 +20,14 @@ function FormAddCase2({
   namePeritos,
   cases,
 }) {
-  console.log('day', day)
+  
   let style = { display: "flex", alignItems: "flex-end" };
   return (
     <div>
       <div style={{ paddingRight: "30%", paddingLeft: "25%" }}>
         <h2>AÑADIR CASOS</h2>
       </div>
-      {/* <FloatingLabel
-        controlId="floatingInput"
-        label="Número de Denuncia"
-        className="mb-3"
-        value={post.Numero}
-         onChange={handleChange} 
-      >
-        <Form.Control type="text" placeholder="name@example.com" />
-      </FloatingLabel> */}
+      
       <Form
         style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "5%" }}
       >
@@ -81,10 +73,6 @@ function FormAddCase2({
           >
             <Form.Label>Día: </Form.Label>
             <div style={{ width: "80px", textAlign: "left" }}>
-
- 
- 
-
               <Select
                 onChange={handleSelect}
                 name={"day"}
@@ -115,7 +103,6 @@ function FormAddCase2({
                 options={years}
                 placeholder="Año"
                 styles={customStyles}
-                
               />
               
             </div>
