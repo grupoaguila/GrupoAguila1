@@ -10,7 +10,7 @@ export const defaultSorted = [{
 export const columns=[
     {
         dataField: 'Vencimiento',// es el identificador de la columna, asi que cada atributo debe coincidir con el dataField
-        text:'Fecha de Vencimiento',
+        text:'Vencimiento',
         // sortable:true, //permite que se ordene por este elemento
         // grow:1.5
           
@@ -18,7 +18,7 @@ export const columns=[
     },
     {
         dataField:'Numero',
-        text:'Número de Denuncia',
+        text:'N° de Denuncia',
         sortable:'false',
         // grow:1.5
     },
@@ -30,7 +30,7 @@ export const columns=[
     },
     {
         dataField: 'Nombre',
-        text:'Apellido y Nombre',
+        text:'Asegurado',
         // sort:true,
         // grow:1.5,
         // highlightOnHover:true,
@@ -49,7 +49,7 @@ export const columns=[
     },
     {
         dataField: 'Marca',
-        text:'Marca Modelo',
+        text:'Modelo',
         sortable:false,
         // grow:'flex-grow'
     },
@@ -76,7 +76,7 @@ export const columns=[
     },
     {
         dataField:'celular',
-        text:'Número de contacto',
+        text:'N° de contacto',
         // sortable:true,
         // grow:'2',
         highlightOnHover:true
@@ -91,7 +91,7 @@ export const columns=[
     },
     {
         dataField:'perito',
-        text:'Perito Designado',
+        text:'Perito',
         filter: textFilter(
            { placeholder: 'Buscar Perito',}
         )
@@ -109,22 +109,7 @@ export const columns=[
         // sortable: false,
         // grow:'flex-grow'
     },
-    { 
-       // dataField:'Editar',
-        text:'Para Editar',
-        // sortable: false,
-        // grow:'flex-grow'
-        cursor:PointerEvent,
-        onclick:e=><EditModal/>
-        // vehicle:(
-        //   <div>
-        //   <h1>hola</h1>
-        //   <EditModal />
-        //   </div>
-        // )
-       
-      
-    }
+
   ]
  
   export  const sizePerPageRenderer = ({
@@ -155,3 +140,5 @@ export const columns=[
     sizePerPageRenderer
   };
   
+
+

@@ -88,10 +88,10 @@ a {
     font-size: 12px;
     letter-spacing: .2rem;
     text-transform: uppercase; }
-    .btn.btn-primary {
+    /* .btn.btn-primary {
       background: #6b0202;
       color: #fff;
-      padding: 15px 20px; }
+      padding: 15px 20px; } */
     .btn:hover {
       color: #fff; }
     .btn:active, .btn:focus {
