@@ -1,81 +1,78 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import TableCase from "../../Table/TableAdCase/TableCase";
-import AddModals from "../../Modals/AddModals";
-import AddCases from "../../InputsSelects/AddCases/AddCases";
-import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import EditModal from "../../Modals/EditModal";
 import AllCases from "./TablesAlls/AllCases";
 import CompletedCases from "./TablesAlls/CompletedCases";
 import PendingCases from "./TablesAlls/PendingCases";
+import { GrAddCircle, GrProjects, GrTable } from "react-icons/gr";
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import './superAdmin.css'
 
 function SuperAdmin() {
   const navigate = useNavigate();
-  const [all, setAll]=useState(false)
-  const [completed, setCompleted]=useState(false)
-  const [pending, setPending]=useState(false)
+  const [all, setAll] = useState(false)
+  const [completed, setCompleted] = useState(false)
+  const [pending, setPending] = useState(false)
 
-  const handleClick = (e) => {
-    if(e.target.value==='Añadir Casos'){
-      return navigate("/addCases")
+  const handleClick = (value) => {
+    console.log('super admin handleClick -->', value)
+
+    if (value === 'AddCases') {
+      navigate("/addCases")
     }
-    if(e.target.value==='Añadir Perito'){
-      return navigate("/addPerito")
+    if (value === 'AddPerito') {
+      navigate("/addPerito")
     }
-    if(e.target.value==='Todas las pericias'){
-       setAll(!all)
-       setCompleted(false)
-       setPending(false)
+    if (value === 'allExpertsReport') {
+      setAll(!all)
+      setCompleted(false)
+      setPending(false)
     }
-    if(e.target.value==='Pericias Finalizadas'){
+    if (value === 'endedReports') {
       setAll(false)
-       setCompleted(!completed)
-       setPending(false)
-      
+      setCompleted(!completed)
+      setPending(false)
+
     }
-    if(e.target.value==='Pericias Pendientes'){
+    if (value === 'pendingReports') {
       setAll(false)
-       setCompleted(false)
-       setPending(!pending)
-     
+      setCompleted(false)
+      setPending(!pending)
+
     }
-    console.log(e.target.value)
-    // navigate("/addCases");
+
   };
-  
+
 
   return (
-    <div>
-      <Button variant="primary" onClick={handleClick} value={'Añadir Casos'}>
-        Añadir Casos
-      </Button>
+    <>
+    <div className="dropDownSuperAdmin">
+      <Dropdown as={ButtonGroup}>
+        <Button  className="buttonOptionsSuperAdmin">Opciones</Button>
+        <Dropdown.Toggle split  className="buttonOptionsSuperAdmin" id="dropdown-split-basic" />
 
-      <Button onClick={handleClick} value={'Añadir Perito'}>Añadir Perito</Button>
+        <Dropdown.Menu>
+          <Dropdown.Item ><div className="addCase" onClick={() => handleClick('AddCases')}><GrAddCircle /> Agregar Casos</div></Dropdown.Item>
+          <Dropdown.Item ><div className="addPerito" onClick={() => handleClick('AddPerito')}><GrAddCircle /> Agregar Perito</div></Dropdown.Item>
+          <Dropdown.Item ><div className="allReports" onClick={() => handleClick('allExpertsReport')}><GrTable /> Pericias</div></Dropdown.Item>
+          <Dropdown.Item ><div className="endedReports" onClick={() => handleClick('endedReports')}><GrTable /> Finalizadas</div></Dropdown.Item>
+          <Dropdown.Item ><div className="pendingReports" onClick={() => handleClick('pendingReports')}><GrTable /> Pendientes</div></Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
 
-      <Button variant="primary" onClick={handleClick} value={'Todas las pericias'}>
-        TODAS LAS PERICIAS
-      </Button>
 
-      <Button onClick={handleClick} value={'Pericias Finalizadas'}>PERICIAS FINALIZADAS</Button>
-
-      <Button variant="primary" onClick={handleClick} value={'Pericias Pendientes'}>
-        PERICIAS PENDIENTES
-      </Button>
-      { all &&
+      {all &&
         <AllCases />
       }
-      { completed &&
+      {completed &&
         <CompletedCases />
       }
-      { pending &&
+      {pending &&
         <PendingCases />
       }
-
-      {/* <TableCase cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} /> */}
-
-      {/* <EditModal cases={cases} peritos={peritosByName}/> */}
-    </div>
+    </>
   );
 }
 
