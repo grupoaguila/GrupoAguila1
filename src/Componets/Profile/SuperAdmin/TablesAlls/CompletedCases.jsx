@@ -10,9 +10,9 @@ function CompletedCases() {
     console.log('casesCompleted', cases);
     console.log('cases', cases1);
     return (
-      <div>
+      <>
           <TableResponsive cases={cases} peritos={peritosByName} title={'PERICIAS FINALIZADAS'} columns={columns}/>
-      </div>
+      </>
   )
 }
 

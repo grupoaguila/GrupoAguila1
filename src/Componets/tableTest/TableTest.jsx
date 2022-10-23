@@ -18,7 +18,7 @@ function TableResponsive({ cases, columns, detail, title }) {
   const columns2 = columns.map((el) => {
     return el.dataField;
   });
-//   console.log("columns1", columns1);
+  //   console.log("columns1", columns1);
 
   //Modal Form data
   const [caseData, setCaseData] = React.useState([]);
@@ -42,7 +42,8 @@ function TableResponsive({ cases, columns, detail, title }) {
         dato.Numero.toLowerCase().includes(filter.toLocaleLowerCase()) ||
         dato.perito.toLowerCase().includes(filter.toLocaleLowerCase()) ||
         dato.localidad.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-        dato.Compañia.toLowerCase().includes(filter.toLocaleLowerCase())
+        dato.Compañia.toLowerCase().includes(filter.toLocaleLowerCase()) ||
+        dato.Patente.toLowerCase().includes(filter.toLocaleLowerCase())
     );
   }
 
@@ -50,70 +51,63 @@ function TableResponsive({ cases, columns, detail, title }) {
     <>
       <input
         id="filter"
+        className="filterInput"
         name="filter"
         type="text"
+        placeholder="Filtra tu búsqueda..."
         value={filter} //--> binding input with state.
         onChange={(e) => setFilter(e.target.value)}
       />
 
-<<<<<<< HEAD
-    //Filter method
-    let casesFiltered = [];
-    if(!filter){
-        casesFiltered = cases;
-    }else{
-        casesFiltered =  cases.filter((dato)=>
-             dato.Nombre.toLowerCase().includes(filter.toLocaleLowerCase()) || dato.Numero.toLowerCase().includes(filter.toLocaleLowerCase()) || dato.perito.toLowerCase().includes(filter.toLocaleLowerCase()) || dato.localidad.toLowerCase().includes(filter.toLocaleLowerCase()) || dato.Compañia.toLowerCase().includes(filter.toLocaleLowerCase()) || dato.Patente.toLowerCase().includes(filter.toLocaleLowerCase())
-        )
-    }
-=======
       {casesFiltered?.length === 0 ? (
-        <div>Loading...</div>
+        <div className="noRegistersFound">No se encontraron registros...</div>
       ) : (
-        <div>
-          {title}
->>>>>>> 278509087ff282598978c24734d748b302a7c28a
+        <>
+        {/* Tabler Title */}
+          <h3 className="tableTitle">{title}</h3>
 
-        <Table>
-          <Thead>
-            <Tr>
-              {columns1.map((e) => {
-                return <Th className="thEdit">{e}</Th>;
-              })}
+          {/* Table */}
+          <Table>
+            <Thead>
+              <Tr>
+                {columns1.map((e) => {
+                  return <Th className="thEdit">{e}</Th>;
+                })}
 
-              <Th className="thEdit">Editar</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {casesFiltered.map(
-              (el) =>
-              // Patente is a notnull field meaning that an empty register won't be allowed.
-              
-              el.Patente && (
-                <Tr>
-                    {columns2.map((c) => {
-                      let y = el[c];
-                      return (
-                        <Td className="tdEdit" key={el.id}>
-                          {y ? y : "Sin Completar"}
-                        </Td>
-                      );
-                    })}
+                <Th className="thEdit">Editar</Th>
+              </Tr>
+            </Thead>
 
-                    <Td className="tdEdit" key={el.id}>
-                      <div
-                        className="editBtn"
-                        onClick={() => showModalEdit(el.id)}
+            <Tbody>
+              {casesFiltered.map(
+                (el) =>
+                  // Patente is a notnull field meaning that an empty register won't be allowed.
+
+                  el.Patente && (
+                    <Tr>
+                      {columns2.map((c) => {
+                        let y = el[c];
+                        return (
+                          <Td className="tdEdit" key={el.id}>
+                            {y ? y : "Sin Completar"}
+                          </Td>
+                        );
+                      })}
+
+                      <Td className="tdEdit" key={el.id}>
+                        <div
+                          className="editBtn"
+                          onClick={() => showModalEdit(el.id)}
                         >
-                        <TbEdit />
-                      </div>
-                    </Td>
-                  </Tr>
-                )
-                )}
-          </Tbody>
-        </Table>
-                </div>
+                          <TbEdit />
+                        </div>
+                      </Td>
+                    </Tr>
+                  )
+              )}
+            </Tbody>
+          </Table>
+        </>
       )}
       {/* Modal rendering */}
       <TableTestModal
@@ -126,8 +120,5 @@ function TableResponsive({ cases, columns, detail, title }) {
   );
 }
 export default TableResponsive;
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 278509087ff282598978c24734d748b302a7c28a
