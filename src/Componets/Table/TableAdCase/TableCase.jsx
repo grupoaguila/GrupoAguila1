@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import filterFactory, { textFilter } from "react-bootstrap-table2-filter";
-import { columns, defaultSorted, options } from "./colums2";
+import { columns, defaultSorted, options } from '../../Profile/SuperAdmin/colums2';
 import car from "../../../assets/car.gif";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";

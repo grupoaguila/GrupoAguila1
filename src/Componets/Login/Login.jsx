@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import firebaseApp from "../../Credentials/Index";
 import "./Login.css";
-import profile from "../../assets/a.png";
+import profile from "../../assets/a.png"; 
 
 import { Button } from "react-bootstrap";
 import {
@@ -50,19 +50,27 @@ function Login() {
   // }
 
   const submitHandlerGoogle = (e) => {
+    console.log('e.target', e.target)
     let booll = peritos.some((el) => el.email === "email");
+
     try {
-      if (booll) {
+      
         signInWithPopup(auth, googleProvider).then((result) => {
           // This gives you a Google Access Token. You can use it to access the Google API.
           const credential = GoogleAuthProvider.credentialFromResult(result);
+          // console.log(credential)
           const token = credential.accessToken;
           // The signed-in user info.
           const user = result.user;
+          // console.log('user', user)
+          if(peritos.some((el) => el.email === user.email)){
+            navigate("/");
+          }
+          else{
+            alert("comuniquese con su administrador")
+          }
           // ...
-          navigate("/");
-        });
-      }
+        })
     } catch (error) {
       return alert("comuniquese con su administrador")
     }
