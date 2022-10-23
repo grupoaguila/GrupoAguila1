@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import EditModal from '../../Modals/EditModal';
 import TableResponsive from '../../tableTest/TableTest';
-import {GrUserAdd} from "react-icons/gr";
+import {GrUserAdd,GrFormAdd} from "react-icons/gr";
 import './superAdmin.css';
 
 function SuperAdmin() {
@@ -24,15 +24,16 @@ function SuperAdmin() {
     <>
         <div className="superAdminBtn">
           <div className="addPerito" onClick={handleClick}><GrUserAdd/></div>
-          <Button variant='secondary sm' onClick={handleClick}>Añadir Casos</Button>
-          {/* <Button variant='primary sm' onClick={handleClick1}>Añadir Perito</Button> */}
+          <div className="addCasesClass" onClick={handleClick}><GrFormAdd/></div>
+          
         </div>
         <TableResponsive cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} />
-        {/* <TableCase cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} /> */}
-        {/* <EditModal cases={cases} peritos={peritosByName}/> */}
     
     </>
   )
 }
 
 export default SuperAdmin
+{/* <Button variant='secondary sm' onClick={handleClick}>Añadir Casos</Button> */}
+{/* <TableCase cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} /> */}
+{/* <EditModal cases={cases} peritos={peritosByName}/> */}

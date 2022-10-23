@@ -1,7 +1,8 @@
-.addPerito:hover{
+.addPerito:hover, .addCasesClass:hover{
     cursor:pointer;
     background-color: rgb(255, 0, 0);
 }
-.addPerito{
-    width: 10%;
+.addPerito svg, .addCasesClass svg{
+    width: 2em;
+    height:2em;
 }
