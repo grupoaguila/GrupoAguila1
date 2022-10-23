@@ -5,8 +5,10 @@ import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import "./tabletest.css";
 import { TbEdit } from "react-icons/tb";
 import TableTestModal from "../InputsSelects/EditCase/BySuperAdmin/TableTestModal";
+import TableTestModalAdmin from "../InputsSelects/EditCase/ByAdmin/TableTestModalAdmin";
+import TableTestModalPerito from "../InputsSelects/EditCase/ByPerito/TableTestModalPerito";
 
-function TableResponsive({ cases, columns, detail, title }) {
+function TableResponsive({ cases, columns, detail, title, rol }) {
   //filter
   const [filter, setFilter] = React.useState("");
 
@@ -104,12 +106,33 @@ function TableResponsive({ cases, columns, detail, title }) {
                 </div>
       )}
       {/* Modal rendering */}
+      {
+        rol==='superAdmin' &&
       <TableTestModal
         show={showModal}
         close={() => setShowModal(false)}
         caseData={caseData}
         detail={detail}
       />
+      }
+      {
+        rol==='Admin' &&
+      <TableTestModalAdmin
+        show={showModal}
+        close={() => setShowModal(false)}
+        caseData={caseData}
+        detail={detail}
+      />
+      }
+      {
+        rol==='Perito' &&
+      <TableTestModalPerito
+        show={showModal}
+        close={() => setShowModal(false)}
+        caseData={caseData}
+        detail={detail}
+      />
+      }
     </>
   );
 }

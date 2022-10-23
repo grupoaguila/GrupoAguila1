@@ -4,8 +4,7 @@ import TableResponsive from '../../../tableTest/TableTest';
 import {columns} from '../colums2'
 
 
-function AllCases({rol}) {
-    const cases = useSelector(state=>state.cases)
+function AllCases({rol, cases}) {
   const peritosByName = useSelector(state=>state.peritosByName)
   return (
     <div>

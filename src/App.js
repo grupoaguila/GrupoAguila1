@@ -9,6 +9,7 @@ import AddCases from "./Componets/InputsSelects/AddCases/AddCases";
 import Register from "./Componets/Login/Register";
 import AddPeritos from "./Componets/InputsSelects/AddPeritos/AddPeritos";
 import TableTest from "./Componets/tableTest/TableTest";
+import { PrivateRoute } from "./PrivateRutes";
 
 
 function App() {
@@ -18,13 +19,29 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/servicios" element={<Contacto />} />
-        <Route path="/user" element={<Users />} />
+        <Route path="/user" element={<Users/>} >
+       
+        </Route>
+        <Route
+        path="/addPerito"
+        element={
+          <PrivateRoute >
+           <AddPeritos />
+          </PrivateRoute>
+        }
+      />
+        <Route
+        path="/addCases"
+        element={
+          <PrivateRoute >
+           <AddCases />
+          </PrivateRoute>
+        }
+      />
         <Route path="/register" element={<Register />} />
-        <Route path="/contacto" element={<Profile />} />
-        <Route path="/addCases" element={<AddCases />} />
-        <Route path="/addPerito" element={<AddPeritos />} />
+        <Route path="/contacto" element={<Contacto />} />
         
-        <Route path="/añadirCasos" element={<AddCases />} />
+        
         {/* <Route path="/tabletest" element={<TableTest />} /> */}
       </Routes>
     </div>
