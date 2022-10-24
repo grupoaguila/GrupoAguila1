@@ -14,10 +14,12 @@ import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocalStorage } from "../../CustomHook/useLocalStorage";
 const auth = getAuth(firebaseApp);
 const googleProvider = new GoogleAuthProvider();
 
 function Login() {
+  const [emailUser, setEmailUser]= useLocalStorage('emailUser','')
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPeritos());
@@ -62,9 +64,11 @@ function Login() {
           const token = credential.accessToken;
           // The signed-in user info.
           const user = result.user;
-          // console.log('user', user)
+          console.log('user', user)
           if(peritos.some((el) => el.email === user.email)){
-            navigate("/");
+            setEmailUser(user.email)
+            //GUARDAR EN EL LOCALSTORAGE USER.EMAIL
+            navigate("/user");
           }
           else{
             alert("comuniquese con su administrador")
@@ -82,51 +86,9 @@ function Login() {
       <div className="contenedor">
         <div className="screen">
           <div className="screen__content">
-            {/* <form className="login" onSubmit={submitHandler}>
-              <div className="login__field">
-                <i className="login__icon fas fa-user"></i>
-                <input
-                  type="text"
-                  className="login__input"
-                  placeholder="Correo"
-                  controlId="formCorreo"
-                />
-              </div>
-              <div className="login__field">
-                <i className="login__icon fas fa-lock"></i>
-                <input
-                  type="password"
-                  className="login__input"
-                  placeholder="Password"
-                  controlId="formContra"
-                />
-              </div>
-
-              <div className="login__field">
-                <i className="login__icon fas fa-lock"></i> */}
-                {/* <select
-                  id="rol"
-                  defaultValue="default"
-                  className="login__input"
-                >
-                  <option value="default" disabled hidden>
-                    Seleccione un Rol{" "}
-                  </option>
-                  <option value="superAdmin">Administrador</option>
-                  <option value="admin">Admin</option>
-                  <option value="perito">Perito</option>
-                </select> */}
-            {/*   </div>
-
-              <button className="button login__submit">
-                <span className="button__text">Inicia Sesión</span>
-                <i className="button__icon fas fa-chevron-right"></i>
-              </button>
-            </form> */}
+          
             <div className="social-login">
-              {/* <Link to={"/register"}>
-                <h4>Registrarse</h4>
-              </Link> */}
+           
               <div className="social-icons">
                 <Button
                 variant="primary"

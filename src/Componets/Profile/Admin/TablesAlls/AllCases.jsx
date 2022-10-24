@@ -9,7 +9,7 @@ function AllCases({rol}) {
   const peritosByName = useSelector(state=>state.peritosByName)
   return (
     <div>
-        <TableResponsive cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} columns={columns} rol={rol}/>
+        <TableResponsive cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} columns={columns} rol={rol} />
     </div>
   )
 }
