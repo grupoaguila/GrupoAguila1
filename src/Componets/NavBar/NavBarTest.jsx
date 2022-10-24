@@ -58,7 +58,7 @@ function NavScrollExample() {
                   </div>
 
                   <div className="navBarLinks">
-                    <NavLink onClick={closeSession}>Cerrar sesion</NavLink>
+                    <NavLink to="/" onClick={closeSession}>Cerrar sesion</NavLink>
                   </div>
                 </>
               ) : (
