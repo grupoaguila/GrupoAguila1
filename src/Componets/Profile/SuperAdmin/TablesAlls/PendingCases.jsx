@@ -8,9 +8,9 @@ function PendingCases({rol}) {
     const peritosByName = useSelector(state=>state.peritosByName)
     const cases= cases1.filter(el=>el.estado!=='Pericia finalizada')
     return (
-      <div>
+
           <TableResponsive cases={cases} peritos={peritosByName} title={'PERICIAS PENDIENTES'} columns={columns} rol={rol} />
-      </div>
+     
     )
 }
 

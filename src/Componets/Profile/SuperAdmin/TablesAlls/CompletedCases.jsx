@@ -11,7 +11,7 @@ function CompletedCases({rol}) {
     console.log('cases', cases1);
     return (
       <div>
-          <TableResponsive cases={cases} peritos={peritosByName} title={'PERICIAS FINALIZADAS'} columns={columns} rol={rol} />
+          <TableResponsive cases={cases} peritos={peritosByName} title={'PERICIAS FINALIZADAS'} columns={columns} rol={rol}/>
       </div>
   )
 }
