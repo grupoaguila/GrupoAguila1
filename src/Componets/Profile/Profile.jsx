@@ -4,6 +4,8 @@ import { getCasesAction, getPeritos, peritosByName } from '../../Store/Actions';
 import SuperAdmin from './SuperAdmin/SuperAdmin';
 import { getAuth, signOut } from "firebase/auth";
 import firebaseApp from '../../Credentials/Index'
+import Admin from './Admin/Admin';
+import Perito from './Perito/Perito';
 
 const auth = getAuth(firebaseApp);
 function Profile() {
@@ -27,6 +29,15 @@ function Profile() {
     {
       peritoUser?.rol==='superAdmin' &&
             <SuperAdmin />
+    }
+     
+    {
+      peritoUser?.rol==='Admin' &&
+            <Admin />
+    }
+    {
+      peritoUser?.rol==='Perito' &&
+            <Perito emailUser={emailUser}/>
     }
     </>
     

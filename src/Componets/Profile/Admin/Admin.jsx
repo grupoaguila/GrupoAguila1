@@ -9,6 +9,10 @@ import EditModal from "../../Modals/EditModal";
 import AllCases from "./TablesAlls/AllCases";
 import CompletedCases from "./TablesAlls/CompletedCases";
 import PendingCases from "./TablesAlls/PendingCases";
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { GrAddCircle, GrProjects, GrTable } from "react-icons/gr";
+import './Admin.css'
 
 function Admin() {
   const navigate = useNavigate();
@@ -16,55 +20,56 @@ function Admin() {
   const [completed, setCompleted]=useState(false)
   const [pending, setPending]=useState(false)
 
-  const handleClick = (e) => {
-    if(e.target.value==='Todas las pericias'){
-       setAll(!all)
-       setCompleted(false)
-       setPending(false)
+  const handleClick = (value) => {
+    console.log('admin handleClick -->', value)
+
+    if (value === 'allExpertsReport') {
+      setAll(!all)
+      setCompleted(false)
+      setPending(false)
     }
-    if(e.target.value==='Pericias Finalizadas'){
+    if (value === 'endedReports') {
       setAll(false)
-       setCompleted(!completed)
-       setPending(false)
-      
+      setCompleted(!completed)
+      setPending(false)
+
     }
-    if(e.target.value==='Pericias Pendientes'){
+    if (value === 'pendingReports') {
       setAll(false)
-       setCompleted(false)
-       setPending(!pending)
-     
+      setCompleted(false)
+      setPending(!pending)
+
     }
-    console.log(e.target.value)
-    // navigate("/addCases");
+
   };
   
 
   return (
-    <div>
-    
-      <Button variant="primary" onClick={handleClick} value={'Todas las pericias'}>
-        TODAS LAS PERICIAS
-      </Button>
+    <> 
+    <div className="dropDownSuperAdmin">
+      <Dropdown as={ButtonGroup}>
+        <Button  className="buttonOptionsSuperAdmin">Opciones</Button>
+        <Dropdown.Toggle split  className="buttonOptionsSuperAdmin" id="dropdown-split-basic" />
+        <Dropdown.Menu>
+          <Dropdown.Item ><div className="allReports" onClick={() => handleClick('allExpertsReport')}><GrTable /> Pericias</div></Dropdown.Item>
+          <Dropdown.Item ><div className="endedReports" onClick={() => handleClick('endedReports')}><GrTable /> Finalizadas</div></Dropdown.Item>
+          <Dropdown.Item ><div className="pendingReports" onClick={() => handleClick('pendingReports')}><GrTable /> Pendientes</div></Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
 
-      <Button onClick={handleClick} value={'Pericias Finalizadas'}>PERICIAS FINALIZADAS</Button>
 
-      <Button variant="primary" onClick={handleClick} value={'Pericias Pendientes'}>
-        PERICIAS PENDIENTES
-      </Button>
-      { all &&
-        <AllCases rol={'Admin'}/>
+      {all &&
+        <AllCases rol={'Admin'} />
       }
-      { completed &&
+      {completed &&
         <CompletedCases rol={'Admin'}/>
       }
-      { pending &&
+      {pending &&
         <PendingCases rol={'Admin'}/>
       }
-
-      {/* <TableCase cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} /> */}
-
-      {/* <EditModal cases={cases} peritos={peritosByName}/> */}
-    </div>
+  
+    </>
   );
 }
 
