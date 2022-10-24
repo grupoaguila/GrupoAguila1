@@ -1,0 +1,44 @@
+.navBarContainer{
+    /* border-bottom: 1px solid black; */
+    box-shadow: -4px -16px 20px 18px;
+}
+.navbar-nav{
+    margin-left: 5rem;
+}
+.listNavBar{
+    display: flex;
+}
+.navBarLinks{
+    margin-left: 5rem;
+    font-size: 20px;
+}
+
+.LogoNavBar{
+    width: 200px;
+}
+
+@media screen and (max-width: 1200px) {
+  
+    .LogoNavBar{
+        width: 150px;
+    }
+    .navbar-nav{
+        margin-left: none;
+    }
+    .navBarLinks{
+        margin-left: 2rem;
+        
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .listNavBar{
+        display: flex;
+        flex-direction: column;
+    }
+    .navBarLinks{
+        margin-left: -2rem;
+        
+    }
+}
+
