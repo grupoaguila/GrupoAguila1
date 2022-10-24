@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import NavBar from "./Componets/NavBar/NavBar";
+import NavBarTest from "./Componets/NavBar/NavBarTest";
  import Contacto from "./Componets/Contact/Contacto";
  import Home from "./Componets/Home/Home";
 import Users from "./Componets/Users/Users";
@@ -15,7 +16,7 @@ import { PrivateRoute } from "./PrivateRutes";
 function App() {
   return (
     <div className="App">
-      <NavBar />
+      <NavBarTest />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/servicios" element={<Contacto />} />
