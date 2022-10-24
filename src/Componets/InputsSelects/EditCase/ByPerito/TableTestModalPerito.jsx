@@ -14,6 +14,8 @@ import EditModal from "../../../Modals/EditModal";
 import AddModals from "../../../Modals/AddModals";
 
 const TableTestModalPerito = (props) => {
+  const emailUser = JSON.parse(localStorage.getItem("emailUser"));
+
     let peritos = useSelector((state) => state.peritos);
     let namePeritos1 = useSelector((state) => state.peritosByName);
     let namePeritos = namePeritos1.map((e) => {
@@ -22,7 +24,8 @@ const TableTestModalPerito = (props) => {
     const caseData = props.caseData[0];
     const  [editFormInput, setEditFormInput] = useState({});
     const dispatch = useDispatch()
-    let userPerito//lo traigo por local Storage lo busco con find en peritos y saco el nombre;
+    let userPerito=peritos.find(e=>e.email===emailUser).nombre
+  console.log('userPerito', userPerito);    //lo traigo por local Storage lo busco con find en peritos y saco el nombre;
   useEffect(()=>{
         setEditFormInput({
             Vencimiento:caseData?.Vencimiento,
