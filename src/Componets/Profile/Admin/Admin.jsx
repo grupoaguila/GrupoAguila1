@@ -52,13 +52,13 @@ function Admin() {
         PERICIAS PENDIENTES
       </Button>
       { all &&
-        <AllCases />
+        <AllCases rol={'Admin'}/>
       }
       { completed &&
-        <CompletedCases />
+        <CompletedCases rol={'Admin'}/>
       }
       { pending &&
-        <PendingCases />
+        <PendingCases rol={'Admin'}/>
       }
 
       {/* <TableCase cases={cases} peritos={peritosByName} title={'TODAS LAS PERICIAS'} /> */}
