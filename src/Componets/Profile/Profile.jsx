@@ -23,7 +23,7 @@ function Profile() {
 
   return (
     <>
-      <button onClick={() => signOut(auth)}> Cerrar sesión</button>
+     
     {
       peritoUser?.rol==='superAdmin' &&
             <SuperAdmin />
