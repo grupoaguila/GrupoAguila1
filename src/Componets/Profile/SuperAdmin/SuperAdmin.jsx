@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AllCases from "./TablesAlls/AllCases";
 import CompletedCases from "./TablesAlls/CompletedCases";
@@ -8,9 +8,20 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import './superAdmin.css'
+import { getCasesAction, getPeritos, peritosByName } from "../../../Store/Actions";
+import { useDispatch } from "react-redux";
 
 function SuperAdmin() {
   const navigate = useNavigate();
+  
+  // let dispatch= useDispatch()
+  // useEffect(()=>{
+  //   dispatch(getPeritos())
+  //   dispatch(getCasesAction())
+  //   setTimeout(()=>{ 
+  //     dispatch(peritosByName())
+  //   },2500)
+  // },[dispatch])
   const [all, setAll] = useState(false)
   const [completed, setCompleted] = useState(false)
   const [pending, setPending] = useState(false)

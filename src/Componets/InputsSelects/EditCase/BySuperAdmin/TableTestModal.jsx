@@ -97,6 +97,7 @@ const TableTestModal = (props) => {
 
       //this commando triggers the alert! 
       NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000);  
+      props.actulizar()
       
       // let body = {
         //   token: "l7sc1htbsdfju8ty",
