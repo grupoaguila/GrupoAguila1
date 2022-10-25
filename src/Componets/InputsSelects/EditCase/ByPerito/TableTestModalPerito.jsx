@@ -4,7 +4,6 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import "./TableTestModal.css";
 import { editCasos, updateCases } from "../../../../Controller/llamados";
-import AlertsPersonal from "../../../Alerts/AlertsPersonal";
 import { postWhatsapp } from "../../../../Store/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select"
@@ -12,6 +11,10 @@ import {stateCase, location, customStyles, customStyles1} from '../../AddCases/u
 import PropTypes from "prop-types";
 import EditModal from "../../../Modals/EditModal";
 import AddModals from "../../../Modals/AddModals";
+
+//Alert notifications
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const TableTestModalPerito = (props) => {
   const emailUser = JSON.parse(localStorage.getItem("emailUser"));
@@ -44,8 +47,6 @@ const TableTestModalPerito = (props) => {
   },[props])
   console.log("caseData", caseData);
 
-  //form state
-  const [alert, setAlert] = useState(false);
   //========== HANDLE CHANGE =======
   function handleOnChange(e) {
       e.preventDefault();
@@ -126,18 +127,22 @@ const TableTestModalPerito = (props) => {
         priority: "10",
       };
       dispatch(postWhatsapp(body));
-      setAlert(true);
+    
     //   setTimeout(() => {
     //     props.close();
     //   }, 4000); 
+
+      //it closes the Modal after submit
+      props.close()
+
+      //this commando triggers the alert! 
+      NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000); 
     } catch (error) {}
   }
 
   return (
-    <div>
-      {alert && (
-        <AlertsPersonal type="success" message="Su caso ha sido modificado" />
-      )}
+    <>
+     
       <Modal show={props.show} onHide={props.close}>
         <Modal.Header closeButton>
           <Modal.Title>Edite la informacion del siniestro </Modal.Title>
@@ -197,7 +202,9 @@ const TableTestModalPerito = (props) => {
           }
         </Modal.Body>
       </Modal>
-    </div>
+      {/* alert after submit */}
+      <NotificationContainer/> 
+    </>
   );
 };
 export default TableTestModalPerito;

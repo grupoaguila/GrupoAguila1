@@ -3,7 +3,7 @@ import { Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { createPer } from "../../../Controller/llamados";
 import { postWhatsapp } from "../../../Store/Actions";
-import AlertsPersonal from "../../Alerts/AlertsPersonal";
+
 import FormAddPeritos from "./FormAddPeritos";
 import { validate } from "./Validate";
 
