@@ -4,18 +4,40 @@
 }
 .navbar-nav{
     margin-left: 5rem;
+    
 }
+
 .listNavBar{
     display: flex;
+    
 }
 .navBarLinks{
     margin-left: 5rem;
-    font-size: 20px;
+    font-size: 18px;
+   
+    padding-top: 3px;
+}
+.navBarLinks svg {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
+}
+.listNavBar:hover{
+    
+    color: rgb(153, 15, 15)!important;
+    
+}
+.navBarLinks:hover{
+    font-size: large;
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3),0px -4px 10px rgba(255,255,255,0.3);
 }
 
 .LogoNavBar{
     width: 200px;
 }
+
+
+
 
 @media screen and (max-width: 1200px) {
   
