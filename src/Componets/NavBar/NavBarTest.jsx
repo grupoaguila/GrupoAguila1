@@ -49,17 +49,17 @@ function NavScrollExample() {
               <div className="navBarLinks">
                 <NavLink to="/contacto">Contacto</NavLink>
               </div>
+
               {emailUser ? (
                 <>
                   <div className="navBarLinks">
                     <NavLink to="/user">
                       <BsFillPersonCheckFill />
+                      <NavLink to="/" onClick={closeSession}>Cerrar sesion</NavLink>
                     </NavLink>
                   </div>
 
-                  <div className="navBarLinks">
-                    <NavLink to="/" onClick={closeSession}>Cerrar sesion</NavLink>
-                  </div>
+              
                 </>
               ) : (
                 <div className="navBarLinks">
