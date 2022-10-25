@@ -125,7 +125,7 @@ const TableTestModalAdmin = (props) => {
         priority: "10",
       };
       dispatch(postWhatsapp(body));
-      setAlert(true);
+ 
     //   setTimeout(() => {
     //     props.close();
     //   }, 4000); 

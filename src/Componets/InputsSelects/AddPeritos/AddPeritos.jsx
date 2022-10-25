@@ -6,6 +6,10 @@ import { postWhatsapp } from "../../../Store/Actions";
 
 import FormAddPeritos from "./FormAddPeritos";
 import { validate } from "./Validate";
+//Alert notifications
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 
 // function validate(post){    
 //   let erros = {};
@@ -52,7 +56,7 @@ function AddPeritos() {
     rol: post.rol,
   };
   let perito = Object.values(newPerito);
-  console.log('perito', newPerito.nombre)
+  //console.log('perito', newPerito.nombre)
   //==========================================================================
 
   let body;
@@ -93,7 +97,7 @@ function AddPeritos() {
         setShow(true)
         const message= peritoWhatsap.nombre + 'Fue añadido correctamente'
       
-
+        NotificationManager.success('Bien Hecho!', 'Perito Añadido',3000);
         setPost({
           nombre: "",
           celular: "",
@@ -105,7 +109,7 @@ function AddPeritos() {
       }
     } else {
       let errorA = Object.values(error);
-      console.log('errorA',errorA)
+      //console.log('errorA',errorA)
       setShowE(true)
       setErr(errorA)
     //   alert(`No se puede guardar el caso presenta el/los siguiente/s error/s:
@@ -113,24 +117,11 @@ function AddPeritos() {
     // `);
     }
   };
-  console.log('created', created);
+  //console.log('created', created);
 
   return(
   <div style={{ paddingTop: "0%" }}>
-      {
-        show &&
-        <div style={{     paddingRight: '20%',
-            paddingLeft: '26%',
-            marginTop: '10px',
-            fontSize: '20px',
-            display: 'flex',
-            justifyContent: 'space-between'}}>
-        <Alert variant="success" onClose={() => setShow(false)} dismissible style={{ paddingRight: "10%", paddingLeft: "10%" }}>
-        <Alert.Heading>{created} fue añadido correctamente</Alert.Heading>
-        
-      </Alert>
-        </div>
-}
+    
 {
         showE &&
         <div style={{     paddingRight: '10%',
@@ -163,7 +154,9 @@ function AddPeritos() {
         perito={body}
         style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px" }}
       />
+      <NotificationContainer/> 
     </div>
+
 
   )
 }

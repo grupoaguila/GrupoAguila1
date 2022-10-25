@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { createCase } from "../../../Controller/llamados";
 import { validate } from "./Validate";
 import FormAddCase2 from "./FormAddCase2";
-import { postWhatsapp } from "../../../Store/Actions/index";
+import { getCasesAction, getPeritos, peritosByName, postWhatsapp } from "../../../Store/Actions/index";
 import { Alert } from "react-bootstrap";
+//Alert notifications
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 function AddCases() {
   const dispatch = useDispatch();
@@ -13,6 +16,16 @@ function AddCases() {
   let namePeritos = namePeritos1.map((e) => {
     return { value: e, label: e }; 
   });
+  function Actualizacion(){
+    // console.log('entré en Actualizacion');
+      dispatch(getPeritos())
+      dispatch(getCasesAction())
+      setTimeout(()=>{ 
+        dispatch(peritosByName())
+      },2500)
+    
+
+  }
 
   const [show, setShow] = useState(false);
   const [showE, setShowE] = useState(false);
@@ -130,7 +143,7 @@ function AddCases() {
   } else {
     body = ["Faltan completar Datos"];
   }
-  console.log("body", body);
+  // console.log("body", body);
 
   //======= HANDLE SUBMIT ==================
   const handleSubmit = async (e) => {
@@ -151,6 +164,8 @@ function AddCases() {
         setCreated(cases.Numero)
         setShow(true)
         // dispatch(postWhatsapp(body));
+        NotificationManager.success('El caso fue añadido!',3000);
+        Actualizacion()
 
         setPost({
           Nombre: "",
@@ -184,27 +199,6 @@ function AddCases() {
   };
   return (
     <div style={{ paddingTop: "0%" }}>
-      {show && (
-        <div
-          style={{ 
-            paddingRight: "20%",
-            paddingLeft: "26%",
-            marginTop: "10px",
-            fontSize: "20px",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <Alert
-            variant="success"
-            onClose={() => window.location.reload()}
-            dismissible
-            style={{ paddingRight: "10%", paddingLeft: "10%" }}
-          >
-            <Alert.Heading>{created} fue añadido correctamente</Alert.Heading>
-          </Alert>
-        </div>
-      )}
       {showE && (
         <div
           style={{
@@ -218,7 +212,7 @@ function AddCases() {
         >
           <Alert
             variant="danger"
-            onClose={() => window.location.reload()}
+            onClose={() => setShow(false)}
             dismissible
             style={{ paddingRight: "8%", paddingLeft: "5%" }}
           >
@@ -242,6 +236,7 @@ function AddCases() {
         cases={body}
         style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px" }}
       />
+      <NotificationContainer/> 
     </div>
   );
 }

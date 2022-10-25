@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import "./tabletest.css";
@@ -7,8 +7,21 @@ import { TbEdit } from "react-icons/tb";
 import TableTestModal from "../InputsSelects/EditCase/BySuperAdmin/TableTestModal";
 import TableTestModalAdmin from "../InputsSelects/EditCase/ByAdmin/TableTestModalAdmin";
 import TableTestModalPerito from "../InputsSelects/EditCase/ByPerito/TableTestModalPerito";
+import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 
 function TableResponsive({ cases, columns, detail, title, rol }) {
+  
+  let dispatch= useDispatch()
+  function Actualizacion(){
+    // console.log('entré en Actualizacion');
+      dispatch(getPeritos())
+      dispatch(getCasesAction())
+      setTimeout(()=>{ 
+        dispatch(peritosByName())
+      },2500)
+    
+
+  }
   //filter
   const [filter, setFilter] = React.useState("");
 
@@ -119,6 +132,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
         close={() => setShowModal(false)}
         caseData={caseData}
         detail={detail}
+        actulizar={Actualizacion}
       />
       }
       {
@@ -128,6 +142,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
         close={() => setShowModal(false)}
         caseData={caseData}
         detail={detail}
+        actulizar={Actualizacion}
       />
       }
       {
@@ -137,6 +152,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
         close={() => setShowModal(false)}
         caseData={caseData}
         detail={detail}
+        actulizar={Actualizacion}
       />
       }
     </>
