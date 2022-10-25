@@ -2,6 +2,8 @@ import React from "react";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import AddModals from "../../Modals/AddModals";
+import {Button} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 
 
@@ -15,9 +17,16 @@ function FormAddPeritos({
   let style = { display: "flex", alignItems: "flex-end" };
   return (
     <div>
+      <Link to="/user">
+      <Button variant="secondary" style={{display:"flex"}}>
+        Volver
+      </Button>
+      </Link>
       <div style={{ paddingRight: "30%", paddingLeft: "25%" }}>
         <h2>AÑADIR PERITO</h2>
+        
       </div>
+      
       
       <Form
         style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "5%" }}

@@ -3,6 +3,8 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import AddModals from "../../Modals/AddModals";
 import Select from "react-select";
+import {Button} from 'react-bootstrap'
+import {Link} from 'react-router-dom';
 import {
   day,
   month,
@@ -24,6 +26,11 @@ function FormAddCase2({
   let style = { display: "flex", alignItems: "flex-end" };
   return (
     <div>
+      <Link to="/user">
+      <Button variant="secondary" style={{display:"flex"}}>
+        Volver
+      </Button>
+      </Link>
       <div style={{ paddingRight: "30%", paddingLeft: "25%" }}>
         <h2>AÑADIR CASOS</h2>
       </div>
