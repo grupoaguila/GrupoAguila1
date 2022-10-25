@@ -21,8 +21,8 @@ function Admin() {
   const [pending, setPending]=useState(false)
 
   const handleClick = (value) => {
-    console.log('admin handleClick -->', value)
-
+   /*  console.log('admin handleClick -->', value)
+ */
     if (value === 'allExpertsReport') {
       setAll(!all)
       setCompleted(false)

@@ -7,7 +7,7 @@ const auth = getAuth(firebaseApp);
 
 function UserRegister({ user }) {
   const [User, setUser] = useState(null);
-  console.log(user, "user")
+  /* console.log(user, "user") */
   return (
     <div>
       <h1>Toda la info de los registrados</h1>

@@ -41,7 +41,7 @@ const TableTestModalAdmin = (props) => {
             notas:caseData?.notas
         })
   },[props])
-  console.log("caseData", caseData);
+  /* console.log("caseData", caseData); */
 
   //========== HANDLE CHANGE =======
   function handleOnChange(e) {
@@ -105,7 +105,7 @@ const TableTestModalAdmin = (props) => {
   }
 
   //========== HANDLE SUBMIT =======
-  console.log('editForm', editFormInput)
+  /* console.log('editForm', editFormInput) */
  
   async function handleSubmit(e) {
     e.preventDefault();

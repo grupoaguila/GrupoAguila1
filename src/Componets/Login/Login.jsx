@@ -52,7 +52,7 @@ function Login() {
   // }
 
   const submitHandlerGoogle = (e) => {
-    console.log('e.target', e.target)
+    /* console.log('e.target', e.target) */
     let booll = peritos.some((el) => el.email === "email");
 
     try {
@@ -64,7 +64,7 @@ function Login() {
           const token = credential.accessToken;
           // The signed-in user info.
           const user = result.user;
-          console.log('user', user)
+         /*  console.log('user', user) */
           if(peritos.some((el) => el.email === user.email)){
             setEmailUser(user.email)
             //GUARDAR EN EL LOCALSTORAGE USER.EMAIL
