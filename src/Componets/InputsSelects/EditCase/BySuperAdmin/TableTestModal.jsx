@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import "./TableTestModal.css";
-import { editCasos, updateCases } from "../../../../Controller/llamados";
-import AlertsPersonal from "../../../Alerts/AlertsPersonal";
-import { postWhatsapp } from "../../../../Store/Actions";
-import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select"
+import { editCasos, updateCases } from "../../../../Controller/llamados";
+import { useDispatch, useSelector } from "react-redux";
 import {stateCase, location, customStyles, customStyles1} from '../../AddCases/utilsFunctions';
 import PropTypes from "prop-types";
+import { postWhatsapp } from "../../../../Store/Actions";
+import "./TableTestModal.css";
+
+//Alert notifications
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
 
 const TableTestModal = (props) => {
     let peritos = useSelector((state) => state.peritos);
@@ -38,8 +42,7 @@ const TableTestModal = (props) => {
   },[props])
   console.log("caseData", caseData);
 
-  //form state
-  const [alert, setAlert] = useState(false);
+  
   //========== HANDLE CHANGE =======
   function handleOnChange(e) {
       e.preventDefault();
@@ -80,31 +83,38 @@ const TableTestModal = (props) => {
     
     try {
       let edit = await updateCases(props.caseData[0].id, editFormInput);
+      
   
       //  console.log('caseData[0].id',caseData[0].id)
       let peritoWhatsap = peritos.find(
         (el) => el.nombre === editFormInput.perito
       );
-    
-      let body = {
-        token: "l7sc1htbsdfju8ty",
-        to: `${peritoWhatsap.celular}`,
-        body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
-        priority: "10",
-      };
-      dispatch(postWhatsapp(body));
-      setAlert(true);
-    //   setTimeout(() => {
-    //     props.close();
-    //   }, 4000); 
-    } catch (error) {}
+      
+      
+
+      //it closes the Modal after submit
+      props.close()
+
+      //this commando triggers the alert! 
+      NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000);  
+      
+      // let body = {
+        //   token: "l7sc1htbsdfju8ty",
+        //   to: `${peritoWhatsap.celular}`,
+        //   body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
+        //   priority: "10",
+        // };
+        // dispatch(postWhatsapp(body));
+        //   setTimeout(() => {
+          //     props.close();
+          //   }, 4000); 
+    } catch (error) {console.log(e)}
   }
 
+  
   return (
-    <div>
-      {alert && (
-        <AlertsPersonal type="success" message="Su caso ha sido modificado" />
-      )}
+    <>
+      
       <Modal show={props.show} onHide={props.close}>
         <Modal.Header closeButton>
           <Modal.Title>Edite la informacion del siniestro </Modal.Title>
@@ -225,7 +235,11 @@ const TableTestModal = (props) => {
           </Form>
         </Modal.Body>
       </Modal>
-    </div>
+
+      {/* alert after submit */}
+        <NotificationContainer/>  
+      
+    </>
   );
 };
 export default TableTestModal;

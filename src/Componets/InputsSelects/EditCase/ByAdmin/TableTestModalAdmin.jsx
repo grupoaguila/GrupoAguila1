@@ -4,13 +4,16 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import "./TableTestModal.css";
 import { editCasos, updateCases } from "../../../../Controller/llamados";
-import AlertsPersonal from "../../../Alerts/AlertsPersonal";
 import { postWhatsapp } from "../../../../Store/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select"
 import {stateCase, location, customStyles, customStyles1} from '../../AddCases/utilsFunctions';
 import PropTypes from "prop-types";
 import AddModals from "../../../Modals/AddModals";
+
+//Alert notifications
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 const TableTestModalAdmin = (props) => {
     let peritos = useSelector((state) => state.peritos);
@@ -40,8 +43,6 @@ const TableTestModalAdmin = (props) => {
   },[props])
   console.log("caseData", caseData);
 
-  //form state
-  const [alert, setAlert] = useState(false);
   //========== HANDLE CHANGE =======
   function handleOnChange(e) {
       e.preventDefault();
@@ -128,14 +129,20 @@ const TableTestModalAdmin = (props) => {
     //   setTimeout(() => {
     //     props.close();
     //   }, 4000); 
+
+    //it closes the Modal after submit
+    props.close()
+
+    //this commando triggers the alert! 
+    NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000); 
+
+
     } catch (error) {}
   }
 
   return (
-    <div>
-      {alert && (
-        <AlertsPersonal type="success" message="Su caso ha sido modificado" />
-      )}
+    <>
+      
       <Modal show={props.show} onHide={props.close}>
         <Modal.Header closeButton>
           <Modal.Title>Edite la informacion de la pericia</Modal.Title>
@@ -205,7 +212,9 @@ const TableTestModalAdmin = (props) => {
           }
         </Modal.Body>
       </Modal>
-    </div>
+      {/* alert after submit */}
+      <NotificationContainer/> 
+    </>
   );
 };
 export default TableTestModalAdmin;
