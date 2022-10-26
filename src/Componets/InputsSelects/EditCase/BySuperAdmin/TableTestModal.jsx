@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {stateCase, location, customStyles, customStyles1} from '../../AddCases/utilsFunctions';
 import PropTypes from "prop-types";
 import { postWhatsapp } from "../../../../Store/Actions";
-import "./TableTestModal.css";
+import "../../EditCase/TableTestModal.css";
 
 //Alert notifications
 import {NotificationContainer, NotificationManager} from 'react-notifications';

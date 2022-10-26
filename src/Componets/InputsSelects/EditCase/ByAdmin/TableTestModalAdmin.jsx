@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import "./TableTestModal.css";
+
 import { editCasos, updateCases } from "../../../../Controller/llamados";
 import { postWhatsapp } from "../../../../Store/Actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +10,7 @@ import Select from "react-select"
 import {stateCase, location, customStyles, customStyles1} from '../../AddCases/utilsFunctions';
 import PropTypes from "prop-types";
 import AddModals from "../../../Modals/AddModals";
+import "../../EditCase/TableTestModal.css";
 
 //Alert notifications
 import {NotificationContainer, NotificationManager} from 'react-notifications';
