@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {stateCase, location, customStyles, customStyles1} from '../../AddCases/utilsFunctions';
 import PropTypes from "prop-types";
 import { postWhatsapp } from "../../../../Store/Actions";
-import "../../EditCase/TableTestModal.css";
+import "../TableTestModal.css";
 
 //Alert notifications
 import {NotificationContainer, NotificationManager} from 'react-notifications';
@@ -97,7 +97,8 @@ const TableTestModal = (props) => {
 
       //this commando triggers the alert! 
       NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000);  
-      props.actulizar()
+      //actualiza el estado con el cambio
+      props.actualizar()
       
       // let body = {
         //   token: "l7sc1htbsdfju8ty",

@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+<<<<<<< HEAD
 
+=======
+>>>>>>> da2f804552db622163c3f1001679ff2fdb614b7b
 import { editCasos, updateCases } from "../../../../Controller/llamados";
 import { postWhatsapp } from "../../../../Store/Actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +14,11 @@ import {stateCase, location, customStyles, customStyles1} from '../../AddCases/u
 import PropTypes from "prop-types";
 import EditModal from "../../../Modals/EditModal";
 import AddModals from "../../../Modals/AddModals";
+<<<<<<< HEAD
 import "../../EditCase/TableTestModal.css";
+=======
+import "../TableTestModal.css";
+>>>>>>> da2f804552db622163c3f1001679ff2fdb614b7b
 
 //Alert notifications
 import {NotificationContainer, NotificationManager} from 'react-notifications';
@@ -135,6 +142,9 @@ const TableTestModalPerito = (props) => {
 
       //it closes the Modal after submit
       props.close()
+       //actualiza el estado con el cambio
+      props.actualizar()
+      
 
       //this commando triggers the alert! 
       NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000); 
