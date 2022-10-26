@@ -35,6 +35,16 @@ function AddPeritos() {
     email: "",
     rol: "",
   });
+
+  //======= HANDLE SELECT ==================
+  let handleSelect = (value, action) => {
+    if (action.name === "rol") {
+      setPost({
+        ...post,
+        rol: value.value,
+      });
+    }
+  }
   //================================================================
   const handleChange = (e) => {
     e.preventDefault();
@@ -149,6 +159,7 @@ function AddPeritos() {
       <FormAddPeritos
         handleChange={handleChange}
         handleSubmit={handleSubmit}
+        handleSelect={handleSelect}
         post={post}
         errors={errors}
         perito={body}
