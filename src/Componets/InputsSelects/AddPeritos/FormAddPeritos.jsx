@@ -2,32 +2,31 @@ import React from "react";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import AddModals from "../../Modals/AddModals";
-import {Button} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
-
-
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { rol, customStyles } from "../AddCases/utilsFunctions";
+import Select from "react-select";
 
 function FormAddPeritos({
   handleChange,
   handleSubmit,
+  handleSelect,
   post,
   perito,
-  errors 
+  errors,
 }) {
   let style = { display: "flex", alignItems: "flex-end" };
   return (
     <div>
       <Link to="/user">
-      <Button variant="secondary" style={{display:"flex"}}>
-        Volver
-      </Button>
+        <Button variant="secondary" style={{ display: "flex" }}>
+          Volver
+        </Button>
       </Link>
       <div style={{ paddingRight: "30%", paddingLeft: "25%" }}>
         <h2>AÑADIR PERITO</h2>
-        
       </div>
-      
-      
+
       <Form
         style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "5%" }}
       >
@@ -37,7 +36,7 @@ function FormAddPeritos({
           label="Apellido y Nombre"
           className="mb-3"
           //   required
-          >
+        >
           <Form.Control
             onChange={handleChange}
             type="text"
@@ -51,17 +50,18 @@ function FormAddPeritos({
           label="Email"
           className="mb-3"
           required
-          >
+        >
           <Form.Control
             onChange={handleChange}
             type="email"
-            name="email" 
+            name="email"
             pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
             value={post.email}
             placeholder="name@example.com"
-            
           />
-          {errors.email && <p style={{color:'red', fontWeight:'bold'}}>{errors.email}</p>}
+          {errors.email && (
+            <p style={{ color: "red", fontWeight: "bold" }}>{errors.email}</p>
+          )}
         </FloatingLabel>
         {/* Compañía */}
         <FloatingLabel
@@ -81,19 +81,22 @@ function FormAddPeritos({
         {/* Vencimiento */}
 
         <Form.Group>
-          <FloatingLabel
+              <Form.Label>Rol: </Form.Label>
+          {/* <FloatingLabel
             controlId="floatingInput"
             label="Rol"
             className="mb-3"
             required
-          >
-            <Form.Control
-              placeholder="name@example.com"
-              value={post.rol}
-              onChange={handleChange}
-              name="rol"
+          > */}
+          
+            <Select
+              onChange={handleSelect}
+              name={"rol"}
+              options={rol}
+              placeholder="Seleccione un rol"
+              styles={customStyles}
             />
-          </FloatingLabel>
+          {/* </FloatingLabel> */}
         </Form.Group>
 
         <AddModals
