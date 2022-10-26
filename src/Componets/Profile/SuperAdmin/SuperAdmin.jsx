@@ -10,6 +10,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import './superAdmin.css'
 import { getCasesAction, getPeritos, peritosByName } from "../../../Store/Actions";
 import { useDispatch } from "react-redux";
+import AllPeritos from "./TablesAlls/AllPeritos";
 
 function SuperAdmin() {
   const navigate = useNavigate();
@@ -25,9 +26,10 @@ function SuperAdmin() {
   const [all, setAll] = useState(false)
   const [completed, setCompleted] = useState(false)
   const [pending, setPending] = useState(false)
+  const [allPeritos, setAllPeritos] = useState(false)
 
   const handleClick = (value) => {
-    /* console.log('super admin handleClick -->', value) */
+    // console.log('super admin handleClick -->', value) 
 
     if (value === 'AddCases') {
       navigate("/addCases")
@@ -39,22 +41,30 @@ function SuperAdmin() {
       setAll(!all)
       setCompleted(false)
       setPending(false)
+      setAllPeritos(false)
+
     }
     if (value === 'endedReports') {
       setAll(false)
       setCompleted(!completed)
       setPending(false)
+      setAllPeritos(false)
 
     }
     if (value === 'pendingReports') {
       setAll(false)
       setCompleted(false)
+      setAllPeritos(false)
       setPending(!pending)
-
     }
-
+    if (value === 'peritos') {
+      setAll(false)
+      setCompleted(false)
+      setPending(false)
+      setAllPeritos(!allPeritos)
+    }
+    
   };
-
 
   return (
     <>
@@ -69,6 +79,7 @@ function SuperAdmin() {
           <Dropdown.Item ><div className="allReports" onClick={() => handleClick('allExpertsReport')}><GrTable /> Pericias</div></Dropdown.Item>
           <Dropdown.Item ><div className="endedReports" onClick={() => handleClick('endedReports')}><GrTable /> Finalizadas</div></Dropdown.Item>
           <Dropdown.Item ><div className="pendingReports" onClick={() => handleClick('pendingReports')}><GrTable /> Pendientes</div></Dropdown.Item>
+          <Dropdown.Item ><div className="pendingReports" onClick={() => handleClick('peritos')}><GrTable /> Peritos</div></Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     </div>
@@ -83,6 +94,10 @@ function SuperAdmin() {
       {pending &&
         <PendingCases rol={'superAdmin'}/>
       }
+      {allPeritos &&
+        <AllPeritos rol={'superAdmin'}/>
+      }
+      
     </>
   );
 }

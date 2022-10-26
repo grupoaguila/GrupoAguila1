@@ -2,18 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
-import { TbEdit } from "react-icons/tb";
-import TableTestModal from "../InputsSelects/EditCase/BySuperAdmin/TableTestModal";
-import TableTestModalAdmin from "../InputsSelects/EditCase/ByAdmin/TableTestModalAdmin";
-import TableTestModalPerito from "../InputsSelects/EditCase/ByPerito/TableTestModalPerito";
-import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import "./tabletest.css";
+import { TbEdit } from "react-icons/tb";
+import EditModalPerito from "../InputsSelects/EditPerito/EditModalPerito";
+import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 
-function TableResponsive({ cases, columns, detail, title, rol }) {
-  
+function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
+  console.log('cases==>',cases);
+  console.log('columns==>',columns);
+  console.log('title==>',title);
+
   let dispatch= useDispatch()
-
-  //this function dispatches getPeritos(), getCases and PeritosByname
   function Actualizacion(){
     // console.log('entré en Actualizacion');
       dispatch(getPeritos())
@@ -35,7 +34,8 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
   const columns2 = columns.map((el) => {
     return el.dataField;
   });
-  //   console.log("columns1", columns1);
+  console.log("columns1", columns1);
+  console.log("columns2", columns2);
 
   //Modal Form data
   const [caseData, setCaseData] = React.useState([]);
@@ -55,15 +55,13 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
   } else {
     casesFiltered = cases.filter(
       (dato) =>
-        dato.Nombre.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-        dato.Numero.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-        dato.perito.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-        dato.localidad.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-        dato.Compañia.toLowerCase().includes(filter.toLocaleLowerCase()) ||
-        dato.Patente.toLowerCase().includes(filter.toLocaleLowerCase())
+        dato.nombre.toLowerCase().includes(filter.toLocaleLowerCase()) ||
+        dato.email.toLowerCase().includes(filter.toLocaleLowerCase()) ||
+        dato.celular.toLowerCase().includes(filter.toLocaleLowerCase()) ||
+        dato.rol.toLowerCase().includes(filter.toLocaleLowerCase())         
     );
   }
-
+  console.log('casesFiltered', casesFiltered)
   return (
     <>
       <input
@@ -100,7 +98,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                 (el) =>
                   // Patente is a notnull field meaning that an empty register won't be allowed.
 
-                  el.Patente && (
+                  el.nombre&& (
                     <Tr>
                       {columns2.map((c) => {
                         let y = el[c];
@@ -127,39 +125,15 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
         </>
       )}
       {/* Modal rendering */}
-      {
-        rol==='superAdmin' &&
-      <TableTestModal
-        show={showModal}
-        close={() => setShowModal(false)}
-        caseData={caseData}
-        detail={detail}
-        actualizar={Actualizacion}
-      />
-      }
-      {
-        rol==='Admin' &&
-      <TableTestModalAdmin
-        show={showModal}
-        close={() => setShowModal(false)}
-        caseData={caseData}
-        detail={detail}
-        actualizar={Actualizacion}
-      />
-      }
-      {
-        rol==='Perito' &&
-      <TableTestModalPerito
-        show={showModal}
-        close={() => setShowModal(false)}
-        caseData={caseData}
-        detail={detail}
-        actualizar={Actualizacion}
-      />
-      }
+      <EditModalPerito 
+      show={showModal}
+      close={() => setShowModal(false)}
+      caseData={caseData}
+      detail={detail}
+      actualizar={Actualizacion}/>
     </>
   );
 }
-export default TableResponsive;
+export default PeritosTableResponsive;
 
 
