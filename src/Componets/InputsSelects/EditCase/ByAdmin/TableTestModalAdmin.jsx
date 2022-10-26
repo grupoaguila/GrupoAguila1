@@ -77,7 +77,30 @@ const TableTestModalAdmin = (props) => {
       }
     };
   //==========  =======
-  let cases1 = Object.values(editFormInput);
+  //======= VARIABLES ==================
+  let cases = {
+    Vencimiento: editFormInput.dia + "-" + editFormInput.mes + "-" + editFormInput.año,
+    Numero: editFormInput.Numero, //num de denuncia
+    Compañia: editFormInput.Compañia.split(" ")
+      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+      .join(" "),
+    Nombre: editFormInput.Nombre.split(" ")
+      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+      .join(" "),
+    Patente: editFormInput.Patente.toLocaleUpperCase(),
+    Marca: editFormInput.Marca.split(" ")
+      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+      .join(" "),
+    direccion: editFormInput.direccion.split(" ")
+    .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+    .join(" "),
+    localidad: editFormInput.localidad,
+    celular: "+54" + editFormInput.celular,
+    estado: editFormInput.estado,
+    perito: editFormInput.perito,
+    notas: editFormInput.notas,
+  };
+  let cases1 = Object.values(cases);
   
   let body;
   if (
@@ -111,7 +134,7 @@ const TableTestModalAdmin = (props) => {
     e.preventDefault();
     
     try {
-      let edit = await updateCases(props.caseData[0].id, editFormInput);
+      let edit = await updateCases(props.caseData[0].id, cases);
   
       //  console.log('caseData[0].id',caseData[0].id)
       let peritoWhatsap = peritos.find(

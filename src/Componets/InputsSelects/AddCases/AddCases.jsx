@@ -106,7 +106,9 @@ function AddCases() {
     Marca: post.Marca.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
       .join(" "),
-    direccion: post.direccion,
+    direccion: post.direccion.split(" ")
+    .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+    .join(" "),
     localidad: post.localidad,
     celular: "+54" + post.celular,
     estado: post.estado,
