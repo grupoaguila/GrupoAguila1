@@ -130,7 +130,7 @@ const EditModalPerito = (props) => {
             <Select
             onChange={handleSelect}
             name={"rol"}
-            // options={rol}======colocar nombre de array de roles
+            // options={rol}======colocar nombre de array de rol
             placeholder="Seleccione un rol"
             styles={customStyles1}
             defaultValue={{ label:caseData?.rol, value:caseData?.rol }}
