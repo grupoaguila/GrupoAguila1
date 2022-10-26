@@ -201,7 +201,7 @@ const TableTestModal = (props) => {
                 name={"estado"}
                 options={stateCase}
                 placeholder="Estado"
-                styles={customStyles}
+                styles={customStyles1}
                 hideSelectedOptions={true}
                 defaultValue={{ label:caseData?.estado, value:caseData?.estado }}
               />

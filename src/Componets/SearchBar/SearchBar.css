@@ -9,6 +9,12 @@
   width: 3em;
   height: 3em;
 }
+
+.search-bar input{
+  margin-bottom: 1rem;
+}
+
+
 .search-bar input:invalid:not(:focus),
 .search-btn {
   cursor: pointer;
@@ -24,6 +30,7 @@
 }
 .search-bar {
   margin: auto;
+  margin-bottom: 1rem;
   padding: 1.5em;
   justify-content: center;
   max-width: 30em;
@@ -93,7 +100,7 @@
 .search-bar input:focus + .search-btn,
 .search-bar input:valid + .search-btn {
   background: #2762f3;
-  border-radius: 0 0.375em 0.375em 0;
+  border-radius: 15px;
   transform: scale(1);
 }
 .search-bar input:focus + .search-btn:before, 

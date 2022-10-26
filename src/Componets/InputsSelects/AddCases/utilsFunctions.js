@@ -9,13 +9,13 @@ export const years= range(yearNow,stopYear,1 ).map(e=>{return {value:e, label:e}
 
 export const location=['Capital', 'General Alvear', 'Godoy Cruz','Guaymallén','Junín', 'La Paz', 'Las Heras','Lavalle', 'Luján de Cuyo', 'Maipú', 'Malargüe', 'Rivadavia', 'San Carlos', 'San Martín', 'San Rafael', 'Santa Rosa', 'Tunuyán', 'Tupungato' ].map(e=>{return {value:e, label:e}})
 
-export const stateCase=['Asignado', 'Próximo a visita', 'En proceso de cotización', 'En poceso de liquidación', 'En proceso de reparación', 'Contacto erróneo', 'Pericia finalizada'].map(e=>{return {value:e, label:e}})
-//[{value:dinero, label:dinero}]
+export const stateCase=['Asignado', 'Próximo a visita', 'En proceso de cotización', 'En proceso de liquidación', 'En proceso de reparación', 'Contacto erróneo', 'Pericia finalizada'].map(e=>{return {value:e, label:e}})
+
 export const customStyles = {
     option: (provided, state) => ({
       ...provided,
       borderBottom: '1px dotted pink',
-      color: state.isSelected ? 'red' : 'blue',
+      color: state.isSelected ? '#d32f2f' : 'rgb(62, 117, 219)',
       // padding: 20,
       width:'100%'
     })}
@@ -23,7 +23,7 @@ export const customStyles1 = {
     option: (provided, state) => ({
       ...provided,
       borderBottom: '1px dotted pink',
-      color: state.isSelected ? 'red' : 'blue',
-      padding: 20,
-    //   width:'4200px'
+      color: state.isSelected ? '#d32f2f' : 'rgb(62, 117, 219)',
+      
+      width:'100%'
     })}
