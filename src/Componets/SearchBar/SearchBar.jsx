@@ -35,9 +35,9 @@ function SearchBar() {
         </button>
       </form>
       {consult.length > 0 && (
-        <div>
+        
           <Card consult={consult} />
-        </div>
+        
       )}
     </>
   );

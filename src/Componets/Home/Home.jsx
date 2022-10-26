@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import SearchBar from "../SearchBar/SearchBar";
 import EditModal from "../Modals/EditModal";
+import './Home.css'
+
 function Home() {
   let dispatch = useDispatch();
   useEffect(() => {
@@ -15,12 +17,14 @@ function Home() {
       dispatch(peritosByName());
     }, 2500);
   }, []);
+
+
   return (
-    <div>
-      <h1>Buscar como va su patente</h1>
+    <>
+      <h3 className="homeTitle">Consulta el Estado de tu caso</h3>
       <SearchBar />
       <EditModal />
-    </div>
+    </>
   );
 }
 

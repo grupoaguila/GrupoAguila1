@@ -15,7 +15,7 @@ export const customStyles = {
     option: (provided, state) => ({
       ...provided,
       borderBottom: '1px dotted pink',
-      color: state.isSelected ? 'red' : 'blue',
+      color: state.isSelected ? '#d32f2f' : 'rgb(62, 117, 219)',
       // padding: 20,
       width:'100%'
     })}
@@ -23,7 +23,7 @@ export const customStyles1 = {
     option: (provided, state) => ({
       ...provided,
       borderBottom: '1px dotted pink',
-      color: state.isSelected ? 'red' : 'blue',
-      padding: 20,
-    //   width:'4200px'
+      color: state.isSelected ? '#d32f2f' : 'rgb(62, 117, 219)',
+      
+      width:'100%'
     })}
