@@ -56,13 +56,21 @@ const EditModalPerito = (props) => {
       }
   
     };
+    let newPerito = {
+      nombre: editFormInput.nombre.split(' ')
+        .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+        .join(" "),
+      celular: "+54" + editFormInput.celular,
+      email: editFormInput.email,
+      rol: editFormInput.rol,
+    };
   //========== HANDLE SUBMIT =======
   /* console.log('editForm', editFormInput) */
   async function handleSubmit(e) {
     e.preventDefault();
     
     try {
-      let edit = await updatePeritos(props.caseData[0].id, editFormInput);
+      let edit = await updatePeritos(props.caseData[0].id, newPerito);
       
   
       //  console.log('caseData[0].id',caseData[0].id)
@@ -130,7 +138,7 @@ const EditModalPerito = (props) => {
             <Select
             onChange={handleSelect}
             name={"rol"}
-            // options={rol}======colocar nombre de array de rol
+            options={rol}
             placeholder="Seleccione un rol"
             styles={customStyles1}
             defaultValue={{ label:caseData?.rol, value:caseData?.rol }}
