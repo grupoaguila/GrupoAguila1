@@ -64,7 +64,7 @@ export const getCasesByCondition = async (value) => {
       docusFiltrado.push(doc.data());
     });
   });
-  console.log('docusFiltrado', docusFiltrado)
+  /* console.log('docusFiltrado', docusFiltrado) */
   return docusFiltrado;
 }
 export const getCasesByOptions = async (value) => {
@@ -99,7 +99,7 @@ export const getCasesByOptions = async (value) => {
       docusFiltrado.push(doc.data());
     });
   });
-  console.log('docusFiltrado', docusFiltrado)
+  /* console.log('docusFiltrado', docusFiltrado) */
   return docusFiltrado;
 }
 

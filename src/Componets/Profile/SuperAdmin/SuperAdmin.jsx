@@ -27,7 +27,7 @@ function SuperAdmin() {
   const [pending, setPending] = useState(false)
 
   const handleClick = (value) => {
-    console.log('super admin handleClick -->', value)
+    /* console.log('super admin handleClick -->', value) */
 
     if (value === 'AddCases') {
       navigate("/addCases")

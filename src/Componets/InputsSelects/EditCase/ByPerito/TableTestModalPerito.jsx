@@ -28,7 +28,7 @@ const TableTestModalPerito = (props) => {
     const  [editFormInput, setEditFormInput] = useState({});
     const dispatch = useDispatch()
     let userPerito=peritos.find(e=>e.email===emailUser).nombre
-  console.log('userPerito', userPerito);    //lo traigo por local Storage lo busco con find en peritos y saco el nombre;
+  /* console.log('userPerito', userPerito);   */  //lo traigo por local Storage lo busco con find en peritos y saco el nombre;
   useEffect(()=>{
         setEditFormInput({
             Vencimiento:caseData?.Vencimiento,
@@ -45,7 +45,7 @@ const TableTestModalPerito = (props) => {
             notas:caseData?.notas
         })
   },[props])
-  console.log("caseData", caseData);
+  /* console.log("caseData", caseData); */
 
   //========== HANDLE CHANGE =======
   function handleOnChange(e) {
@@ -108,7 +108,7 @@ const TableTestModalPerito = (props) => {
     body = ["Faltan completar Datos"];
   }
   //========== HANDLE SUBMIT =======
-  console.log('editForm', editFormInput)
+  /* console.log('editForm', editFormInput) */
   async function handleSubmit(e) {
     e.preventDefault();
     
