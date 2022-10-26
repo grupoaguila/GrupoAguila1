@@ -12,6 +12,8 @@ import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 function TableResponsive({ cases, columns, detail, title, rol }) {
   
   let dispatch= useDispatch()
+
+  //this function dispatches getPeritos(), getCases and PeritosByname
   function Actualizacion(){
     // console.log('entré en Actualizacion');
       dispatch(getPeritos())
@@ -132,7 +134,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
         close={() => setShowModal(false)}
         caseData={caseData}
         detail={detail}
-        actulizar={Actualizacion}
+        actualizar={Actualizacion}
       />
       }
       {
@@ -142,7 +144,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
         close={() => setShowModal(false)}
         caseData={caseData}
         detail={detail}
-        actulizar={Actualizacion}
+        actualizar={Actualizacion}
       />
       }
       {
@@ -152,7 +154,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
         close={() => setShowModal(false)}
         caseData={caseData}
         detail={detail}
-        actulizar={Actualizacion}
+        actualizar={Actualizacion}
       />
       }
     </>
