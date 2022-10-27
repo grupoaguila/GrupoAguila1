@@ -78,7 +78,7 @@ const TableTestModal = (props) => {
     };
     //======= VARIABLES ==================
   let cases = {
-    Vencimiento: editFormInput.dia + "-" + editFormInput.mes + "-" + editFormInput.año,
+    Vencimiento: editFormInput.Vencimiento, 
     Numero: editFormInput.Numero, //num de denuncia
     Compañia: editFormInput.Compañia?.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
@@ -92,7 +92,7 @@ const TableTestModal = (props) => {
       .join(" "),
     direccion: editFormInput.direccion?.split(" ")
     .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
-    .join(" "),
+    .join(" "), 
     localidad: editFormInput.localidad,
     celular: editFormInput.celular,
     estado: editFormInput.estado,
