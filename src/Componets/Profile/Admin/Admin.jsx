@@ -1,17 +1,12 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import TableCase from "../../Table/TableAdCase/TableCase";
-import AddModals from "../../Modals/AddModals";
-import AddCases from "../../InputsSelects/AddCases/AddCases";
 import { Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import EditModal from "../../Modals/EditModal";
+import { useNavigate } from "react-router-dom";
 import AllCases from "./TablesAlls/AllCases";
 import CompletedCases from "./TablesAlls/CompletedCases";
 import PendingCases from "./TablesAlls/PendingCases";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { GrAddCircle, GrProjects, GrTable } from "react-icons/gr";
+import { GrTable } from "react-icons/gr";
 import './Admin.css'
 
 function Admin() {
