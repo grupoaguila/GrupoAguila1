@@ -86,7 +86,7 @@ const TableTestModalAdmin = (props) => {
       .join(" "),
     Nombre: editFormInput.Nombre?.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
-      .join(" "),
+      .join(" "), 
     Patente: editFormInput.Patente?.toLocaleUpperCase(),
     Marca: editFormInput.Marca?.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))

@@ -78,7 +78,7 @@ const TableTestModal = (props) => {
     };
     //======= VARIABLES ==================
   let cases = {
-    Vencimiento: editFormInput.Vencimiento,
+    Vencimiento: editFormInput.Vencimiento, 
     Numero: editFormInput.Numero, //num de denuncia
     Compañia: editFormInput.Compañia?.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
