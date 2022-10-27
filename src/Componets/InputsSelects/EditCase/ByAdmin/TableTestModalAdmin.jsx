@@ -142,7 +142,7 @@ const TableTestModalAdmin = (props) => {
       );
     
       let body = {
-        token: "l7sc1htbsdfju8ty",
+        token: "q6zafz7gdy0ea95f",
         to: `${peritoWhatsap.celular}`,
         body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
         priority: "10",

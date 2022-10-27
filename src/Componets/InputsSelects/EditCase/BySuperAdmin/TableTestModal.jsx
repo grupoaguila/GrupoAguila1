@@ -123,16 +123,16 @@ const TableTestModal = (props) => {
       //actualiza el estado con el cambio
       props.actualizar()
       
-      // let body = {
-        //   token: "l7sc1htbsdfju8ty",
-        //   to: `${peritoWhatsap.celular}`,
-        //   body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
-        //   priority: "10",
-        // };
-        // dispatch(postWhatsapp(body));
-        //   setTimeout(() => {
-          //     props.close();
-          //   }, 4000); 
+      let body = {
+           token: "q6zafz7gdy0ea95f",
+          to: `${peritoWhatsap.celular}`,
+          body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
+          priority: "10",
+        };
+        dispatch(postWhatsapp(body));
+          setTimeout(() => {
+              props.close();
+            }, 4000); 
     } catch (error) {console.log(e)}
   }
 

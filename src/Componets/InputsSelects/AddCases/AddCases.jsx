@@ -3,35 +3,41 @@ import { useDispatch, useSelector } from "react-redux";
 import { createCase } from "../../../Controller/llamados";
 import { validate } from "./Validate";
 import FormAddCase2 from "./FormAddCase2";
-import { getCasesAction, getPeritos, peritosByName, postWhatsapp } from "../../../Store/Actions/index";
+import {
+  getCasesAction,
+  getPeritos,
+  peritosByName,
+  postWhatsapp,
+} from "../../../Store/Actions/index";
 import { Alert } from "react-bootstrap";
 //Alert notifications
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
 function AddCases() {
   const dispatch = useDispatch();
   let namePeritos1 = useSelector((state) => state.peritosByName);
   let peritos = useSelector((state) => state.peritos);
   let namePeritos = namePeritos1.map((e) => {
-    return { value: e, label: e }; 
+    return { value: e, label: e };
   });
-  function Actualizacion(){
+  function Actualizacion() {
     // console.log('entré en Actualizacion');
-      dispatch(getPeritos())
-      dispatch(getCasesAction())
-      setTimeout(()=>{ 
-        dispatch(peritosByName())
-      },2500)
-    
-
+    dispatch(getPeritos());
+    dispatch(getCasesAction());
+    setTimeout(() => {
+      dispatch(peritosByName());
+    }, 2500);
   }
 
   const [show, setShow] = useState(false);
   const [showE, setShowE] = useState(false);
   const [err, setErr] = useState({});
 
-  const [created, setCreated]= useState('')
+  const [created, setCreated] = useState("");
   const [post, setPost] = useState({
     Nombre: "",
     Compañia: "",
@@ -106,9 +112,10 @@ function AddCases() {
     Marca: post.Marca.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
       .join(" "),
-    direccion: post.direccion.split(" ")
-    .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
-    .join(" "),
+    direccion: post.direccion
+      .split(" ")
+      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
+      .join(" "),
     localidad: post.localidad,
     celular: "+54" + post.celular,
     estado: post.estado,
@@ -116,7 +123,7 @@ function AddCases() {
     notas: post.notas,
   };
   let cases1 = Object.values(cases);
-  
+
   let body;
   if (
     cases1[0] !== "" &&
@@ -158,16 +165,16 @@ function AddCases() {
         createCase(cases);
         let peritoWhatsap = peritos.find((el) => el.nombre === post.perito);
         let body = {
-          token: "l7sc1htbsdfju8ty",
+          token: "q6zafz7gdy0ea95f",
           to: `${peritoWhatsap.celular}`,
           body: `${peritoWhatsap.nombre} se te ha asignado una nueva pericia`,
           priority: "10",
         };
-        setCreated(cases.Numero)
-        setShow(true)
-        // dispatch(postWhatsapp(body));
-        NotificationManager.success('El caso fue añadido!',3000);
-        Actualizacion()
+        setCreated(cases.Numero);
+        setShow(true);
+        dispatch(postWhatsapp(body));
+        NotificationManager.success("El caso fue añadido!", 3000);
+        Actualizacion();
 
         setPost({
           Nombre: "",
@@ -185,17 +192,15 @@ function AddCases() {
           perito: "",
           notas: "",
         });
-
-       
       } catch (e) {
         console.log("error de firebase", error);
       }
     } else {
       let errorA = Object.values(error);
-      setShowE(true)
-      setErr(errorA)
+      setShowE(true);
+      setErr(errorA);
       // alert(`No se puede guardar el caso presenta el/los siguiente/s error/s:
-      //          ${errorA}    
+      //          ${errorA}
       //   `);
     }
   };
@@ -238,7 +243,7 @@ function AddCases() {
         cases={body}
         style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px" }}
       />
-      <NotificationContainer/> 
+      <NotificationContainer />
     </div>
   );
 }
