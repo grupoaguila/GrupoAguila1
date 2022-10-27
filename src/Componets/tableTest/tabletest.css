@@ -15,6 +15,9 @@
 tr:nth-child(even) {
   background-color: rgb(235, 225, 225);
 }
+tr:nth-child(odd) {
+  background-color: white
+}
 
 .editBtn:hover {
   cursor: pointer;

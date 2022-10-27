@@ -1,5 +1,4 @@
 import React from "react";
-import { textFilter } from "react-bootstrap-table2-filter";
 import EditModal from "../../Modals/EditModal";
 // import './Paginas.css'
 export const defaultSorted = [{
@@ -34,12 +33,7 @@ export const columns=[
         // sort:true,
         // grow:1.5,
         // highlightOnHover:true,
-        filter: textFilter(
-            { placeholder: 'Buscar Nombre',}
-        ),
-        classes: function callback(cell) {
-            return cell;
-          }
+        
     },
     {
         dataField:'Patente',
@@ -62,17 +56,7 @@ export const columns=[
     {
         dataField:'localidad',
         text:'Localidad',
-        filter: textFilter({
-          delay: 1000, // default is 500ms
-        //   style: {
-        //     backgroundColor: 'yellow'
-        //   },
-        //   className: 'test-classname',
-          placeholder: 'Buscar Localidad',
-          onClick: e => console.log(e)
-        })
-        // sortable:true,
-        // grow:'flex-grow'
+        
     },
     {
         dataField:'celular',
@@ -92,14 +76,7 @@ export const columns=[
     {
         dataField:'perito',
         text:'Perito',
-        filter: textFilter(
-           { placeholder: 'Buscar Perito',}
-        )
-    //     formatter: cell => selectOptions[cell],
-    // filter: selectFilter({
-    //   options: selectOptions
-    // })
-  
+        
         // sortable: true,
         // grow:'flex-grow'
     },

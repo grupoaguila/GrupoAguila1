@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import TableCase from "../../Table/TableAdCase/TableCase";
 import AddModals from "../../Modals/AddModals";
 import AddCases from "../../InputsSelects/AddCases/AddCases";
 import { Button } from "react-bootstrap";
