@@ -102,20 +102,11 @@ function AddCases() {
   let cases = {
     Vencimiento: post.dia + "-" + post.mes + "-" + post.año,
     Numero: post.Numero, //num de denuncia
-    Compañia: post.Compañia.split(" ")
-      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
-      .join(" "),
-    Nombre: post.Nombre.split(" ")
-      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
-      .join(" "),
-    Patente: post.Patente.toLocaleUpperCase(),
-    Marca: post.Marca.split(" ")
-      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
-      .join(" "),
-    direccion: post.direccion
-      .split(" ")
-      .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
-      .join(" "),
+    Compañia: post.Compañia?.split(" ").map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1)).join(" "),
+    Nombre: post.Nombre?.split(" ").map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1)).join(" "),
+    Patente: post.Patente?.toLocaleUpperCase(),
+    Marca: post.Marca?.split(" ").map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1)).join(" "),
+    direccion: post.direccion?.split(" ").map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1)).join(" "),
     localidad: post.localidad,
     celular: "+54" + post.celular,
     estado: post.estado,

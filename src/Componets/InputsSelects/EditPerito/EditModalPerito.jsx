@@ -57,10 +57,10 @@ const EditModalPerito = (props) => {
   
     };
     let newPerito = {
-      nombre: editFormInput.nombre.split(' ')
+      nombre: editFormInput.nombre?.split(' ')
         .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
         .join(" "),
-      celular: "+54" + editFormInput.celular,
+      celular: editFormInput.celular,
       email: editFormInput.email,
       rol: editFormInput.rol,
     };
@@ -95,9 +95,9 @@ const EditModalPerito = (props) => {
            priority: "10",
          };
         dispatch(postWhatsapp(body));
-          setTimeout(() => {
+         
                props.close();
-            }, 4000); 
+            
     } catch (error) {console.log(e)}
   }
 
@@ -141,7 +141,7 @@ const EditModalPerito = (props) => {
             options={rol}
             placeholder="Seleccione un rol"
             styles={customStyles1}
-            defaultValue={{ label:caseData?.rol, value:caseData?.rol }}
+            defaultValue={{ value:caseData?.rol, label:caseData?.rol }}
           />
              <Button
               variant="secondary"

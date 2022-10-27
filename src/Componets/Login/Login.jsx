@@ -64,8 +64,12 @@ function Login() {
           const token = credential.accessToken;
           // The signed-in user info.
           const user = result.user;
-         /*  console.log('user', user) */
-          if(peritos.some((el) => el.email === user.email)){
+         console.log('user', user) 
+         let userPerito1=peritos.some((el) => el.email === user.email)
+         
+         console.log('userPerito1', userPerito1);
+         console.log('Perito1', peritos);
+          if(userPerito1){
             setEmailUser(user.email)
             //GUARDAR EN EL LOCALSTORAGE USER.EMAIL
             navigate("/user");

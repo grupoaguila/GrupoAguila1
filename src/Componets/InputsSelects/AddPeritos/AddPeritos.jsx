@@ -58,7 +58,7 @@ function AddPeritos() {
   };
   //===============================================================
   let newPerito = {
-    nombre: post.nombre.split(' ')
+    nombre: post.nombre?.split(' ')
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
       .join(" "),
     celular: "+54" + post.celular,

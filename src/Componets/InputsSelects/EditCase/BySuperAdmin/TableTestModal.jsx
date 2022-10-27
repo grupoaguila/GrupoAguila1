@@ -80,21 +80,21 @@ const TableTestModal = (props) => {
   let cases = {
     Vencimiento: editFormInput.dia + "-" + editFormInput.mes + "-" + editFormInput.año,
     Numero: editFormInput.Numero, //num de denuncia
-    Compañia: editFormInput.Compañia.split(" ")
+    Compañia: editFormInput.Compañia?.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
       .join(" "),
-    Nombre: editFormInput.Nombre.split(" ")
+    Nombre: editFormInput.Nombre?.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
       .join(" "),
-    Patente: editFormInput.Patente.toLocaleUpperCase(),
-    Marca: editFormInput.Marca.split(" ")
+    Patente: editFormInput.Patente?.toLocaleUpperCase(),
+    Marca: editFormInput.Marca?.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
       .join(" "),
-    direccion: editFormInput.direccion.split(" ")
+    direccion: editFormInput.direccion?.split(" ")
     .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
     .join(" "),
     localidad: editFormInput.localidad,
-    celular: "+54" + editFormInput.celular,
+    celular: editFormInput.celular,
     estado: editFormInput.estado,
     perito: editFormInput.perito,
     notas: editFormInput.notas,
@@ -130,9 +130,9 @@ const TableTestModal = (props) => {
           priority: "10",
         };
         dispatch(postWhatsapp(body));
-          setTimeout(() => {
+         
               props.close();
-            }, 4000); 
+           
     } catch (error) {console.log(e)}
   }
 
