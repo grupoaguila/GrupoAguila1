@@ -92,7 +92,7 @@ const TableTestModal = (props) => {
       .join(" "),
     direccion: editFormInput.direccion?.split(" ")
     .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
-    .join(" "),
+    .join(" "), 
     localidad: editFormInput.localidad,
     celular: editFormInput.celular,
     estado: editFormInput.estado,
