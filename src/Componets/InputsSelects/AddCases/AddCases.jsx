@@ -165,7 +165,7 @@ function AddCases() {
         };
         setCreated(cases.Numero)
         setShow(true)
-        // dispatch(postWhatsapp(body));
+        dispatch(postWhatsapp(body));
         NotificationManager.success('El caso fue añadido!',3000);
         Actualizacion()
 
