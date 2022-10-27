@@ -88,16 +88,16 @@ const EditModalPerito = (props) => {
       //actualiza el estado con el cambio
       props.actualizar()
       
-      let body = {
+       let body = {
           token: "fqrd6b8ibptedwrf",
           to: `${peritoWhatsap.celular}`,
-          body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
-          priority: "10",
-        };
+           body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
+           priority: "10",
+         };
         dispatch(postWhatsapp(body));
-        //   setTimeout(() => {
-          //     props.close();
-          //   }, 4000); 
+         
+               props.close();
+            
     } catch (error) {console.log(e)}
   }
 
