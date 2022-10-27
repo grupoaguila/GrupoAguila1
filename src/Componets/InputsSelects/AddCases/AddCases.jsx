@@ -165,7 +165,7 @@ function AddCases() {
         createCase(cases);
         let peritoWhatsap = peritos.find((el) => el.nombre === post.perito);
         let body = {
-          token: "q6zafz7gdy0ea95f",
+          token: "fqrd6b8ibptedwrf",
           to: `${peritoWhatsap.celular}`,
           body: `${peritoWhatsap.nombre} se te ha asignado una nueva pericia`,
           priority: "10",

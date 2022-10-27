@@ -97,7 +97,7 @@ function AddPeritos() {
         await createPer(newPerito);
         let peritoWhatsap = newPerito;
         let body = {
-          token: "q6zafz7gdy0ea95f",
+          token: "fqrd6b8ibptedwrf",
           to: `${peritoWhatsap.celular}`,
           body: `${peritoWhatsap.nombre} ya puedes registrarte en el sistema`,
           priority: "10",
