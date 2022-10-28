@@ -1,7 +1,7 @@
 import { getAuth, signOut } from "firebase/auth";
 import firebaseApp from "../../Credentials/Index";
 import Container from "react-bootstrap/Container";
-
+import Login from "../Login/Login"
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { BsFillPersonCheckFill } from "react-icons/bs";
@@ -44,7 +44,7 @@ function NavScrollExample() {
                 <NavLink to="/servicios">Servicios</NavLink>
               </div> */}
               <div className="navBarLinks">
-                <NavLink to="/user">Usuarios</NavLink>
+                <NavLink to="/servicios">Servicios</NavLink>
               </div>
               <div className="navBarLinks">
                 <NavLink to="/contacto">Contacto</NavLink>
@@ -63,7 +63,7 @@ function NavScrollExample() {
                 </>
               ) : (
                 <div className="navBarLinks">
-                  <NavLink to="/login">Iniciar Sesión</NavLink>
+                  <NavLink to="/user">< Login /></NavLink>
                 </div>
               )}
             </div>
