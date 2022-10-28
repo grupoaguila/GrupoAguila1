@@ -1,5 +1,5 @@
 import React from "react";
-import { textFilter } from "react-bootstrap-table2-filter";
+
 import EditModal from "../../Modals/EditModal";
 // import './Paginas.css'
 export const defaultSorted = [{

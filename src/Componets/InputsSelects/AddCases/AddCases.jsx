@@ -154,6 +154,7 @@ function AddCases() {
     if (Object.keys(error).length === 0) {
       try {
         createCase(cases);
+      
         let peritoWhatsap = peritos.find((el) => el.nombre === post.perito);
         let body = {
           token: "fqrd6b8ibptedwrf",
@@ -161,6 +162,14 @@ function AddCases() {
           body: `${peritoWhatsap.nombre} se te ha asignado una nueva pericia`,
           priority: "10",
         };
+        let bodyMsgAsegurado= {
+          token: "fqrd6b8ibptedwrf",
+          to: `${cases.celular}`,
+          body: `${cases.Nombre} le informamos que su caso ya ha sido asignado a nuestro perito.
+          Para mayor información ingrese a nuestra página https://www.grupoaguilasrl.com`,
+          priority: "10",
+
+        }
         setCreated(cases.Numero);
         setShow(true);
         dispatch(postWhatsapp(body));

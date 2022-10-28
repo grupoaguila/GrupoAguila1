@@ -87,7 +87,7 @@ const TableTestModalPerito = (props) => {
   Numero: editFormInput.Numero, //num de denuncia
   Compañia: editFormInput.Compañia?.split(" ")
     .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
-    .join(" "),
+    .join(" "),  
   Nombre: editFormInput.Nombre?.split(" ")
     .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
     .join(" "),
