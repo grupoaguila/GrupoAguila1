@@ -15,9 +15,6 @@ function Card({consult}) {
 }, [])
 
 
-  
-
-  
     return (
     <>
         {
@@ -25,6 +22,8 @@ function Card({consult}) {
             <img src={car} alt="Cargando" width="350px" />
           ): 
           <div className='cardHomeContainer'> 
+          <div className="parrafosContainer">
+
               <p className='parrafosCardHome'><span>Asegurado:</span> <strong>{consult[0].Nombre}</strong>
               </p>
               <p className='parrafosCardHome'><span>Patente:</span>  {consult[0].Patente}</p>
@@ -34,6 +33,7 @@ function Card({consult}) {
               </p>
               
               <p className='parrafosCardHome'><span>El Perito encargado es: </span>{consult[0].perito}</p>
+          </div>
           </div>
         }
 
