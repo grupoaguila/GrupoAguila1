@@ -11,6 +11,8 @@ import {
   signInWithRedirect,
   signInWithPopup,
 } from "firebase/auth";
+import { auth, provider } from "../../Credentials/index";
+import * as C from "./styles";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
@@ -52,51 +54,65 @@ function Login() {
   //   }
   // }
 
- const submitHandlerGoogle = (e) => {
-    /* console.log('e.target', e.target) */
-    let booll = peritos.some((el) => el.email === "email");
+//  const submitHandlerGoogle = (e) => {
+//     /* console.log('e.target', e.target) */
+//     let booll = peritos.some((el) => el.email === "email");
 
-    try {
-      signInWithPopup(auth, googleProvider).then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        // const credential = GoogleAuthProvider.credentialFromResult(result);
-        // console.log(credential)
-        // const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-        console.log("user", user);
-        let userPerito1 = peritos.some((el) => el.email === user.email);
+//     try {
+//       signInWithPopup(auth, googleProvider).then((result) => {
+//         // This gives you a Google Access Token. You can use it to access the Google API.
+//         // const credential = GoogleAuthProvider.credentialFromResult(result);
+//         // console.log(credential)
+//         // const token = credential.accessToken;
+//         // The signed-in user info.
+//         const user = result.user;
+//         console.log("user", user);
+//         let userPerito1 = peritos.some((el) => el.email === user.email);
 
-        //  console.log('userPerito1', userPerito1);
-        //  console.log('Perito1', peritos);
-        if (userPerito1) {
-          setEmailUser(user.email);
-          //GUARDAR EN EL LOCALSTORAGE USER.EMAIL
-          navigate("/");
-        } else {
-          alert("comuniquese con su administrador");
-        }
-        // ...
-      });
-    } catch (error) {
-      return alert("comuniquese con su administrador");
-    }
+//         //  console.log('userPerito1', userPerito1);
+//         //  console.log('Perito1', peritos);
+//         if (userPerito1) {
+//           setEmailUser(user.email);
+//           //GUARDAR EN EL LOCALSTORAGE USER.EMAIL
+//           navigate("/");
+//         } else {
+//           alert("comuniquese con su administrador");
+//         }
+//         // ...
+//       });
+//     } catch (error) {
+//       return alert("comuniquese con su administrador");
+//     }
+//   };
+  
+  
+
+
+
+  const handleSignin = () => {
+    auth.signInWithPopup(provider).catch(alert);
   };
-
   return (
-    <div className="social-icons">
-      <Button
-        variant="primary"
-        type="submit"
-        onClick={(e) => submitHandlerGoogle(e)}
-        className="social-login__icon fab fa-instagram"
-        style={{ fontSize: "12px", backgroundColor: "blue" }}
-      >
-        Iniciar Sesion
-      </Button>
-    </div>
+    <C.Container>
+      <C.Button onClick={handleSignin}>Login com Google</C.Button>
+    </C.Container>
   );
-}
+
+
+//   return (
+//     <div className="social-icons">
+//       <Button
+//         variant="primary"
+//         type="submit"
+//         onClick={(e) => submitHandlerGoogle(e)}
+//         className="social-login__icon fab fa-instagram"
+//         style={{ fontSize: "12px", backgroundColor: "blue" }}
+//       >
+//         Iniciar Sesion
+//       </Button>
+//     </div>
+//   );
+// }
 
 export default Login;
 
