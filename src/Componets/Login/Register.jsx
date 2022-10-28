@@ -6,7 +6,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
-import "./Login.css";
+
 const auth = getAuth(firebaseApp);
 
 function Register() {

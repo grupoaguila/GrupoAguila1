@@ -48,10 +48,7 @@ tr:nth-child(odd) {
 
 @media screen and (max-width: 1094px) {
 
-  /*
-      Force table elements to not behave like tables anymore
-      Hide table headers (but not display: none;, for accessibility)
-    */
+ 
   .editBtn {
     width: 20%;
     text-align: center;
@@ -89,7 +86,7 @@ tr:nth-child(odd) {
   }
 
   .responsiveTable td.pivoted {
-    /* Behave like a "row" */
+    
     border: none !important;
     position: relative;
     padding-left: calc(50% + 10px) !important;
@@ -99,11 +96,11 @@ tr:nth-child(odd) {
   }
 
   .responsiveTable td .tdBefore {
-    /* Now like a table header */
+    
     position: absolute;
     display: block;
 
-    /* Top/left values mimic padding */
+    
     left: 1rem;
     width: calc(50% - 20px);
     white-space: pre-wrap;

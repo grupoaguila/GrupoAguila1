@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import firebaseApp from "../../Credentials/Index";
-import "./Login.css";
-import profile from "../../assets/a.png"; 
-
 import { Button } from "react-bootstrap";
 import {
   getAuth,
@@ -39,17 +36,7 @@ function Login() {
     signInWithEmailAndPassword(auth, email, password);
   }
  
-  // async function submitHandler(e) {
-  //   e.preventDefault();
-  //   let booll = peritos.some((el) => el.email === "email");
-  //   if (booll) {
-  //     const email = e.target.elements.email.value;
-  //     const password = e.target.elements.password.value;
-  //     // const correo = document.getElementById("formCorreo").value;
-  //     // const contra = e.target.formContra.value;
-  //     await loginEmailPassword(email, password);
-  //   }
-  // }
+
 
   const submitHandlerGoogle = (e) => {
     /* console.log('e.target', e.target) */
@@ -85,6 +72,7 @@ function Login() {
     
   };
 
+  
   return (
     <div className="body">
       <div className="contenedor">
