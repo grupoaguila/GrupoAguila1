@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import firebaseApp from "../../Credentials/Index";
-import "./Login.css";
+
 import profile from "../../assets/a.png"; 
 
 import { Button } from "react-bootstrap";
