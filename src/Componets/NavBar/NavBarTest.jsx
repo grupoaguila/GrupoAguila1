@@ -4,13 +4,24 @@ import Container from "react-bootstrap/Container";
 import Login from "../Login/Login"
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { BsFillPersonCheckFill } from "react-icons/bs";
+
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo2.png";
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+import { BsTable } from "react-icons/bs";
 import "./NavBarTest.css";
 const auth = getAuth(firebaseApp);
 
 function NavScrollExample() {
+
+  //overlay
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Consulta Tablas
+    </Tooltip>
+  );
+
   const navigate = useNavigate();
   const emailUser = JSON.parse(localStorage.getItem("emailUser"));
   function closeSession() {
@@ -19,6 +30,8 @@ function NavScrollExample() {
     let path = "/";
     navigate(path);
   }
+
+
   return (
     <Navbar className="navBarContainer" expand="lg">
       <Container fluid>
@@ -31,7 +44,7 @@ function NavScrollExample() {
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "200px" }}
-            //navbarScroll
+          //navbarScroll
           >
             <div className="listNavBar">
               <div className="navBarLinks">
@@ -52,14 +65,24 @@ function NavScrollExample() {
 
               {emailUser ? (
                 <>
+
+                  <OverlayTrigger
+                    placement="bottom"
+                    delay={{ show: 150, hide: 500 }}
+                    overlay={renderTooltip}
+                  >
+                    <div className="navBarLinks">
+                      <NavLink to="/user">
+                        <BsTable />
+                      </NavLink>
+                    </div>
+                  </OverlayTrigger>
+
                   <div className="navBarLinks">
-                    <NavLink to="/user">
-                      <BsFillPersonCheckFill />
-                      <NavLink to="/" onClick={closeSession}>Cerrar sesion</NavLink>
-                    </NavLink>
+                    <NavLink to="/" onClick={closeSession}>Cerrar sesion</NavLink>
                   </div>
 
-              
+
                 </>
               ) : (
                 <div className="navBarLinks">
