@@ -21,7 +21,7 @@
 .navBarLinks svg {
     width: 1.5em;
     height: 1.5em;
-    margin-right: 0.5em;
+    
 }
 .listNavBar:hover{
     
@@ -52,6 +52,7 @@
         margin-left: 2rem;
         
     }
+   
 }
 
 @media screen and (max-width: 720px) {
@@ -63,5 +64,6 @@
         margin-left: -2rem;
         
     }
+   
 }
 
