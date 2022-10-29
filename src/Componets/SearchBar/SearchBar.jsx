@@ -16,15 +16,17 @@ function SearchBar() {
     e.preventDefault();
     setPatents(e.target.value);
   };
- 
+  
+  console.log('patents1', patents)
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-
-    const doc = await getCasesByCondition(patents);
+    let patents1= patents.toUpperCase().trim()
+    const doc = await getCasesByCondition(patents1);
     setConsult(doc);
     setPatents("");
   };
-
+  
+  console.log('doc', consult)
   return (
     <>
       <form action="" className="search-bar" onSubmit={handleSubmit}>

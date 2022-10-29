@@ -43,7 +43,7 @@ export const columns=[
     },
     {
         dataField: 'Marca',
-        text:'Modelo',
+        text:'Marca/Modelo',
         sortable:false,
         // grow:'flex-grow'
     },
@@ -90,6 +90,12 @@ export const columns=[
     {
         dataField:'notas',
         text:'Notas Extras',
+        // sortable: false,
+        // grow:'flex-grow'
+    },
+    {
+        dataField:'Taller',
+        text:'Repuestos/taller',
         // sortable: false,
         // grow:'flex-grow'
     },

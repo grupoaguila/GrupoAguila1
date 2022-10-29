@@ -6,6 +6,9 @@ import './CardHome.css'
 function Card({ consult, clearConsult }) {
   const [loader, setLoader] = useState(false)
   const dispatch = useDispatch()
+  const peritos=useSelector(states=>states.peritos)
+  const infoPerito= peritos.filter(e=>e.nombre===consult[0].perito)
+  console.log(infoPerito)
 
   useEffect(() => {
     setLoader(true)
@@ -30,7 +33,6 @@ function Card({ consult, clearConsult }) {
               <button className='cardCloseButton' onClick={() => clearConsult()}>X</button>
 
               <p className='parrafosCardHome'><span>Patente:</span>  {consult[0].Patente}</p>
-              <p className='parrafosCardHome'><span>Telefono:</span>  {consult[0].celular}</p>
               <p className='parrafosCardHome'><span>Aseguradora:</span>  {consult[0].Compañia}</p>
 
               <p className='parrafosCardHome'><span>Estado del caso: </span>
@@ -39,7 +41,9 @@ function Card({ consult, clearConsult }) {
               </p>
 
               <p className='parrafosCardHome'><span>El Perito encargado es: </span>{consult[0].perito}</p>
+              <p className='parrafosCardHome'><span>Telefono:</span>  {infoPerito[0].celular}</p>
               <p className='parrafosCardHome'><span>Notas Extras:</span>  {!consult[0].notas ? "Sin Completar" : consult[0].notas}</p>
+              <p className='parrafosCardHome'><span>Repuestos/Taller</span> "Sin Completar" </p>
             </div>
           </div>
       }

@@ -43,7 +43,7 @@ export const columns=[
     },
     {
         dataField: 'Marca',
-        text:'Modelo',
+        text:'Marca/Modelo',
         sortable:false,
         // grow:'flex-grow'
     },
