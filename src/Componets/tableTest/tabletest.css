@@ -64,11 +64,7 @@ tr:nth-child(odd) {
   left: 0;
 }
 
-.table-wrapper table thead th,
-.table-wrapper table tbody td {
-  border: 1px solid #000;
-  background-color: rgb(50, 80, 191);
-}
+
 
 @media screen and (max-width: 1027px) {
 
