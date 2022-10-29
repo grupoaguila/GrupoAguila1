@@ -20,11 +20,15 @@ function Home() {
 
 
   return (
-    <>
-      <h3 className="homeTitle">Consulta el Estado de tu caso</h3>
-      <SearchBar />
-      <EditModal />
-    </>
+    <div className="homeContainer">
+      <div className="homeSecondContainer">
+
+        <h3 className="homeTitle">Consulta el Estado de tu caso</h3>
+        <SearchBar />
+        <EditModal />
+
+      </div>
+    </div>
   );
 }
 

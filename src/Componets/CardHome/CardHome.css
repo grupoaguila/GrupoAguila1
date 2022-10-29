@@ -1,22 +1,53 @@
 .cardHomeContainer{
-    
     display: flex;
     margin-bottom: 2rem;
     text-align: center;
     flex-direction: column;
     align-items: center;
+    padding: 0.5rem;
+    
+   
+}
+.parrafosContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    border-radius: 15px;
+    background-color: #ced4da;
 }
              
-.parrafosCardHome{
-    
-    width: 60%;
+.parrafosContainer .parrafosCardHome {
+    margin-bottom: 0px;
     font-family: sans-serif;
-    font-size: 18px;
-
+    font-size: 18px; 
+    padding: 0px 0.8rem; 
 }
+.parrafosContainer .parrafosCardHome:first-child {
+    padding-top: 0.8rem;  
+}
+.parrafosContainer .parrafosCardHome:last-child {
+    padding-bottom: 0.8rem;  
+}
+
 .parrafosCardHome span{
     color: rgb(29, 86, 192);
 }
 .parrafosCardHome .ended{
     color: green;
+}
+
+
+
+.cardCloseButton{
+    border-radius: 15px;
+    border: none;
+    margin: 0.3rem;
+    background-color: #ced4da;
+    position: absolute;
+    right: 10px;
+
+}
+.cardCloseButton:hover{
+    background-color: white;
 }

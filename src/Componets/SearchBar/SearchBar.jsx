@@ -6,6 +6,12 @@ import "./SearchBar.css";
 function SearchBar() {
   const [consult, setConsult] = useState([]);
   const [patents, setPatents] = useState("");
+
+  function clearConsult(){
+    setConsult([]);
+  }
+
+
   const handleChange = (e) => {
     e.preventDefault();
     setPatents(e.target.value);
@@ -36,7 +42,7 @@ function SearchBar() {
       </form>
       {consult.length > 0 && (
         
-          <Card consult={consult} />
+          <Card consult={consult} clearConsult={clearConsult} />
         
       )}
     </>

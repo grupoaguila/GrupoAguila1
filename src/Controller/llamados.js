@@ -67,6 +67,8 @@ export const getCasesByCondition = async (value) => {
   /* console.log('docusFiltrado', docusFiltrado) */
   return docusFiltrado;
 }
+
+
 export const getCasesByOptions = async (value) => {
     // const colRef = collection(db, 'Casos');
     // const result = await getDocs(query(colRef, where('Patente', '==', value)));
