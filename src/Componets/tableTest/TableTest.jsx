@@ -84,6 +84,8 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
           <h3 className="tableTitle">{title}</h3>
 
           {/* Table */}
+          <div className="table-wrapper">
+
           <Table>
             <Thead>
               <Tr>
@@ -98,10 +100,10 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
             <Tbody>
               {casesFiltered.map(
                 (el) =>
-                  // Patente is a notnull field meaning that an empty register won't be allowed.
-
-                  el.Patente && (
-                    <Tr>
+                // Patente is a notnull field meaning that an empty register won't be allowed.
+                
+                el.Patente && (
+                  <Tr>
                       {columns2.map((c) => {
                         let y = el[c];
                         return (
@@ -115,7 +117,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                         <div
                           className="editBtn"
                           onClick={() => showModalEdit(el.id)}
-                        >
+                          >
                           <TbEdit />
                         </div>
                       </Td>
@@ -124,38 +126,39 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
               )}
             </Tbody>
           </Table>
+      </div>
         </>
       )}
       {/* Modal rendering */}
       {
         rol==='superAdmin' &&
-      <TableTestModal
+        <TableTestModal
         show={showModal}
         close={() => setShowModal(false)}
         caseData={caseData}
         detail={detail}
         actualizar={Actualizacion}
-      />
+        />
       }
       {
         rol==='Admin' &&
       <TableTestModalAdmin
-        show={showModal}
-        close={() => setShowModal(false)}
-        caseData={caseData}
-        detail={detail}
-        actualizar={Actualizacion}
+      show={showModal}
+      close={() => setShowModal(false)}
+      caseData={caseData}
+      detail={detail}
+      actualizar={Actualizacion}
       />
-      }
+    }
       {
         rol==='Perito' &&
-      <TableTestModalPerito
+        <TableTestModalPerito
         show={showModal}
         close={() => setShowModal(false)}
         caseData={caseData}
         detail={detail}
         actualizar={Actualizacion}
-      />
+        />
       }
     </>
   );
