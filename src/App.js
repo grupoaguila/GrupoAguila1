@@ -12,6 +12,7 @@ import AddPeritos from "./Componets/InputsSelects/AddPeritos/AddPeritos";
 import TableTest from "./Componets/tableTest/TableTest";
 import { PrivateRoute } from "./PrivateRutes";
 import Login from "./Componets/Login/Login";
+import Footer from "./Componets/Footer/Footer";
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
         {/* <Route path="/tabletest" element={<TableTest />} /> */}
       </Routes>
       </div>
+      <Footer/>
     </div>
   );
 }
