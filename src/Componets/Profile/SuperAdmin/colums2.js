@@ -95,7 +95,7 @@ export const columns=[
     },
     {
         dataField:'Taller',
-        text:'Repuestos/taller',
+        text:'Repuestos/Taller',
         // sortable: false,
         // grow:'flex-grow'
     },
