@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from "react-router-dom";
 import { CDBFooter, CDBBtn, CDBIcon,CDBBox} from 'cdbreact';
 import LogoEagle from '../../assets/BN.png';
-import './Footer.css'
+
 
 function Footer() {
 
