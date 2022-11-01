@@ -1,0 +1,44 @@
+
+
+.mainCarousel{
+    width:40%;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+} 
+.carousel-inner{
+    border-radius: 20px;
+    
+}
+
+.carouselTitleCompanies{
+    margin-top: 1.5rem;
+    border: 2px solid rgb(56 45 44);
+    background-color: #dee2e6d4;
+    border-radius: 20px;
+    /* color: rgb(61, 61, 196); */
+    padding: 13px;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .mainCarousel.carousel{
+        width: 70%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;    
+    } 
+}
+
+@media screen and (max-width: 720px) {
+    .mainCarousel.carousel{
+        width: 90%;
+        margin-top: 1rem;
+        margin-bottom: 0;    
+    } 
+}
