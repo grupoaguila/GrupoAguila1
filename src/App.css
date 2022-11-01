@@ -3,11 +3,11 @@
   min-height: 100vh;
   background-color: #ebebeb;
  
+  background: url('./assets/BN.png') no-repeat center center;
+  background-size: contain;
 
 }
 .mainRoutesContainer{
-  background: url('./assets/BN.png') no-repeat center center;
-  background-size: contain;
   min-height: 100vh;
   margin-top: 1rem;
 }
