@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import SearchBar from "../SearchBar/SearchBar";
 import EditModal from "../Modals/EditModal";
+import CarouselComponent from "../Carousel/CarouselComponent";
 import './Home.css'
 
 function Home() {
@@ -26,8 +27,8 @@ function Home() {
         <h3 className="homeTitle">Consulta el Estado de tu caso</h3>
         <SearchBar />
         <EditModal />
-
       </div>
+        <CarouselComponent/>
     </div>
   );
 }
