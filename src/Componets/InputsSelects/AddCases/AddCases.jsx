@@ -53,6 +53,7 @@ function AddCases() {
     localidad: "",
     perito: "",
     notas: "",
+    taller:""
   });
   //======= HANDLE CHANGE ==================
   const handleChange = (e) => {
@@ -112,6 +113,7 @@ function AddCases() {
     estado: post.estado,
     perito: post.perito,
     notas: post.notas,
+    taller:post.taller
   };
   let cases1 = Object.values(cases);
 
@@ -191,6 +193,7 @@ function AddCases() {
           localidad: "",
           perito: "",
           notas: "",
+          taller: ""
         });
       } catch (e) {
         console.log("error de firebase", error);
@@ -215,6 +218,7 @@ function AddCases() {
             fontSize: "20px",
             display: "flex",
             justifyContent: "space-between",
+          
           }}
         >
           <Alert
@@ -241,7 +245,7 @@ function AddCases() {
         post={post}
         namePeritos={namePeritos}
         cases={body}
-        style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px" }}
+        style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px",   backgroundColor:"opacity" }}
       />
       <NotificationContainer />
     </div>

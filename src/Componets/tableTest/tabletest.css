@@ -54,7 +54,7 @@ tr:nth-child(odd) {
 
 .table-wrapper {
   width: 100%;
-  height: 400px;
+  height: 565px;
   overflow: auto;
   background-color: #4e5856b0;
   border: 2px rgb(87, 83, 83) solid;

@@ -42,7 +42,8 @@ const TableTestModalPerito = (props) => {
             celular:caseData?.celular,
             estado:caseData?.estado,
             perito:caseData?.perito,
-            notas:caseData?.notas
+            notas:caseData?.notas,
+            taller:caseData?.taller
         })
   },[props])
   /* console.log("caseData", caseData); */
@@ -103,6 +104,7 @@ const TableTestModalPerito = (props) => {
   estado: editFormInput.estado,
   perito: editFormInput.perito,
   notas: editFormInput.notas,
+  taller: editFormInput.taller
 };
   let cases1 = Object.values(cases);
   
@@ -203,6 +205,14 @@ const TableTestModalPerito = (props) => {
               placeholder={`Notas: ${props.caseData[0]?.notas}`}
               name="notas"
               value={editFormInput.notas}
+              onChange={handleOnChange}
+            />
+            <br />
+            <Form.Control
+              type="text"
+              placeholder={`Repuestos/Taller: ${props.caseData[0]?.taller}`}
+              name="taller"
+              value={editFormInput.taller}
               onChange={handleOnChange}
             />
             <br />

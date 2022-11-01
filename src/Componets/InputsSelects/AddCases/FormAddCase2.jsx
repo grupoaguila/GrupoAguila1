@@ -36,7 +36,7 @@ function FormAddCase2({
       </div>
       
       <Form
-        style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "5%" }}
+        style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "5%", backgroundColor:"opacity" }}
       >
         {/* Número de Denuncia */}
         <FloatingLabel
@@ -208,6 +208,20 @@ function FormAddCase2({
             styles={customStyles1}
           />
         </Form.Group>
+        <FloatingLabel
+            controlId="floatingInput"
+            label="Repuestos/Taller"
+            className="mb-3"
+            required
+          >
+            <Form.Control
+              type="text"
+              placeholder="name@example.com"
+              name="taller"
+              value={post.taller}
+              onChange={handleChange}
+            />
+          </FloatingLabel>
 
         <AddModals
           body={cases}
