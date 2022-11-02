@@ -52,7 +52,7 @@ function App() {
         {/* <Route path="/tabletest" element={<TableTest />} /> */}
       </Routes>
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }
