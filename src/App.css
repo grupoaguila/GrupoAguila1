@@ -4,7 +4,7 @@
   background-color: #ebebeb;
  
   background: url('./assets/BN.png') no-repeat center center;
-  background-size: contain;
+  background-size: cover;
 
 }
 .mainRoutesContainer{
