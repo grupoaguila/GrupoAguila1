@@ -49,7 +49,7 @@
     box-shadow: var(--smboxShadow);
     top: 2rem;
     background: white;
-    border: 5px solid #7a0014;
+    border: 5px solid #d51111;;
     /* darkMode */
     z-index: 2;
   }
@@ -75,6 +75,7 @@
   .w-mainCircle > :nth-child(5) {
     left: 6rem;
     top: 13rem;
+    width: 10rem; /*This is in order to fit the content of this child*/
   }
   .w-secCircle {
     width: 9rem;
@@ -88,6 +89,9 @@
     background: "none";
     box-shadow: var(--smboxShadow);
     background: white;
+  }
+  .w-secCircle span{
+    padding: 0.4rem;
   }
   
   .w-secCircle > img {
@@ -108,7 +112,7 @@
     top: 0rem;
   }
   .yellowCircle {
-    background: #7a0014;
+    background: #d51111;
     left: 18rem;
     top: 8rem;
   }
@@ -134,4 +138,14 @@
       left: 8rem!important;
     }
   
+  }
+
+  @media screen and (max-width: 320px) {
+    .works {
+      gap: 2rem;
+    }
+    .w-right {
+      transform: scale(0.5);
+    }
+
   }
