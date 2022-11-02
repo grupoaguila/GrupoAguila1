@@ -1,6 +1,10 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
-import ImagenAguila from '../../assets/logo.jpeg'
+import ImagenAguila from '../../assets/bqb.png'
+import metal from '../../assets/metal.jpeg'
+import rio from '../../assets/rio.png'
+import triunfo from '../../assets/triunfo.png'
+
 import './carousel.css'
 
 function CarouselComponent() {
@@ -13,6 +17,7 @@ function CarouselComponent() {
         className="d-block w-100"
         src={ImagenAguila}
         alt="First slide"
+        width= "250px"
       />
       <Carousel.Caption>
         <h5>First slide label</h5>
@@ -22,8 +27,9 @@ function CarouselComponent() {
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src={ImagenAguila}
+        src={rio}
         alt="Second slide"
+        width= "250px"
       />
       <Carousel.Caption>
         <h5>Second slide label</h5>
@@ -33,8 +39,24 @@ function CarouselComponent() {
     <Carousel.Item>
       <img
         className="d-block w-100"
-        src={ImagenAguila}
+        src={metal}
         alt="Third slide"
+        width= "250px"
+      />
+      <Carousel.Caption>
+        <h5>Third slide label</h5>
+        <p>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+        </p>
+      </Carousel.Caption>
+    </Carousel.Item>
+    <Carousel.Item>
+      <img
+        className="d-block w-100"
+        src={triunfo}
+        alt="Third slide"
+        width= "250px"
+        height= '250px'
       />
       <Carousel.Caption>
         <h5>Third slide label</h5>

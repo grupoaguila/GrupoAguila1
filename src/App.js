@@ -14,6 +14,7 @@ import { PrivateRoute } from "./PrivateRutes";
 import Login from "./Componets/Login/Login";
 import Footer from "./Componets/Footer/Footer";
 import FooterV2 from "./Componets/Footer/FooterV2";
+import Services from "./Componets/Services/Services";
 
 
 function App() {
@@ -25,8 +26,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/user" element={<Users />} >
-
+        <Route path="/user" element={<Users />} />
+        <Route path="/servicios" element={<Services />} >
         </Route>
         <Route
           path="/addPerito"
