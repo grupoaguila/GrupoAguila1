@@ -42,7 +42,7 @@ function Contacto() {
               </div>
               <div className="row">
                 <div className="col-md-12 form-group">
-                  <input type="submit" value="Send Message" className="btn btn-primary rounded-0 py-2 px-4" />
+                  <input type="submit" value="Enviar" className="btn btn-primary rounded-0 py-2 px-4" />
                   <span className="submitting"></span>
                 </div>
               </div>
@@ -58,15 +58,23 @@ function Contacto() {
         <div className="col-md-4">
           <div className="contact-info h-100">
             <h3>Información de Contacto </h3>
-            <p className="mb-5">Somor ¡Grupo Águila! expertos en Pericias y damos soluciones en el menor tiempo posible</p>
-            <ul className="list-unstyled">
+            <p className="mb-5">
+                  Somos ¡Grupo Águila! una empresa joven, pero con vasta
+                  experiencia en el área de Siniestros y resolución de
+                  conflictos.
+                </p>
+                <p >
+                  Si tienes alguna duda o sugerencia puedes enviárnosla llenando
+                  el formulario.{" "}
+                </p>
+             <ul className="list-unstyled">
               <li className="d-flex">
                 <span className="wrap-icon icon-room mr-3"></span>
-                <span className="text">Estamos en Calle mendoza y entre ríos  625</span>
+                <span className="text">{/* Direccion aca */}</span>
               </li>
               <li className="d-flex">
                 <span className="wrap-icon icon-phone mr-3"></span>
-                <span className="text">+54 999999999999</span>
+                <span className="text">{/* Telefono aca */}</span>
               </li>
               <li className="d-flex">
                 <span className="wrap-icon icon-envelope mr-3"></span>
