@@ -13,27 +13,16 @@
   /* background: #d32f2f; */
 }
 .tdEditConditional {
-  border: 1px black solid;
+  border: 1px black solid !important;
   padding-left: 5px;
   padding-right: 5px;
-  background-color: #d32f2f;
-}
-
-<<<<<<< HEAD
-.claseDeprueba{
-  background-color: red;
-  border: 1px black solid;
-  padding-left: 5px;
-  padding-right: 5px;
+  background-color: #d32f2f62!important;
 }
 
 
 tr:nth-child(odd) {
   background-color: white;
 }
-=======
-
->>>>>>> d7f2ad12efc49ffbddd2fffd3c2f47785ae706a2
 tr:nth-child(even) {
   background-color: rgb(235, 225, 225);
 }
@@ -96,8 +85,6 @@ tr:nth-child(odd) {
 
 
 @media screen and (max-width: 1027px) {
- 
- 
  
   .editBtn {
     width: 20%;
@@ -167,10 +154,6 @@ tr:nth-child(odd) {
    overflow:hidden;
   
   }
-
-
-
-
 
 
 }

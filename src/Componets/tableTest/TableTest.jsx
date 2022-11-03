@@ -24,6 +24,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
 
 
   }
+
   //filter
   const [filter, setFilter] = React.useState("");
 
@@ -35,7 +36,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
   const columns2 = columns.map((el) => {
     return el.dataField;
   });
-  //   console.log("columns1", columns1);
+ 
 
   //Modal Form data
   const [caseData, setCaseData] = React.useState([]);
@@ -64,12 +65,10 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
     );
   }
 
+
+  //logica de tabla segun venimiento
   let date = new Date();
-
-  console.log(date.getDay())
-
-  const [background, setBackground] = React.useState("tdEdit");
-
+  let finalDate = date.getDay() + date.getMonth() + date.getFullYear()
 
   return (
     <>
@@ -107,14 +106,35 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
               <Tbody>
                 {casesFiltered.map(
                   (el) =>
-                    // Patente is a notnull field meaning that an empty register won't be allowed.
-
-                    el.Patente &&
+                  // logica para la fecha que cambie de color el fondo
+                  el.Vencimiento.split("-").map((el)=>(+el)).reduce((a ,b) => a + b,0) > finalDate ? 
+                    
                     <Tr>
                       {columns2.map((c) => {
                         let y = el[c];
                         return (
-                          <Td className={background} key={el.id}>
+                          <Td className="tdEdit" key={el.id}>
+                            {y ? y : "Sin Completar"}
+                          </Td>
+                        );
+                      })}
+                      <Td className="tdEdit" key={el.id}>
+                        <div
+                          className="editBtn"
+                          onClick={() => showModalEdit(el.id)}
+                        >
+                          <TbEdit />
+                        </div>
+                      </Td>
+                    </Tr>
+
+                    :
+
+                    <Tr>
+                      {columns2.map((c) => {
+                        let y = el[c];
+                        return (
+                          <Td className="tdEditConditional" key={el.id}>
                             {y ? y : "Sin Completar"}
                           </Td>
                         );
@@ -129,6 +149,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                       </Td>
                     </Tr>
                 )}
+
               </Tbody>
             </Table>
           </div>
