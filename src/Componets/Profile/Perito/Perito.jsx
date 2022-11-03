@@ -21,7 +21,21 @@ function Perito({emailUser}) {
   /* console.log('peritoAsig', peritoAsig); */
   let cases1=cases.filter(el=>el.perito===peritoAsig.nombre)
   /* console.log('cases1', cases1); */
+  
+  cases1.sort((a,b)=>{
+    const dayA=a.Vencimiento.split("-")
+    const dayB=b.Vencimiento.split("-")
+    const VencimientoA= new Date(`${dayA[1]}/${dayA[0]}/${dayA[2]}`)
+    const VencimientoB= new Date(`${dayB[1]}/${dayB[0]}/${dayB[2]}`)
+    if(VencimientoA<VencimientoB){
+      return -1;
+    }
+    if(VencimientoA>VencimientoB){
+      return 1
+    }
+    return 0;
 
+  })
   const navigate = useNavigate();
   const [all, setAll]=useState(false)
   const [completed, setCompleted]=useState(false)
