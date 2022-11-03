@@ -22,13 +22,20 @@ function Home() {
 
   return (
     <div className="homeContainer">
+
+      <div className="welcomeTitle">
+        <h1 className="bienvenido">Grupo águila</h1>
+        <h2 className="sloganPhrase">"Siempre es mejor el ojo de un experto"</h2>
+      </div>
+      
+
       <div className="homeSecondContainer">
 
         <h3 className="homeTitle">Consulta el Estado de tu caso</h3>
         <SearchBar />
         <EditModal />
       </div>
-        <CarouselComponent/>
+      <CarouselComponent />
     </div>
   );
 }
