@@ -9,6 +9,7 @@ import Profile from "./Componets/Profile/Profile";
 import AddCases from "./Componets/InputsSelects/AddCases/AddCases";
 import Register from "./Componets/Login/Register";
 import AddPeritos from "./Componets/InputsSelects/AddPeritos/AddPeritos";
+import Quienesomos from "./Componets/QuienesSomos/Quienesomos";
 import TableTest from "./Componets/tableTest/TableTest";
 import { PrivateRoute } from "./PrivateRutes";
 import Login from "./Componets/Login/Login";
@@ -27,8 +28,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/user" element={<Users />} />
-        <Route path="/servicios" element={<Services />} >
-        </Route>
+        <Route path="/servicios" element={<Services />} />
+        <Route path = "/nosotros" element={<Quienesomos/>}/>
+          
+        
         <Route
           path="/addPerito"
           element={

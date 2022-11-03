@@ -10,18 +10,18 @@ import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import "./tabletest.css";
 
 function TableResponsive({ cases, columns, detail, title, rol }) {
-  
-  let dispatch= useDispatch()
+
+  let dispatch = useDispatch()
 
   //this function dispatches getPeritos(), getCases and PeritosByname
-  function Actualizacion(){
+  function Actualizacion() {
     // console.log('entré en Actualizacion');
-      dispatch(getPeritos())
-      dispatch(getCasesAction())
-      setTimeout(()=>{ 
-        dispatch(peritosByName())
-      },2500)
-    
+    dispatch(getPeritos())
+    dispatch(getCasesAction())
+    setTimeout(() => {
+      dispatch(peritosByName())
+    }, 2500)
+
 
   }
   //filter
@@ -64,6 +64,13 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
     );
   }
 
+  let date = new Date();
+
+  console.log(date.getDay())
+
+  const [background, setBackground] = React.useState("tdEdit");
+
+
   return (
     <>
       <input
@@ -77,87 +84,85 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
       />
 
       {casesFiltered?.length === 0 ? (
-        <div className="noRegistersFound">No se encontraron registros...</div>
+        <div className="noRegistersFound">    No se encontraron registros...</div>
       ) : (
         <>
-        {/* Tabler Title */}
+          {/* Tabler Title */}
           <h3 className="tableTitle">{title}</h3>
 
           {/* Table */}
           <div className="table-wrapper">
 
-          <Table>
-            <Thead>
-              <Tr>
-                {columns1.map((e) => {
-                  return <Th className="thEdit">{e}</Th>;
-                })}
+            <Table>
+              <Thead>
+                <Tr>
+                  {columns1.map((e) => {
+                    return <Th className="thEdit">{e}</Th>;
+                  })}
 
-                <Th className="thEdit">Editar</Th>
-              </Tr>
-            </Thead>
+                  <Th className="thEdit">Editar</Th>
+                </Tr>
+              </Thead>
 
-            <Tbody>
-              {casesFiltered.map(
-                (el) =>
-                // Patente is a notnull field meaning that an empty register won't be allowed.
-                
-                el.Patente && (
-                  <Tr>
+              <Tbody>
+                {casesFiltered.map(
+                  (el) =>
+                    // Patente is a notnull field meaning that an empty register won't be allowed.
+
+                    el.Patente &&
+                    <Tr>
                       {columns2.map((c) => {
                         let y = el[c];
                         return (
-                          <Td className="tdEdit" key={el.id}>
+                          <Td className={background} key={el.id}>
                             {y ? y : "Sin Completar"}
                           </Td>
                         );
                       })}
-
                       <Td className="tdEdit" key={el.id}>
                         <div
                           className="editBtn"
                           onClick={() => showModalEdit(el.id)}
-                          >
+                        >
                           <TbEdit />
                         </div>
                       </Td>
                     </Tr>
-                  )
-              )}
-            </Tbody>
-          </Table>
-      </div>
+                )}
+              </Tbody>
+            </Table>
+          </div>
         </>
       )}
       {/* Modal rendering */}
       {
-        rol==='superAdmin' &&
+        rol === 'superAdmin' &&
         <TableTestModal
-        show={showModal}
-        close={() => setShowModal(false)}
-        caseData={caseData}
-        detail={detail}
-        actualizar={Actualizacion}
+          show={showModal}
+          close={() => setShowModal(false)}
+          caseData={caseData}
+          detail={detail}
+          actualizar={Actualizacion}
         />
       }
       {
-        rol==='Admin' &&
-      <TableTestModalAdmin
-      show={showModal}
-      close={() => setShowModal(false)}
-      caseData={caseData}
-      detail={detail}
-      actualizar={Actualizacion}
-      />
-    }
+        rol === 'Admin' &&
+        <TableTestModalAdmin
+          show={showModal}
+          close={() => setShowModal(false)}
+          caseData={caseData}
+          detail={detail}
+          actualizar={Actualizacion}
+        />
+      }
       {
-        rol==='Perito' &&
+        rol === 'Perito' &&
         <TableTestModalPerito
-        show={showModal}
-        close={() => setShowModal(false)}
-        caseData={caseData}
-        detail={detail}
-        actualizar={Actualizacion}
+          show={showModal}
+          close={() => setShowModal(false)}
+          caseData={caseData}
+          detail={detail}
+          actualizar={Actualizacion}
         />
       }
     </>
