@@ -10,7 +10,8 @@ import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import "./tabletest.css";
 
 function TableResponsive({ cases, columns, detail, title, rol }) {
-
+  const [color,setColor] = useState("");
+console.log('esto es color-->',color)
   let dispatch = useDispatch()
 
   //this function dispatches getPeritos(), getCases and PeritosByname
@@ -69,7 +70,12 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
   //logica de tabla segun venimiento
   let date = new Date();
   let finalDate = date.getDay() + date.getMonth() + date.getFullYear()
-
+  
+  function colorChange (value){
+    console.log('valor dento de funcion',value)
+    setColor(value)
+  }
+ 
   return (
     <>
       <input
@@ -107,13 +113,15 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                 {casesFiltered.map(
                   (el) =>
                   // logica para la fecha que cambie de color el fondo
-                  el.Vencimiento.split("-").map((el)=>(+el)).reduce((a ,b) => a + b,0) > finalDate ? 
-                    
-                    <Tr>
+                  el.Vencimiento.split("-").map((el)=>(+el)).reduce((a ,b) => a + b,0) >= finalDate ? ()=> (colorChange('tdEditConditional')) : ()=> (colorChange('tdEdit') )
+
+                    (
+                      <Tr>
+                       
                       {columns2.map((c) => {
                         let y = el[c];
                         return (
-                          <Td className="tdEdit" key={el.id}>
+                          <Td className={color} key={el.id}>
                             {y ? y : "Sin Completar"}
                           </Td>
                         );
@@ -126,28 +134,28 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                           <TbEdit />
                         </div>
                       </Td>
-                    </Tr>
+                    </Tr>)
 
-                    :
+                    // :
 
-                    <Tr>
-                      {columns2.map((c) => {
-                        let y = el[c];
-                        return (
-                          <Td className="tdEditConditional" key={el.id}>
-                            {y ? y : "Sin Completar"}
-                          </Td>
-                        );
-                      })}
-                      <Td className="tdEdit" key={el.id}>
-                        <div
-                          className="editBtn"
-                          onClick={() => showModalEdit(el.id)}
-                        >
-                          <TbEdit />
-                        </div>
-                      </Td>
-                    </Tr>
+                    // <Tr>
+                    //   {columns2.map((c) => {
+                    //     let y = el[c];
+                    //     return (
+                    //       <Td className="tdEditConditional" key={el.id}>
+                    //         {y ? y : "Sin Completar"}
+                    //       </Td>
+                    //     );
+                    //   })}
+                    //   <Td className="tdEdit" key={el.id}>
+                    //     <div
+                    //       className="editBtn"
+                    //       onClick={() => showModalEdit(el.id)}
+                    //     >
+                    //       <TbEdit />
+                    //     </div>
+                    //   </Td>
+                    // </Tr>
                 )}
 
               </Tbody>
