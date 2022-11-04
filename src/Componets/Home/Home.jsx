@@ -24,7 +24,7 @@ function Home() {
     <div className="homeContainer">
 
       <div className="welcomeTitle">
-        <h1 className="bienvenido">Grupo águila</h1>
+        <h1 className="bienvenido">Grupo Águila</h1>
         <h2 className="sloganPhrase">"Siempre es mejor el ojo de un experto"</h2>
       </div>
       
