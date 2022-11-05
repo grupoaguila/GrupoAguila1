@@ -10,8 +10,7 @@ import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import "./tabletest.css";
 
 function TableResponsive({ cases, columns, detail, title, rol }) {
-  const [color,setColor] = useState("");
-console.log('esto es color-->',color)
+
   let dispatch = useDispatch()
 
   //this function dispatches getPeritos(), getCases and PeritosByname
@@ -37,7 +36,7 @@ console.log('esto es color-->',color)
   const columns2 = columns.map((el) => {
     return el.dataField;
   });
- 
+
 
   //Modal Form data
   const [caseData, setCaseData] = React.useState([]);
@@ -70,12 +69,9 @@ console.log('esto es color-->',color)
   //logica de tabla segun venimiento
   let date = new Date();
   let finalDate = date.getDay() + date.getMonth() + date.getFullYear()
+
   
-  function colorChange (value){
-    console.log('valor dento de funcion',value)
-    setColor(value)
-  }
- 
+
   return (
     <>
       <input
@@ -89,7 +85,7 @@ console.log('esto es color-->',color)
       />
 
       {casesFiltered?.length === 0 ? (
-        <div className="noRegistersFound">    No se encontraron registros...</div>
+        <div className="noRegistersFound">No se encontraron registros...</div>
       ) : (
         <>
           {/* Tabler Title */}
@@ -112,50 +108,48 @@ console.log('esto es color-->',color)
               <Tbody>
                 {casesFiltered.map(
                   (el) =>
-                  // logica para la fecha que cambie de color el fondo
-                  el.Vencimiento.split("-").map((el)=>(+el)).reduce((a ,b) => a + b,0) >= finalDate ? ()=> (colorChange('tdEditConditional')) : ()=> (colorChange('tdEdit') )
-
-                    (
+                    // logica para la fecha que cambie de color el fondo
+                    el.Vencimiento.split("-").map((el) => (+el)).reduce((a, b) => a + b, 0) >= finalDate ?
                       <Tr>
-                       
-                      {columns2.map((c) => {
-                        let y = el[c];
-                        return (
-                          <Td className={color} key={el.id}>
-                            {y ? y : "Sin Completar"}
-                          </Td>
-                        );
-                      })}
-                      <Td className="tdEdit" key={el.id}>
-                        <div
-                          className="editBtn"
-                          onClick={() => showModalEdit(el.id)}
-                        >
-                          <TbEdit />
-                        </div>
+
+                        {columns2.map((c) => {
+                          let y = el[c];
+                          return (
+                            <Td className="tdEdit" key={el.id}>
+                              {y ? y : "Sin Completar"}
+                            </Td>
+                          );
+                        })}
+                        <Td className="tdEdit" key={el.id}>
+                          <div
+                            className="editBtn"
+                            onClick={() => showModalEdit(el.id)}
+                          >
+                            <TbEdit />
+                          </div>
+                        </Td>
+                      </Tr>
+
+                    :
+
+                <Tr>
+                  {columns2.map((c) => {
+                    let y = el[c];
+                    return (
+                      <Td className="tdEditConditional" key={el.id}>
+                        {y ? y : "Sin Completar"}
                       </Td>
-                    </Tr>)
-
-                    // :
-
-                    // <Tr>
-                    //   {columns2.map((c) => {
-                    //     let y = el[c];
-                    //     return (
-                    //       <Td className="tdEditConditional" key={el.id}>
-                    //         {y ? y : "Sin Completar"}
-                    //       </Td>
-                    //     );
-                    //   })}
-                    //   <Td className="tdEdit" key={el.id}>
-                    //     <div
-                    //       className="editBtn"
-                    //       onClick={() => showModalEdit(el.id)}
-                    //     >
-                    //       <TbEdit />
-                    //     </div>
-                    //   </Td>
-                    // </Tr>
+                    );
+                  })}
+                  <Td className="tdEdit" key={el.id}>
+                    <div
+                      className="editBtn"
+                      onClick={() => showModalEdit(el.id)}
+                    >
+                      <TbEdit />
+                    </div>
+                  </Td>
+                </Tr>
                 )}
 
               </Tbody>
