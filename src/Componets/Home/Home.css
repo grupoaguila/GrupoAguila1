@@ -14,7 +14,9 @@
 
 }
 
-
+.welcomeTitle {
+    margin-bottom: 1.5rem; 
+}
 
 .welcomeTitle .bienvenido{
     color: rgb(18, 41, 146);
@@ -54,7 +56,7 @@
     font-size: 30px; 
     font-weight: 300; 
     line-height: 32px; 
-    margin: 0 0 72px; 
+    margin: 0 0 50px; 
     /* margin-left: -255px; */
 }
 
