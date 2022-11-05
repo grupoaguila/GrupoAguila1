@@ -66,4 +66,8 @@
     }
    
 }
-
+@media screen and (max-width: 400px) {
+    .navbar-nav{
+        margin-left: none!important;
+    }
+}
