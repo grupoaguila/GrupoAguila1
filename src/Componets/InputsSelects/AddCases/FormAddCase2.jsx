@@ -32,7 +32,7 @@ function FormAddCase2({
       </Button>
       </Link>
       <div style={{ paddingRight: "30%", paddingLeft: "25%", color:"white" }}>
-        <h2>AÑADIR CASOS</h2>
+        <h2 style={{color:"black"}}>AÑADIR CASOS</h2>
       </div>
       
       <Form
