@@ -1,4 +1,3 @@
-
 .homeContainer{
     display: flex;
     flex-direction: column;
@@ -6,21 +5,16 @@
     
 }
 .homeSecondContainer{
+    /* display: flex; */
     background-color: #dee2e6b5;
     border-radius: 15px;
-    margin-bottom: 60px;
+    height: fit-content;
+    width: 489px;
+
 }
 
-.welcomeTitle{
-    /* border: 1px solid rgb(0, 0, 0); */
-    /* border-radius: 10px; */
-    /* background-image:url('../../assets/perito.jpeg'); */
-    /* background-size: contain;
-    background-repeat: no-repeat;
-    background-position: right; */
-    /* background-color: rgba(255, 255, 255, 0.596); */
-    width:70%;
-    margin-bottom: 1.5rem;
+.welcomeTitle {
+    margin-bottom: 1.5rem; 
 }
 
 .welcomeTitle .bienvenido{
@@ -54,13 +48,14 @@
     
 }
 .welcomeTitle .sloganPhrase{
-    color: rgb(221, 19, 19); 
+    color: rgb(241, 10, 10); 
     font-family: 'Open Sans', sans-serif; 
     text-align: center; 
+    font-weight: bold!important;
     font-size: 30px; 
     font-weight: 300; 
     line-height: 32px; 
-    margin: 0 0 72px; 
+    margin: 0 0 50px; 
     /* margin-left: -255px; */
 }
 
@@ -69,6 +64,19 @@
     margin-top: 1rem;
     padding: 0.8rem;
 }
+
+
+.carouselAndSearch{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.carouselContainer{
+    width: 55%;
+}
+
+
 
 
 
@@ -80,16 +88,43 @@
     .welcomeTitle .sloganPhrase{
         font-size: 20px;
     }
+    .carouselAndSearch{
+        flex-direction: column;
+    }
+    .carouselContainer {
+        width: 80%;
+        
+    }
+    .carouselTitleCompanies{
+        width:50%;
+    }
+
 }
+
+
+
+
 @media screen and (max-width: 620px) {
     .welcomeTitle .bienvenido{
         font-size: 70px; 
     }
+   .carouselTitleCompanies{
+    width: 100%;
+   }
+   .homeSecondContainer{
+    width: 80%;
+   }
+
 }
+
+
+
+
 @media screen and (max-width: 320px) {
     .welcomeTitle .bienvenido{
         font-size: 40px; 
     }
+    .homeSecondContainer {
+        width: 100%;
+    }
 }
-
-

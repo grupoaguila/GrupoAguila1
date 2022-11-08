@@ -36,7 +36,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
   const columns2 = columns.map((el) => {
     return el.dataField;
   });
- 
+
 
   //Modal Form data
   const [caseData, setCaseData] = React.useState([]);
@@ -70,6 +70,8 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
   let date = new Date();
   let finalDate = date.getDay() + date.getMonth() + date.getFullYear()
 
+  
+
   return (
     <>
       <input
@@ -83,7 +85,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
       />
 
       {casesFiltered?.length === 0 ? (
-        <div className="noRegistersFound">    No se encontraron registros...</div>
+        <div className="noRegistersFound">No se encontraron registros...</div>
       ) : (
         <>
           {/* Tabler Title */}
@@ -106,48 +108,48 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
               <Tbody>
                 {casesFiltered.map(
                   (el) =>
-                  // logica para la fecha que cambie de color el fondo
-                  el.Vencimiento.split("-").map((el)=>(+el)).reduce((a ,b) => a + b,0) > finalDate ? 
-                    
-                    <Tr>
-                      {columns2.map((c) => {
-                        let y = el[c];
-                        return (
-                          <Td className="tdEdit" key={el.id}>
-                            {y ? y : "Sin Completar"}
-                          </Td>
-                        );
-                      })}
-                      <Td className="tdEdit" key={el.id}>
-                        <div
-                          className="editBtn"
-                          onClick={() => showModalEdit(el.id)}
-                        >
-                          <TbEdit />
-                        </div>
-                      </Td>
-                    </Tr>
+                    // logica para la fecha que cambie de color el fondo
+                    el.Vencimiento.split("-").map((el) => (+el)).reduce((a, b) => a + b, 0) >= finalDate ?
+                      <Tr>
+
+                        {columns2.map((c) => {
+                          let y = el[c];
+                          return (
+                            <Td className="tdEdit" key={el.id}>
+                              {y ? y : "Sin Completar"}
+                            </Td>
+                          );
+                        })}
+                        <Td className="tdEdit" key={el.id}>
+                          <div
+                            className="editBtn"
+                            onClick={() => showModalEdit(el.id)}
+                          >
+                            <TbEdit />
+                          </div>
+                        </Td>
+                      </Tr>
 
                     :
 
-                    <Tr>
-                      {columns2.map((c) => {
-                        let y = el[c];
-                        return (
-                          <Td className="tdEditConditional" key={el.id}>
-                            {y ? y : "Sin Completar"}
-                          </Td>
-                        );
-                      })}
-                      <Td className="tdEdit" key={el.id}>
-                        <div
-                          className="editBtn"
-                          onClick={() => showModalEdit(el.id)}
-                        >
-                          <TbEdit />
-                        </div>
+                <Tr>
+                  {columns2.map((c) => {
+                    let y = el[c];
+                    return (
+                      <Td className="tdEditConditional" key={el.id}>
+                        {y ? y : "Sin Completar"}
                       </Td>
-                    </Tr>
+                    );
+                  })}
+                  <Td className="tdEdit" key={el.id}>
+                    <div
+                      className="editBtn"
+                      onClick={() => showModalEdit(el.id)}
+                    >
+                      <TbEdit />
+                    </div>
+                  </Td>
+                </Tr>
                 )}
 
               </Tbody>

@@ -1,6 +1,6 @@
 .cardHomeContainer{
     display: flex;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     text-align: center;
     flex-direction: column;
     align-items: center;
