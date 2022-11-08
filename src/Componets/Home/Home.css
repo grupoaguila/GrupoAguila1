@@ -8,18 +8,17 @@
 .homeSecondContainer{
     background-color: #dee2e6b5;
     border-radius: 15px;
+    margin-bottom: 60px;
 }
 
-
-
 .welcomeTitle{
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 10px;
+    /* border: 1px solid rgb(0, 0, 0); */
+    /* border-radius: 10px; */
     /* background-image:url('../../assets/perito.jpeg'); */
     /* background-size: contain;
     background-repeat: no-repeat;
     background-position: right; */
-    background-color: rgba(255, 255, 255, 0.596);
+    /* background-color: rgba(255, 255, 255, 0.596); */
     width:70%;
     margin-bottom: 1.5rem;
 }
@@ -55,7 +54,7 @@
     
 }
 .welcomeTitle .sloganPhrase{
-    color: #111; 
+    color: rgb(221, 19, 19); 
     font-family: 'Open Sans', sans-serif; 
     text-align: center; 
     font-size: 30px; 
@@ -70,6 +69,7 @@
     margin-top: 1rem;
     padding: 0.8rem;
 }
+
 
 
 @media screen and (max-width: 1200px) {
