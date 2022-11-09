@@ -70,7 +70,7 @@ function Login() {
         // ...
       })
     } catch (error) {
-      return NotificationManager.error('Comuniquese con el administrador','Atención, no puede registrarse', 3000)
+      return NotificationManager.error('Comuniquese con el administrador','Atención, no puede iniciar sesión', 4000)
     }
 
   };
