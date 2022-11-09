@@ -12,6 +12,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocalStorage } from "../../CustomHook/useLocalStorage";
+//Alert notifications
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 const auth = getAuth(firebaseApp);
 const googleProvider = new GoogleAuthProvider();
 
@@ -62,12 +65,12 @@ function Login() {
           navigate("/user");
         }
         else {
-          alert("comuniquese con su administrador")
+          NotificationManager.error('Comuniquese con el administrador','Atención, no puede registrarse', 3000)
         }
         // ...
       })
     } catch (error) {
-      return alert("comuniquese con su administrador")
+      return NotificationManager.error('Comuniquese con el administrador','Atención, no puede registrarse', 3000)
     }
 
   };
@@ -77,6 +80,8 @@ function Login() {
     <>
 
       <div onClick={(e) => submitHandlerGoogle(e)}>Iniciar Sesión</div>
+       {/* alert after submit */}
+       <NotificationContainer/> 
 
     </>
   );

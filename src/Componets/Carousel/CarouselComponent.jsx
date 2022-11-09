@@ -7,7 +7,7 @@ import './carousel.css'
 function CarouselComponent() {
   return (
     <>
-      <h4 className="carouselTitleCompanies">Trabajamos con: </h4>
+      <h4 className="carouselTitleCompanies">Confían en nosotros: </h4>
       <Carousel variant="dark" className='mainCarousel'>
 
         <Carousel.Item>

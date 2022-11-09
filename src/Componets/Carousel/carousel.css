@@ -45,10 +45,12 @@
 
 
 .carouselTitleCompanies{
+    color:red;
+    font-size: xx-large;
     margin-top: 1.5rem;
-    border: 2px solid rgb(56 45 44);
-    background-color: #c92028;
-    border-radius: 10px;
+    /* border: 2px solid rgb(56 45 44); */
+    /* background-color: #c92028; */
+    /* border-radius: 10px; */
     padding-bottom: 5px;
     padding-right: 8px;
     padding-left: 8px;
