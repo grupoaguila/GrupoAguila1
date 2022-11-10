@@ -1,0 +1,45 @@
+.footerMainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: rgb(253, 253, 253);
+    box-shadow: 1px 1px 20px 0px #a7a7a7;
+    width: 100%;
+    min-height: 90px;
+    margin-top: 1rem;
+
+}
+.mediaContainer{
+    display: flex;
+    justify-content: space-around;
+    width: 240px;
+}
+.mediaContainer .face i, .mediaContainer  .insta i, .mediaContainer  .linkedIn i{
+    color: rgb(73, 70, 70);
+}
+.mediaContainer .face i:hover, .mediaContainer  .insta i:hover, .mediaContainer  .linkedIn i:hover{
+    color: rgb(61, 63, 173);
+    transition: 500ms;
+}
+
+.logo img {
+    margin-right: 10px;
+}
+
+
+.allRightsReserved span{
+    font-style: italic;
+}
+
+@media screen and (max-width: 920px) {
+    .mediaContainer{
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .logo {
+        display: none;
+    }
+}
