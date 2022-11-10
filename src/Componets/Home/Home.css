@@ -8,8 +8,8 @@
     /* display: flex; */
     background-color: #dee2e6b5;
     border-radius: 15px;
-    height: fit-content;
-    width: 489px;
+    min-height: min-content;
+    width: 500px;
 
 }
 
@@ -60,7 +60,8 @@
 }
 
 .homeTitle{
-    
+    font-size: 25px;
+    font-style: italic;
     margin-top: 1rem;
     padding: 0.8rem;
 }
@@ -70,10 +71,11 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
 }
 .carouselContainer{
-    width: 55%;
+    width: 500px;
+    
 }
 
 
@@ -90,13 +92,14 @@
     }
     .carouselAndSearch{
         flex-direction: column;
+        align-items: center;
     }
     .carouselContainer {
-        width: 80%;
+        width: 70%;
         
     }
     .carouselTitleCompanies{
-        width:50%;
+        width: 65%;
     }
 
 }
@@ -114,6 +117,11 @@
    .homeSecondContainer{
     width: 80%;
    }
+   .homeTitle{
+    font-size: 20px;
+    
+    margin: 0;
+}
 
 }
 
@@ -125,6 +133,17 @@
         font-size: 40px; 
     }
     .homeSecondContainer {
-        width: 100%;
+        width: 95%;
     }
+    .homeTitle{
+        font-size: 20px;
+        padding: 10px 0 0 0;
+        margin: 0;
+    }
+    .welcomeTitle .sloganPhrase{
+        margin: 0 0 12px 0;
+    }
+    .carouselTitleCompanies{
+        margin-bottom: 10px;
+       }
 }

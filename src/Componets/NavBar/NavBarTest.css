@@ -70,4 +70,7 @@
     .navbar-nav{
         margin-left: none!important;
     }
+    .LogoNavBar{
+        width: 85px;
+    }
 }
