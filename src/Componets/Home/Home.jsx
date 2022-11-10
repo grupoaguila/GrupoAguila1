@@ -31,7 +31,7 @@ function Home() {
       <div className="carouselAndSearch">
 
         <div className="homeSecondContainer">
-          <h3 className="homeTitle">Consulta el Estado de tu caso</h3>
+          <p className="homeTitle">Consulta el Estado de tu caso</p>
           <SearchBar />
           {/* <EditModal /> */}
         </div>
