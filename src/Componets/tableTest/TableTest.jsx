@@ -68,7 +68,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
 
   //logica de tabla segun venimiento
   let date = new Date();
-  console.log('date', date);
+  // console.log('date', date);
   let nowDay= date.getDate() 
   let nowMonth= date.getMonth() +1
   let nowYear= date.getFullYear()
@@ -115,12 +115,12 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                     // console.log('el',el)
                     // console.log('casesFiltered',casesFiltered) 
                     let dayVto = el?.Vencimiento?.split("-")
-                    console.log('dayVto[0]', +dayVto[0]);
-                    console.log('nowDay',nowDay);
-                    console.log('dayVto[1]', +dayVto[1]);
-                    console.log('nowMonth', nowMonth);
-                    console.log('dayVto[2]', +dayVto[2]);
-                    console.log('nowYear',nowYear);
+                    // console.log('dayVto[0]', +dayVto[0]);
+                    // console.log('nowDay',nowDay);
+                    // console.log('dayVto[1]', +dayVto[1]);
+                    // console.log('nowMonth', nowMonth);
+                    // console.log('dayVto[2]', +dayVto[2]);
+                    // console.log('nowYear',nowYear);
                     return(
                     ((+dayVto[0] <= +nowDay && +dayVto[1] <= +nowMonth && +dayVto[2] === +nowYear )|| (+dayVto[0]> +nowDay && +dayVto[1] < +nowMonth && +dayVto[2]=== +nowYear )|| (+dayVto[2]< +nowYear))?
                       <Tr>
