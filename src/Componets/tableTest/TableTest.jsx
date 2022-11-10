@@ -68,7 +68,10 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
 
   //logica de tabla segun venimiento
   let date = new Date();
-  let finalDate = date.getDay() + date.getMonth() + date.getFullYear()
+  // console.log('date', date);
+  let nowDay= date.getDate() 
+  let nowMonth= date.getMonth() +1
+  let nowYear= date.getFullYear()
 
   
 
@@ -107,15 +110,25 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
 
               <Tbody>
                 {casesFiltered.map(
-                  (el) =>
+                  (el) =>{
                     // logica para la fecha que cambie de color el fondo
-                    el.Vencimiento.split("-").map((el) => (+el)).reduce((a, b) => a + b, 0) >= finalDate ?
+                    // console.log('el',el)
+                    // console.log('casesFiltered',casesFiltered) 
+                    let dayVto = el?.Vencimiento?.split("-")
+                    // console.log('dayVto[0]', +dayVto[0]);
+                    // console.log('nowDay',nowDay);
+                    // console.log('dayVto[1]', +dayVto[1]);
+                    // console.log('nowMonth', nowMonth);
+                    // console.log('dayVto[2]', +dayVto[2]);
+                    // console.log('nowYear',nowYear);
+                    return(
+                    ((+dayVto[0] <= +nowDay && +dayVto[1] <= +nowMonth && +dayVto[2] === +nowYear )|| (+dayVto[0]> +nowDay && +dayVto[1] < +nowMonth && +dayVto[2]=== +nowYear )|| (+dayVto[2]< +nowYear))?
                       <Tr>
 
                         {columns2.map((c) => {
                           let y = el[c];
                           return (
-                            <Td className="tdEdit" key={el.id}>
+                            <Td className="tdEditConditional" key={el.id}>
                               {y ? y : "Sin Completar"}
                             </Td>
                           );
@@ -136,7 +149,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                   {columns2.map((c) => {
                     let y = el[c];
                     return (
-                      <Td className="tdEditConditional" key={el.id}>
+                      <Td className="tdEdit" key={el.id}>
                         {y ? y : "Sin Completar"}
                       </Td>
                     );
@@ -150,6 +163,10 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                     </div>
                   </Td>
                 </Tr>
+
+                    )
+                    
+                  }
                 )}
 
               </Tbody>
