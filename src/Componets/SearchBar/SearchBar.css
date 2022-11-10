@@ -46,9 +46,9 @@
   -moz-appearance: none;
   appearance: none;
 }
-.search-bar input::-webkit-search-decoration {
+/* .search-bar input::-webkit-search-decoration {
   -webkit-appearance: none;
-}
+} */
 .search-bar input:focus,
 .search-bar input:valid {
   background: #fff;
