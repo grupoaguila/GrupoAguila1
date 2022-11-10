@@ -13,8 +13,7 @@ import Quienesomos from "./Componets/QuienesSomos/Quienesomos";
 import TableTest from "./Componets/tableTest/TableTest";
 import { PrivateRoute } from "./PrivateRutes";
 import Login from "./Componets/Login/Login";
-import Footer from "./Componets/Footer/Footer";
-import FooterV2 from "./Componets/Footer/FooterV2";
+import FooterV3 from "./Componets/Footer/FooterV3";
 import Services from "./Componets/Services/Services";
 
 
@@ -55,7 +54,8 @@ function App() {
         {/* <Route path="/tabletest" element={<TableTest />} /> */}
       </Routes>
       </div>
-      {/* <Footer/> */}
+      
+      <FooterV3/>
     </div>
   );
 }
