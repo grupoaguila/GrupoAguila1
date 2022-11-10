@@ -40,7 +40,7 @@ function Card({ consult, clearConsult }) {
                 {consult[0].estado === 'Pericia finalizada' ? <span className='ended'>{consult[0].estado}</span> : consult[0].estado}
               </p>
 
-              <p className='parrafosCardHome'><span>El Perito encargado es: </span>{consult[0].perito}</p>
+              <p className='parrafosCardHome'><span>Perito encargado: </span>{consult[0].perito}</p>
               <p className='parrafosCardHome'><span>Telefono:</span>  {infoPerito[0]?.celular}</p>
               <p className='parrafosCardHome'><span>Notas Extras:</span>  {!consult[0].notas ? "Sin Completar" : consult[0].notas}</p>
               <p className='parrafosCardHome'><span>Repuestos/Taller</span> "Sin Completar" </p>
