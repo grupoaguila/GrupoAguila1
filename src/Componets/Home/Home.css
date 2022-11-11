@@ -1,23 +1,30 @@
-.homeContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.homeSecondContainer{
-    /* display: flex; */
-    background-color: #dee2e6b5;
-    border-radius: 15px;
-    min-height: min-content;
-    width: 500px;
-
+.homeSecondContainer {
+  /* display: flex; */
+  background-color: #dee2e6b5;
+  border-radius: 15px;
+  min-height: min-content;
+  width: 500px;
 }
 
 .welcomeTitle {
-    margin-bottom: 1.5rem; 
+  margin-bottom: 1.5rem;
+  height: 200px;
+  width: 500px;
+  
+}
+.welcomeTitle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  overflow: hidden;
 }
 
-.welcomeTitle .bienvenido{
+/* .welcomeTitle .bienvenido{
     color: rgb(18, 41, 146);
     font-family:'Bauhaus93';
     font-size: 90px; 
@@ -25,7 +32,7 @@
     letter-spacing: -1px; 
     line-height: 1; 
     text-align: center;
-    /* margin-left: -340px; */
+    
 
     --x-offset: -0.0625em;
     --y-offset: 0.0625em;
@@ -56,94 +63,81 @@
     font-weight: 300; 
     line-height: 32px; 
     margin: 0 0 50px; 
-    /* margin-left: -255px; */
-}
-
-.homeTitle{
-    font-size: 25px;
-    font-style: italic;
-    margin-top: 1rem;
-    padding: 0.8rem;
-}
-
-
-.carouselAndSearch{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    align-items: flex-end;
-}
-.carouselContainer{
-    width: 500px;
     
+} */
+
+.homeTitle {
+  font-size: 25px;
+  font-style: italic;
+  margin-top: 1rem;
+  padding: 0.8rem;
 }
 
-
-
-
+.carouselAndSearch {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.carouselContainer {
+  width: 500px;
+}
 
 @media screen and (max-width: 1200px) {
-    
-    .welcomeTitle .bienvenido{
-        font-size: 100px; 
-    }
-    .welcomeTitle .sloganPhrase{
-        font-size: 20px;
-    }
-    .carouselAndSearch{
-        flex-direction: column;
-        align-items: center;
-    }
-    .carouselContainer {
-        width: 70%;
-        
-    }
-    .carouselTitleCompanies{
-        width: 65%;
-    }
-
+  .welcomeTitle .bienvenido {
+    font-size: 100px;
+  }
+  .welcomeTitle .sloganPhrase {
+    font-size: 20px;
+  }
+  .carouselAndSearch {
+    flex-direction: column;
+    align-items: center;
+  }
+  .carouselContainer {
+    width: 70%;
+  }
+  .carouselTitleCompanies {
+    width: 65%;
+  }
 }
-
-
-
 
 @media screen and (max-width: 620px) {
-    .welcomeTitle .bienvenido{
-        font-size: 70px; 
-    }
-   .carouselTitleCompanies{
+  .carouselTitleCompanies {
     width: 100%;
-   }
-   .homeSecondContainer{
+  }
+  .homeSecondContainer {
     width: 80%;
-   }
-   .homeTitle{
+  }
+  .homeTitle {
     font-size: 20px;
-    
     margin: 0;
+  }
+  .welcomeTitle {
+   
+    height: unset;
+    width: 100%;
+    
+  }
 }
-
-}
-
-
-
 
 @media screen and (max-width: 320px) {
-    .welcomeTitle .bienvenido{
-        font-size: 40px; 
-    }
-    .homeSecondContainer {
-        width: 95%;
-    }
-    .homeTitle{
-        font-size: 20px;
-        padding: 10px 0 0 0;
-        margin: 0;
-    }
-    .welcomeTitle .sloganPhrase{
-        margin: 0 0 12px 0;
-    }
-    .carouselTitleCompanies{
-        margin-bottom: 10px;
-       }
+  
+  .homeSecondContainer {
+    width: 95%;
+  }
+  .homeTitle {
+    font-size: 20px;
+    padding: 10px 0 0 0;
+    margin: 0;
+  }
+  
+  .carouselTitleCompanies {
+    margin-bottom: 10px;
+  }
+  .welcomeTitle {
+    height: unset;
+    width: 100%;
+    
+}
 }
