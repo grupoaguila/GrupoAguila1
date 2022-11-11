@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import SearchBar from "../SearchBar/SearchBar";
 import EditModal from "../Modals/EditModal";
+import Logo from '../../assets/grupoAguilaCanvaLogo.png';
 import CarouselComponent from "../Carousel/CarouselComponent";
 import './Home.css'
 
@@ -24,8 +25,9 @@ function Home() {
     <div className="homeContainer">
 
       <div className="welcomeTitle">
-        <h1 className="bienvenido">Grupo Águila</h1>
-        <h2 className="sloganPhrase">"Siempre es mejor el ojo de un experto"</h2>
+        <img src={Logo} alt="logo Aguila" />
+        {/* <h1 className="bienvenido">Grupo Águila</h1>
+        <h2 className="sloganPhrase">"Siempre es mejor el ojo de un experto"</h2> */}
       </div>
 
       <div className="carouselAndSearch">

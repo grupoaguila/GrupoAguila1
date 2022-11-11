@@ -15,9 +15,18 @@
 
 .welcomeTitle {
     margin-bottom: 1.5rem; 
+    height: 200px;
+    width: 500px;
+    /* border: 1px solid fuchsia; */
+}
+.welcomeTitle img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
 }
 
-.welcomeTitle .bienvenido{
+/* .welcomeTitle .bienvenido{
     color: rgb(18, 41, 146);
     font-family:'Bauhaus93';
     font-size: 90px; 
@@ -25,7 +34,7 @@
     letter-spacing: -1px; 
     line-height: 1; 
     text-align: center;
-    /* margin-left: -340px; */
+    
 
     --x-offset: -0.0625em;
     --y-offset: 0.0625em;
@@ -56,8 +65,8 @@
     font-weight: 300; 
     line-height: 32px; 
     margin: 0 0 50px; 
-    /* margin-left: -255px; */
-}
+    
+} */
 
 .homeTitle{
     font-size: 25px;

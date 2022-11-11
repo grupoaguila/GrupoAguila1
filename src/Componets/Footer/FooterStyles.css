@@ -20,6 +20,8 @@
 }
 .mediaContainer .face i:hover, .mediaContainer  .insta i:hover, .mediaContainer  .linkedIn i:hover{
     color: rgb(61, 63, 173);
+    box-shadow: 3px -2px 13px 1px rgb(61, 63, 173);
+    border-radius: 5px;
     transition: 500ms;
 }
 
