@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import SearchBar from "../SearchBar/SearchBar";
 import EditModal from "../Modals/EditModal";
-import Logo from '../../assets/grupoAguilaCanvaLogo.png';
+import Logo from '../../assets/logoCanva.jpeg';
 import CarouselComponent from "../Carousel/CarouselComponent";
 import './Home.css'
 
