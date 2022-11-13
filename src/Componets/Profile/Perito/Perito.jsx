@@ -18,9 +18,9 @@ function Perito({emailUser}) {
     const cases = useSelector(state=>state.cases)
   const peritos = useSelector(state=>state.peritos)
   let peritoAsig= peritos.find(el=>el.email===emailUser)
-  /* console.log('peritoAsig', peritoAsig); */
+   console.log('peritoAsig', peritoAsig)
   let cases1=cases.filter(el=>el.perito===peritoAsig.nombre)
-  /* console.log('cases1', cases1); */
+   console.log('cases1', cases1);
   
   cases1.sort((a,b)=>{
     const dayA=a.Vencimiento.split("-")
