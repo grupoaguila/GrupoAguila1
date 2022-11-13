@@ -119,9 +119,9 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                     let state2="vacio"
                     el.estado.length >0 && (state2 = el.estado)
                     
-                    console.log('state2', state2)
+                    // console.log('state2', state2)
                      let state=state1.some(e=>e===state2)
-                     console.log('state==>',state);
+                    //  console.log('state==>',state);
                     // console.log('dayVto[0]', +dayVto[0]);
                     // console.log('nowDay',nowDay);
                     // console.log('dayVto[1]', +dayVto[1]);

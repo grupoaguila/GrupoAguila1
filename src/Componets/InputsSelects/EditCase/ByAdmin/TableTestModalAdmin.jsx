@@ -16,33 +16,37 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
 const TableTestModalAdmin = (props) => {
-    let peritos = useSelector((state) => state.peritos);
-    let namePeritos1 = useSelector((state) => state.peritosByName);
-    let namePeritos = namePeritos1.map((e) => {
+  // console.log('props', props)
+  let peritos = useSelector((state) => state.peritos);
+  let namePeritos1 = useSelector((state) => state.peritosByName);
+  let namePeritos = namePeritos1.map((e) => {
     return { value: e, label: e }; 
   });
-  let userAdmin //lo tomo del local storage y busco el nombre en peritos con un find lo traigo
-    const caseData = props.caseData[0];
-    const  [editFormInput, setEditFormInput] = useState({});
-    const dispatch = useDispatch();
+  let userAdmin= JSON.parse(localStorage.getItem("emailUser"));
+  // console.log('userAdmin', userAdmin)
+  const caseData = props.caseData[0];
+  const  [editFormInput, setEditFormInput] = useState({});
+  const dispatch = useDispatch();
+  let userPerito=peritos.find(e=>e.email===userAdmin).nombre
   useEffect(()=>{
-        setEditFormInput({
-            Vencimiento:caseData?.Vencimiento,
-            Numero:caseData?.Numero,
-            Compañia:caseData?.Compañia,
-            Nombre:caseData?.Nombre,
-            Patente:caseData?.Patente,
-            Marca:caseData?.Marca,
-            direccion:caseData?.direccion,
-            localidad:caseData?.localidad,
-            celular:caseData?.celular,
-            estado:caseData?.estado,
-            perito:caseData?.perito,
-            notas:caseData?.notas,
-            taller:caseData?.taller
-        })
+    setEditFormInput({
+      Vencimiento:caseData?.Vencimiento,
+      Numero:caseData?.Numero,
+      Compañia:caseData?.Compañia,
+      Nombre:caseData?.Nombre,
+      Patente:caseData?.Patente,
+      Marca:caseData?.Marca,
+      direccion:caseData?.direccion,
+      localidad:caseData?.localidad,
+      celular:caseData?.celular,
+      estado:caseData?.estado,
+      perito:caseData?.perito,
+      notas:caseData?.notas,
+      taller:caseData?.taller
+    })
   },[props])
-
+  
+  // console.log('caseData?.perito', caseData?.perito)
 
   //========== HANDLE CHANGE =======
   function handleOnChange(e) {
@@ -167,7 +171,7 @@ const TableTestModalAdmin = (props) => {
 
     } catch (error) {}
   }
-
+// console.log('userPErito', userPerito);
   return (
     <>
       
@@ -176,7 +180,7 @@ const TableTestModalAdmin = (props) => {
           <Modal.Title>Edite la informacion de la pericia</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {userAdmin!==caseData?.perito ? 
+          {userPerito!==caseData?.perito ? 
           <div>
             No puede modificar casos que no le fueron asignados
           </div>:
