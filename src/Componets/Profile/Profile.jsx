@@ -21,7 +21,7 @@ function Profile() {
   const emailUser = JSON.parse(localStorage.getItem("emailUser"));
   const peritosAll=useSelector(state=>state.peritos)
    let  peritoUser=peritosAll?.find(e=>e.email===emailUser)
-
+    console.log('peritoUSer', peritoUser)
 
   return (
     <>
@@ -36,7 +36,7 @@ function Profile() {
             <Admin />
     }
     {
-      peritoUser?.rol==='Perito' &&
+      peritoUser?.rol==='perito' &&
             <Perito emailUser={emailUser}/>
     }
     </>
