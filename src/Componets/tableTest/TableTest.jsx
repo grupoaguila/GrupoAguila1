@@ -115,6 +115,13 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                     // console.log('el',el)
                     // console.log('casesFiltered',casesFiltered) 
                     let dayVto = el?.Vencimiento?.split("-")
+                    let state1= ['Asignado', 'Próximo a visita', 'En proceso de cotización', 'En proceso de liquidación',"vacio"]
+                    let state2="vacio"
+                    el.estado.length >0 && (state2 = el.estado)
+                    
+                    console.log('state2', state2)
+                     let state=state1.some(e=>e===state2)
+                     console.log('state==>',state);
                     // console.log('dayVto[0]', +dayVto[0]);
                     // console.log('nowDay',nowDay);
                     // console.log('dayVto[1]', +dayVto[1]);
@@ -122,7 +129,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                     // console.log('dayVto[2]', +dayVto[2]);
                     // console.log('nowYear',nowYear);
                     return(
-                    ((+dayVto[0] <= +nowDay && +dayVto[1] <= +nowMonth && +dayVto[2] === +nowYear )|| (+dayVto[0]> +nowDay && +dayVto[1] < +nowMonth && +dayVto[2]=== +nowYear )|| (+dayVto[2]< +nowYear))?
+                    ((+dayVto[0] <= +nowDay && +dayVto[1] <= +nowMonth && +dayVto[2] === +nowYear && state )|| (+dayVto[0]> +nowDay && +dayVto[1] < +nowMonth && +dayVto[2]=== +nowYear && state)|| (+dayVto[2]< +nowYear && state))?
                       <Tr>
 
                         {columns2.map((c) => {
