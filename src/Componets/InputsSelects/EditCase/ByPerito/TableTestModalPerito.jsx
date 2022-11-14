@@ -208,14 +208,14 @@ const TableTestModalPerito = (props) => {
               onChange={handleOnChange}
             />
             <br />
-            <Form.Control
+            {/* <Form.Control
               type="text"
               placeholder={`Repuestos/Taller: ${props.caseData[0]?.taller}`}
               name="taller"
               value={editFormInput.taller}
               onChange={handleOnChange}
             />
-            <br />
+            <br /> */}
 
             <Button
               variant="secondary"
