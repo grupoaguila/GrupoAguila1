@@ -170,8 +170,8 @@ const TableTestModalPerito = (props) => {
   return (
     <>
      
-      <Modal show={props.show} onHide={props.close}>
-        <Modal.Header closeButton>
+      <Modal show={props.show} >
+        <Modal.Header closeButton onHide={props.close}>
           <Modal.Title>Edite la informacion del siniestro </Modal.Title>
         </Modal.Header>
         <Modal.Body>
