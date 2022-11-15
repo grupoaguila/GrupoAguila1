@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { editCasos, updateCases } from "../../../../Controller/llamados";
+import {  updateCases } from "../../../../Controller/llamados";
 import { postWhatsapp } from "../../../../Store/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select"
-import {stateCase, location, customStyles, customStyles1} from '../../AddCases/utilsFunctions';
-import PropTypes from "prop-types";
+import {stateCase,  customStyles, customStyles1} from '../../AddCases/utilsFunctions';
+
 import AddModals from "../../../Modals/AddModals";
 import "../TableTestModal.css";
 
@@ -155,9 +155,7 @@ const TableTestModalAdmin = (props) => {
       };
       dispatch(postWhatsapp(body));
  
-    //   setTimeout(() => {
-    //     props.close();
-    //   }, 4000); 
+ 
 
     //it closes the Modal after submit
     props.close()
@@ -175,8 +173,8 @@ const TableTestModalAdmin = (props) => {
   return (
     <>
       
-      <Modal show={props.show} onHide={props.close}>
-        <Modal.Header closeButton>
+      <Modal show={props.show} >
+        <Modal.Header closeButton onHide={props.close}>
           <Modal.Title>Edite la informacion de la pericia</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -243,10 +241,10 @@ const TableTestModalAdmin = (props) => {
             body={body}
             agreeBotton={handleSubmit}
             nameBottom={"Confirmar"}
-            title={"Si la información es correcta, guarde los cambios"}
+            title={"¿La información es correcta?"}
             type={"submit"}
             titleBotton={"Guardar"}
-            // style={style}
+           
             />
           </Form>
           }
