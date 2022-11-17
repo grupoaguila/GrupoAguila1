@@ -29,8 +29,7 @@ function Home() {
       </div>
       <div className="welcomeTitleVersion2">
         <img src={Logo2} alt="logo Aguila" />
-        {/* <h1 className="bienvenido">Grupo Águila</h1>
-        <h2 className="sloganPhrase">"Siempre es mejor el ojo de un experto"</h2> */}
+      
       </div>
 
       <div className="carouselAndSearch">
