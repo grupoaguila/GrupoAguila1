@@ -13,6 +13,7 @@ import "../TableTestModal.css";
 //Alert notifications
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import AddModals from "../../../Modals/AddModals";
 
 
 const TableTestModal = (props) => {
@@ -101,6 +102,24 @@ const TableTestModal = (props) => {
     notas: editFormInput.notas,
     taller: editFormInput.taller
   };
+let cases1=Object.values(cases);
+// console.log('cases1', cases1);
+let body = [
+  `Número de Denuncia : ${cases1[1]}`,
+  `Compañia: ${cases1[2]}`,
+  `Vencimiento: ${cases1[0]}`,
+  `Marca: ${cases1[5]}`,
+  `Patente: ${cases1[4]}`,
+  `Numero de Contacto: ${cases1[8]}`,
+  `Apellido y Nombre: ${cases1[3]}`,
+  `Dirección: ${cases1[6]}`,
+  `Localidad: ${cases1[7]}`,
+  `Perito Asignado: ${cases1[10]}`,
+  `Notas: ${cases1[11]}`,
+  `Repuestos/Taller: ${cases1[12]}`,
+   
+];
+
   //========== HANDLE SUBMIT =======
   /* console.log('editForm', editFormInput) */
   async function handleSubmit(e) {
@@ -264,9 +283,18 @@ const TableTestModal = (props) => {
             >
               Cerrar
             </Button>
-            <Button variant="success" className="submitBtn" type="submit">
+            {/* <Button variant="success" className="submitBtn" type="submit">
               Guardar
-            </Button>
+            </Button> */}
+            <AddModals 
+            body={body}
+            agreeBotton={handleSubmit}
+            nameBottom={"Confirmar"}
+            title={"Si la información es correcta, guarde los cambios"}
+            type={"submit"}
+            titleBotton={"Guardar"}
+            // style={style}
+            />
           </Form>
         </Modal.Body>
       </Modal>

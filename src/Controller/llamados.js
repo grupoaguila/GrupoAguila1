@@ -1,6 +1,6 @@
 import { collection, getFirestore, getDocs, query, doc, getDoc, addDoc, deleteDoc, updateDoc, setDoc, where} from "firebase/firestore";
 import { db } from "../Credentials/Index";
-import { useCollection } from "react-firebase-hooks/firestore"
+
 
 // CREATE
 export const createPer = async(obj) => {
@@ -27,10 +27,9 @@ export const updatePeritos = async (id, obj) => {
 
 // READ
 export const getPer= async ()  => {
-    const colRef = collection(db, 'Peritos');
+    const colRef =  collection(db, 'Peritos');
     const result = await getDocs(query(colRef));
-    console.log('**************************************************',getArrayFromCollection(result))
-    return getArrayFromCollection(result);
+    return getArrayFromCollection(result)
 }
 
 export const getCases= async ()  => {

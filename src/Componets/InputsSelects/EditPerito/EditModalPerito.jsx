@@ -34,7 +34,7 @@ const EditModalPerito = (props) => {
             rol:caseData?.rol,
         })
   },[props])
-  /* console.log("caseData", caseData); */
+  
 
   
   //========== HANDLE CHANGE =======
@@ -51,16 +51,14 @@ const EditModalPerito = (props) => {
     }
 //========== HANDLE SELECT =======
     let handleSelect = (value, action) => {
-
-      console.log('***********VALUEEEEE*********--->',value)
-      console.log('***********ACTION**********--->',action)
-      
+     
       if (action.name === "rol") {
         setEditFormInput({
           ...editFormInput,
           rol: value.value,
         });
       }
+      
   
     };
     let newPerito = {
@@ -71,42 +69,45 @@ const EditModalPerito = (props) => {
       email: editFormInput.email,
       rol: editFormInput.rol,
     };
-  //========== HANDLE SUBMIT =======
-  /* console.log('editForm', editFormInput) */
+   
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    
-    try {
-      let edit = await updatePeritos(props.caseData[0].id, newPerito);
+    //========== HANDLE SUBMIT =======
+    /* console.log('editForm', editFormInput) */
+    async function handleSubmit(e) {
+      e.preventDefault();
       
-  
+      try {
+       
+        let edit = await updatePeritos(props.caseData[0].id, newPerito);
+        
+      
       //  console.log('caseData[0].id',caseData[0].id)
       let peritoWhatsap = peritos.find(
         (el) => el.nombre === editFormInput.perito
-      );
-      
-      
-
-      //it closes the Modal after submit
-      props.close()
-
-      //this commando triggers the alert! 
-      NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000);  
-      //actualiza el estado con el cambio
-      props.actualizar()
-      
-       let body = {
+        );
+        
+        // setTimeout(()=>{ props.actualizar()}, 2500)
+       
+        
+        
+        //it closes the Modal after submit
+        props.close()
+        
+        //this commando triggers the alert! 
+        NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000);  
+        //actualiza el estado con el cambio
+        props.actualizar()
+        
+        let body = {
           token: "fqrd6b8ibptedwrf",
           to: `${peritoWhatsap.celular}`,
-           body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
-           priority: "10",
-         };
+          body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
+          priority: "10",
+        };
         dispatch(postWhatsapp(body));
-         
-               props.close();
-            
-    } catch (error) {console.log(e)}
+        
+        
+    } catch (error) {console.log('error de catch',e)}
   }
 
   
@@ -149,7 +150,7 @@ const EditModalPerito = (props) => {
             options={rol}
             placeholder="Seleccione un rol"
             styles={customStyles1}
-            value={{ value:caseData?.rol, label:caseData?.rol }}
+            defaultValue={{ label:caseData?.rol,value:caseData?.rol }}
           />
              <Button
               variant="secondary"
