@@ -31,7 +31,7 @@ const initialState = {
 let rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PERITOS:
-      console.log('**REDUCER==>', action.payload)
+      
       return {
         ...state,
         peritos: action.payload,
