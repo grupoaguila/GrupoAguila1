@@ -154,12 +154,12 @@ const EditModalPerito = (props) => {
           />
              <Button
               variant="secondary"
-              className="closeBtn"
+              className="closeBtn mt-2" 
               onClick={props.close}
             >
               Cerrar
             </Button>
-            <Button variant="success" className="submitBtn" type="submit">
+            <Button variant="success" className="submitBtn mt-2" type="submit">
               Guardar
             </Button>
           </Form>
