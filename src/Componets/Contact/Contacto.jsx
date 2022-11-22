@@ -1,7 +1,25 @@
 import React from 'react'
 import './Contacto.css'
+import emailjs from "@emailjs/browser";
+import { useNavigate } from "react-router-dom";
 
 function Contacto() {
+
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_d4n8uu8",
+        "template_b91p3lr",
+        e.target,
+        "m161GBw_7jaymvDc3",
+        alert("Su mensaje ha sido enviado, pronto te responderemos")
+      )
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
+      navigate("/");
+  }
   return (
     <div>
       <div className="content">
@@ -30,7 +48,7 @@ function Contacto() {
                 </div>
                 <div className="col-md-6 form-group mb-5">
                   <label for="" className="col-form-label">Empresa</label>
-                  <input type="text" className="formulario" name="company" id="company"  placeholder="Nombre de empresa" />
+                  <input type="text" className="formulario" name="empresa" id="company"  placeholder="Nombre de empresa" />
                 </div>
               </div>
 
