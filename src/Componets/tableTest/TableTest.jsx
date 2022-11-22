@@ -183,7 +183,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
       )}
       {/* Modal rendering */}
       {
-        rol === 'superAdmin' &&
+        rol === 'Administrador General' &&
         <TableTestModal
           show={showModal}
           close={() => setShowModal(false)}
@@ -193,7 +193,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
         />
       }
       {
-        rol === 'Admin' &&
+        rol === 'Administrador junior' &&
         <TableTestModalAdmin
           show={showModal}
           close={() => setShowModal(false)}
@@ -203,7 +203,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
         />
       }
       {
-        rol === 'Perito' &&
+        rol === 'Tecnico' &&
         <TableTestModalPerito
           show={showModal}
           close={() => setShowModal(false)}

@@ -9,12 +9,12 @@ import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 
 function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
   console.log('cases==>',cases);
-  console.log('columns==>',columns);
-  console.log('title==>',title);
+  // console.log('columns==>',columns);
+  // console.log('title==>',title);
 
   let dispatch= useDispatch()
-  function Actualizacion(){
-    // console.log('entré en Actualizacion');
+  function Actualizacion1(){
+    console.log('entré en Actualizacion');
       dispatch(getPeritos())
       dispatch(getCasesAction())
       setTimeout(()=>{ 
@@ -34,8 +34,8 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
   const columns2 = columns.map((el) => {
     return el.dataField;
   });
-  console.log("columns1", columns1);
-  console.log("columns2", columns2);
+  // console.log("columns1", columns1);
+  // console.log("columns2", columns2);
 
   //Modal Form data
   const [caseData, setCaseData] = React.useState([]);
@@ -61,7 +61,7 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
         dato.rol.toLowerCase().includes(filter.toLocaleLowerCase())         
     );
   }
-  console.log('casesFiltered', casesFiltered)
+  // console.log('casesFiltered', casesFiltered)
   return (
     <>
       <input
@@ -130,7 +130,7 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
       close={() => setShowModal(false)}
       caseData={caseData}
       detail={detail}
-      actualizar={Actualizacion}/>
+      actualizar={Actualizacion1}/>
     </>
   );
 }

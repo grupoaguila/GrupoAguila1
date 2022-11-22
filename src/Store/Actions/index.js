@@ -17,6 +17,7 @@ import {
 export function getPeritos() {
   return async function (dispatch) {
     const allPer = await getPer();
+  
     return dispatch({
       type: GET_PERITOS,
       payload: allPer,

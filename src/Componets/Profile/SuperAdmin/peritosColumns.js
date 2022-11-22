@@ -7,22 +7,7 @@ export const defaultSorted = [{
     order: 'desc',
    
   }];
-export function peritosEditRol(array1){
-  for (let i = 0; i < array1.length; i++) {
-    if(array1[i].rol==='superAdmin'){
-      array1[i].rol='Administrador General'
-    }
-   else if(array1[i].rol==='Admin'){
-    array1[i].rol='Administrador junior'
-   }
-    else{
-      array1[i].rol='Técnico'
 
-    }
-  }
-  return array1
-
-}
 export const columnsPeritos=[
     {
         dataField: 'nombre',// es el identificador de la columna, asi que cada atributo debe coincidir con el dataField
