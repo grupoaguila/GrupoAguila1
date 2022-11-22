@@ -21,6 +21,7 @@ export const updateCases = async (id, obj) => {
 export const updatePeritos = async (id, obj) => {
     const colRef = collection(db, 'Peritos');
     await updateDoc(doc(colRef, id), obj)
+   
 }
 
 
@@ -28,7 +29,6 @@ export const updatePeritos = async (id, obj) => {
 export const getPer= async ()  => {
     const colRef =  collection(db, 'Peritos');
     const result = await getDocs(query(colRef));
-
     return getArrayFromCollection(result)
 }
 

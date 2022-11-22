@@ -22,6 +22,8 @@ const EditModalPerito = (props) => {
     return { value: e, label: e }; 
   });
     const caseData = props.caseData[0];
+
+   
     const  [editFormInput, setEditFormInput] = useState({});
     const dispatch = useDispatch();
   useEffect(()=>{
@@ -38,8 +40,9 @@ const EditModalPerito = (props) => {
   //========== HANDLE CHANGE =======
   function handleOnChange(e) {
       e.preventDefault();
-      if (e.target.value !== undefined) {
+      if (e.target.value !== 'undefined') {
           setEditFormInput({ ...editFormInput, [e.target.name]: e.target.value });
+          console.log('******************el estadoo****',editFormInput)
         }
         else{
             let  nameL = e.target.name
@@ -151,12 +154,12 @@ const EditModalPerito = (props) => {
           />
              <Button
               variant="secondary"
-              className="closeBtn"
+              className="closeBtn mt-2" 
               onClick={props.close}
             >
               Cerrar
             </Button>
-            <Button variant="success" className="submitBtn" type="submit">
+            <Button variant="success" className="submitBtn mt-2" type="submit">
               Guardar
             </Button>
           </Form>
