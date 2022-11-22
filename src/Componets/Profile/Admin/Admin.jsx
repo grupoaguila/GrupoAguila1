@@ -55,13 +55,13 @@ function Admin() {
 
 
       {all &&
-        <AllCases rol={'Admin'} />
+        <AllCases rol={'Administrador junior'} />
       }
       {completed &&
-        <CompletedCases rol={'Admin'}/>
+        <CompletedCases rol={'Administrador junior'}/>
       }
       {pending &&
-        <PendingCases rol={'Admin'}/>
+        <PendingCases rol={'Administrador junior'}/>
       }
   
     </>

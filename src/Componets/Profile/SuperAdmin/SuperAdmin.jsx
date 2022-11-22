@@ -86,16 +86,16 @@ function SuperAdmin() {
 
 
       {all &&
-        <AllCases rol={'superAdmin'} />
+        <AllCases rol={'Administrador General'} />
       }
       {completed &&
-        <CompletedCases rol={'superAdmin'}/>
+        <CompletedCases rol={'Administrador General'}/>
       }
       {pending &&
-        <PendingCases rol={'superAdmin'}/>
+        <PendingCases rol={'Administrador General'}/>
       }
       {allPeritos &&
-        <AllPeritos rol={'superAdmin'}/>
+        <AllPeritos rol={'Administrador General'}/>
       }
       
     </>

@@ -86,6 +86,12 @@ export const columns=[
         // sortable: false,
         // grow:'flex-grow'
     },
+     {
+        dataField:'taller',
+        text:'Repuestos/Taller',
+        // sortable: false,
+        // grow:'flex-grow'
+    },
 
   ]
  

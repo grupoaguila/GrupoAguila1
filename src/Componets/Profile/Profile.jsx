@@ -21,22 +21,22 @@ function Profile() {
   const emailUser = JSON.parse(localStorage.getItem("emailUser"));
   const peritosAll=useSelector(state=>state.peritos)
    let  peritoUser=peritosAll?.find(e=>e.email===emailUser)
-    console.log('peritoUSer', peritoUser)
+    // console.log('peritoUSer', peritoUser)
 
   return (
     <>
      
     {
-      peritoUser?.rol==='superAdmin' &&
+      peritoUser?.rol==='Administrador General' &&
             <SuperAdmin />
     }
      
     {
-      peritoUser?.rol==='Admin' &&
+      peritoUser?.rol==='Administrador junior' &&
             <Admin />
     }
     {
-      peritoUser?.rol==='perito' &&
+      peritoUser?.rol==='Tecnico' &&
             <Perito emailUser={emailUser}/>
     }
     </>
