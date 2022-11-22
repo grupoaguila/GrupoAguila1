@@ -7,10 +7,8 @@ import { TbEdit } from "react-icons/tb";
 import EditModalPerito from "../InputsSelects/EditPerito/EditModalPerito";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 
-function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
-  console.log('cases==>',cases);
-  console.log('columns==>',columns);
-  console.log('title==>',title);
+function PeritosTableResponsive({ cases, columns, detail, title, peritos1 }) {
+  console.log('pertitos1*********************--->',peritos1)
 
   let dispatch= useDispatch()
   function Actualizacion(){
@@ -44,7 +42,7 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
   const [showModal, setShowModal] = React.useState(false);
   //when Edit button is clicked
   function showModalEdit(id) {
-    setCaseData(cases.length > 0 && cases.filter((el) => el.id === id));
+    setCaseData(peritos1.length > 0 && peritos1.filter((el) => el.id === id));//son los peritos
     setShowModal(true);
   }
 

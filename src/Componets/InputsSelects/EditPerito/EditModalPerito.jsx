@@ -22,6 +22,8 @@ const EditModalPerito = (props) => {
     return { value: e, label: e }; 
   });
     const caseData = props.caseData[0];
+
+   
     const  [editFormInput, setEditFormInput] = useState({});
     const dispatch = useDispatch();
   useEffect(()=>{
@@ -38,8 +40,9 @@ const EditModalPerito = (props) => {
   //========== HANDLE CHANGE =======
   function handleOnChange(e) {
       e.preventDefault();
-      if (e.target.value !== undefined) {
+      if (e.target.value !== 'undefined') {
           setEditFormInput({ ...editFormInput, [e.target.name]: e.target.value });
+          console.log('******************el estadoo****',editFormInput)
         }
         else{
             let  nameL = e.target.name
@@ -48,6 +51,10 @@ const EditModalPerito = (props) => {
     }
 //========== HANDLE SELECT =======
     let handleSelect = (value, action) => {
+
+      console.log('***********VALUEEEEE*********--->',value)
+      console.log('***********ACTION**********--->',action)
+      
       if (action.name === "rol") {
         setEditFormInput({
           ...editFormInput,
@@ -66,6 +73,7 @@ const EditModalPerito = (props) => {
     };
   //========== HANDLE SUBMIT =======
   /* console.log('editForm', editFormInput) */
+
   async function handleSubmit(e) {
     e.preventDefault();
     
@@ -141,7 +149,7 @@ const EditModalPerito = (props) => {
             options={rol}
             placeholder="Seleccione un rol"
             styles={customStyles1}
-            defaultValue={{ value:caseData?.rol, label:caseData?.rol }}
+            value={{ value:caseData?.rol, label:caseData?.rol }}
           />
              <Button
               variant="secondary"
