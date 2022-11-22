@@ -25,7 +25,7 @@ function AddModals({
   // const handleSubmit=functionBottonAgree()
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" className="mt-2" onClick={handleShow}>
         {nameBottom}
       </Button>
      
