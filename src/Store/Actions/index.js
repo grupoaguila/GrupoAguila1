@@ -55,7 +55,7 @@ export function postWhatsapp(body) {
   return async function (dispatch) {
     try {
       var json = await axios.post(
-        "https://api.ultramsg.com/instance21448/messages/chat",
+        "https://api.ultramsg.com/instance23751/messages/chat",
         body
       );
  

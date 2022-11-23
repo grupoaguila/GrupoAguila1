@@ -2,9 +2,12 @@ import React from 'react'
 import './Contacto.css'
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
+//Alert notifications
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 function Contacto() {
-
+const navigate= useNavigate()
   function sendEmail(e) {
     e.preventDefault();
 
@@ -14,10 +17,10 @@ function Contacto() {
         "template_b91p3lr",
         e.target,
         "m161GBw_7jaymvDc3",
-        alert("Su mensaje ha sido enviado, pronto te responderemos")
-      )
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
+        )
+        .then((res) => console.log(res))
+        .catch((e) => console.log(e));
+     NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000);
       navigate("/");
   }
   return (
@@ -105,6 +108,7 @@ function Contacto() {
     </div>
 
   </div>
+  <NotificationContainer/>
     </div>
   )
 }
