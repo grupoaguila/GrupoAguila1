@@ -145,7 +145,7 @@ const TableTestModalPerito = (props) => {
       );
     
       let body = {
-        token: "fqrd6b8ibptedwrf",
+        token: "ppxsdnbulhx73mnv",
         to: `${peritoWhatsap.celular}`,
         body: `${peritoWhatsap.nombre} se ha modificado su caso ${editFormInput.Numero}`,
         priority: "10",

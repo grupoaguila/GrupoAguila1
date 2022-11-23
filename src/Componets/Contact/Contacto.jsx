@@ -2,6 +2,9 @@ import React from 'react'
 import './Contacto.css'
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router-dom";
+//Alert notifications
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 function Contacto() {
 const navigate= useNavigate()
@@ -14,10 +17,10 @@ const navigate= useNavigate()
         "template_b91p3lr",
         e.target,
         "m161GBw_7jaymvDc3",
-        alert("Su mensaje ha sido enviado, pronto te responderemos")
-      )
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
+        )
+        .then((res) => console.log(res))
+        .catch((e) => console.log(e));
+     NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000);
       navigate("/");
   }
   return (
@@ -105,6 +108,7 @@ const navigate= useNavigate()
     </div>
 
   </div>
+  <NotificationContainer/>
     </div>
   )
 }
