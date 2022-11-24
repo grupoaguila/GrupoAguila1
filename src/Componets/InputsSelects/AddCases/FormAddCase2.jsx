@@ -119,7 +119,7 @@ function FormAddCase2({
         <Form.Group>
           <FloatingLabel
             controlId="floatingInput"
-            label="Marca"
+            label="Marca/Modelo"
             className="mb-3"
             required
           >

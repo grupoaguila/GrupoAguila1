@@ -1,13 +1,13 @@
 import React from 'react'
 import './Contacto.css'
 import emailjs from "@emailjs/browser";
-import { useNavigate } from "react-router-dom";
+
 //Alert notifications
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
 function Contacto() {
-const navigate= useNavigate()
+
   function sendEmail(e) {
     e.preventDefault();
 
@@ -18,10 +18,12 @@ const navigate= useNavigate()
         e.target,
         "m161GBw_7jaymvDc3",
         )
-        .then((res) => console.log(res))
+        .then((res) =>{
+          e.target.reset()
+        } )
         .catch((e) => console.log(e));
-     NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000);
-      navigate("/");
+     NotificationManager.success('Bien Hecho!', 'Mensaje enviado!',3000);
+     
   }
   return (
     <div>
@@ -32,7 +34,7 @@ const navigate= useNavigate()
         <div className="col-md-8">
           <div className="form h-100">
             <h3>Contáctanos</h3>
-            <form className="mb-5" method="post" id="contactForm" name="contactForm">
+            <form className="mb-5" method="post" id="contactForm" name="contactForm" onSubmit={e=>sendEmail(e)}>
               <div className="row">
                 <div className="col-md-6 form-group mb-5">
                   <label for="" className="col-form-label">Nombre *</label>
@@ -46,11 +48,11 @@ const navigate= useNavigate()
 
               <div className="row">
                 <div className="col-md-6 form-group mb-5">
-                  <label for="" className="col-form-label">Teléfono</label>
+                  <label for="" className="col-form-label">Teléfono  </label>
                   <input type="text" className="formulario" name="phone" id="phone"  placeholder="Nro Teléfono" />
                 </div>
                 <div className="col-md-6 form-group mb-5">
-                  <label for="" className="col-form-label">Empresa</label>
+                  <label for="" className="col-form-label">Empresa  </label>
                   <input type="text" className="formulario" name="empresa" id="company"  placeholder="Nombre de empresa" />
                 </div>
               </div>
