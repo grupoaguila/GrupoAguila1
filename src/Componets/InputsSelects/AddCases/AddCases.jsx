@@ -175,7 +175,8 @@ function AddCases() {
         setCreated(cases.Numero);
         setShow(true);
         dispatch(postWhatsapp(body));
-        NotificationManager.success("El caso fue añadido!", 3000);
+        dispatch(postWhatsapp(bodyMsgAsegurado));
+        NotificationManager.success('Bien Hecho!',"El caso fue añadido!", 3000);
         Actualizacion();
 
         setPost({
