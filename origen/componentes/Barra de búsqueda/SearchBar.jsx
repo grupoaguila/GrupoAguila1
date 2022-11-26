@@ -5,7 +5,7 @@ import "./SearchBar.css";
 
 function SearchBar() {
   const [consult, setConsult] = useState([]);
-  const [patents, setPatents] = useState("");
+  const [denuncia, setDenuncia] = useState("");
 
   function clearConsult(){
     setConsult([]);
@@ -14,27 +14,27 @@ function SearchBar() {
 
   const handleChange = (e) => {
     e.preventDefault();
-    setPatents(e.target.value);
+    setDenuncia(e.target.value);
   };
   
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-    let patents1= patents.toUpperCase().trim()
-    console.log('patents1', patents1)
-    const doc = await getCasesByCondition(patents1);
-    console.log('docbuscado=>',doc);
+    let denuncia1= denuncia.toUpperCase().trim()
+    // console.log('denuncia', denuncia1)
+    const doc = await getCasesByCondition(denuncia1);
+    // console.log('docbuscado=>',doc);
     if(doc.length === 0){
-      console.log('doc.length=>',doc.length);
+      // console.log('doc.length=>',doc.length);
       setConsult(['No se encontró su caso']);
-      return setPatents("")
+      return setDenuncia("")
     }
     
     setConsult(doc)
-    setPatents("");
+    setDenuncia("");
   };
   
-  console.log('consult', consult)
-  console.log('cargando', patents)
+  // console.log('consult', consult)
+  // console.log('cargando', denuncia)  
   return (
     <>
       <form action="" className="search-bar" onSubmit={handleSubmit}>
@@ -43,7 +43,7 @@ function SearchBar() {
           name="search"
           // value={patents}
           pattern=".*\S.*"
-          placeholder="Nro. Patente"
+          placeholder="Nro. Denuncia"
           onChange={(e) => handleChange(e)}
           required
         />
