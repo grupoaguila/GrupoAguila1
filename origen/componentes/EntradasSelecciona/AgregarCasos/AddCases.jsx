@@ -165,11 +165,12 @@ function AddCases() {
           priority: "10",
         };
         let bodyMsgAsegurado= {
-          token: "ppxsdnbulhx73mnv",
+          token: "ppxsdnbulhx73mnv", 
           to: `${cases.celular}`,
           body: `${cases.Nombre} le informamos que su caso ya ha sido asignado a nuestro perito.
-          Para mayor información ingrese a nuestra página https://www.grupoaguilasrl.com`,
-          priority: "10",
+          Para mayor información ingrese a nuestra página https://www.grupoaguilasrl.com 
+          con el N° de denuncia ${cases.Numero}`,
+          priority: "10", 
 
         }
         setCreated(cases.Numero);
