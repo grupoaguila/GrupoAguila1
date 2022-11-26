@@ -34,7 +34,7 @@ function SearchBar() {
   };
   
   // console.log('consult', consult)
-  // console.log('cargando', denuncia)
+  // console.log('cargando', denuncia)  
   return (
     <>
       <form action="" className="search-bar" onSubmit={handleSubmit}>
