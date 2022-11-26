@@ -101,7 +101,7 @@ function Contacto() {
               </li>
               <li className="d-flex">
                 <span className="wrap-icon icon-envelope mr-3"></span>
-                <span className="text">info@mywebsite.com</span>
+                <span className="text">informes@grupoaguilasrl.com</span>
               </li>
             </ul>
           </div>
