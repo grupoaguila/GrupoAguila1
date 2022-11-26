@@ -13,10 +13,10 @@ function Contacto() {
 
     emailjs
       .sendForm(
-        "service_d4n8uu8",
-        "template_b91p3lr",
+        "service_h9naav5",
+        "template_t3a7jbk",
         e.target,
-        "m161GBw_7jaymvDc3",
+        "4_w5oQCiBXVayJQChTv57",
         )
         .then((res) =>{
           e.target.reset()
