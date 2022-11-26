@@ -51,7 +51,7 @@ export const getCasesByCondition = async (value) => {
   const collecionRef = collection(db, "Casos");
   const queryTitulo = query(
     collecionRef,
-    where("Patente", "==", value)
+    where("Numero", "==", value)
   );
   const querySku = query(collecionRef, where("sku", "==", value));
 
