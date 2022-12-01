@@ -25,7 +25,7 @@ function AddModals({
   // const handleSubmit=functionBottonAgree()
   return (
     <>
-      <Button variant="primary" className="mt-2" onClick={handleShow}>
+      <Button variant="primary"  onClick={handleShow} className="addModalConfirmButton">
         {nameBottom}
       </Button>
      
@@ -56,6 +56,7 @@ function AddModals({
               }}
               variant="primary"
               type={type}
+              
             >
               {titleBotton}
             </Button>

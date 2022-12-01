@@ -82,6 +82,7 @@ function FormAddCase2({
                 options={day}
                 placeholder="Día"
                 hideSelectedOptions={true}
+                className="selectAddCases"
               />
 
               <Select
@@ -89,6 +90,7 @@ function FormAddCase2({
                 name={"month"}
                 options={month}
                 placeholder="Mes"
+                className="selectAddCases"
               />
 
               <Select
@@ -96,6 +98,7 @@ function FormAddCase2({
                 name={"year"}
                 options={years}
                 placeholder="Año"
+                className="selectAddCases"
               />
             </div>
           </Form.Group>
