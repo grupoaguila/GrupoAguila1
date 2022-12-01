@@ -1,0 +1,20 @@
+.deletPerito span{
+    font-weight: bold;
+    color: red;
+    font-style: italic;
+}
+.deletePeritoDiv{
+    font-style: italic;
+}
+.deletePeritoDiv span{
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+.closeButtonDeletePerito, .supportButtonDeletePerito{
+    margin-top: 5px;     
+}
+.supportButtonDeletePerito{
+    margin-left: 5px;
+}

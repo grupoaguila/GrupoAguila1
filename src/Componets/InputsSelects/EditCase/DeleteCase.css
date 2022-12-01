@@ -1,0 +1,20 @@
+.deleteCaseTitle span{
+    font-weight: bold;
+    color: red;
+    font-style: italic;
+}
+.deleteCaseDiv{
+    font-style: italic;
+}
+.deleteCaseDiv span{
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+.closeButtonDeleteCase, .submitButtonDeleteCase{
+    margin-top: 5px;     
+}
+.submitButtonDeleteCase{
+    margin-left: 5px;
+}
