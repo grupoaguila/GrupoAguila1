@@ -113,8 +113,8 @@ export const getItemById = async (id) => {
 }
 
 // DELETE
-export const deleteItem = async (id) => {
-    const colRef = collection(db, 'items');
+export const deletePerito = async (id) => {
+    const colRef = collection(db, 'Peritos');
     await deleteDoc(doc(colRef, id));
 }
 

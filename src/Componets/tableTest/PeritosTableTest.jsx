@@ -4,8 +4,10 @@ import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import "./tabletest.css";
 import { TbEdit } from "react-icons/tb";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import EditModalPerito from "../InputsSelects/EditPerito/EditModalPerito";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
+import DeletePerito from "../InputsSelects/EditPerito/DeletePerito";
 
 function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
 
@@ -40,10 +42,15 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
 
   //modal state
   const [showModal, setShowModal] = React.useState(false);
+  const [showModalD, setShowModalD] = React.useState(false);
   //when Edit button is clicked
   function showModalEdit(id) {
     setCaseData(cases.length > 0 && cases.filter((el) => el.id === id));//son los peritos
     setShowModal(true);
+  }
+  function showModalDelete(id) {
+    setCaseData(cases.length > 0 && cases.filter((el) => el.id === id));//son los peritos
+    setShowModalD(true);
   }
 
   //Filter method
@@ -88,6 +95,7 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
                 })}
 
                 <Th className="thEdit">Editar</Th>
+                <Th className="thEdit">Eliminar</Th>
               </Tr>
             </Thead>
 
@@ -115,6 +123,14 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
                           <TbEdit />
                         </div>
                       </Td>
+                      <Td className="tdEdit" key={el.id}>
+                        <div
+                          className="editBtn"
+                          onClick={() => showModalDelete(el.id)}
+                        >
+                          <RiDeleteBin6Line />
+                        </div>
+                      </Td>
                     </Tr>
                   )
               )}
@@ -126,6 +142,13 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
       <EditModalPerito 
       show={showModal}
       close={() => setShowModal(false)}
+      caseData={caseData}
+      detail={detail}
+      actualizar={Actualizacion1}/>
+      
+      <DeletePerito 
+      show={showModalD}
+      close={() => setShowModalD(false)}
       caseData={caseData}
       detail={detail}
       actualizar={Actualizacion1}/>
