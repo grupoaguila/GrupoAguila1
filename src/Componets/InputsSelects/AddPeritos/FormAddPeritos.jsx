@@ -6,7 +6,7 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { rol, customStyles } from "../AddCases/utilsFunctions";
 import Select from "react-select";
-
+import './AddPeritos.css'
 function FormAddPeritos({
   handleChange,
   handleSubmit,
@@ -15,21 +15,25 @@ function FormAddPeritos({
   perito,
   errors,
 }) {
+
+
+
+
   let style = { display: "flex", alignItems: "flex-end" };
   return (
     <div>
-      <Link to="/user">
-        <Button variant="secondary" style={{ display: "flex" }}>
-          Volver
-        </Button>
-      </Link>
-      <div style={{ paddingRight: "30%", paddingLeft: "25%" }}>
+
+     <div className="ButtonBack">
+        <Link to="/user">
+          <Button variant="secondary">Volver</Button>
+        </Link>
+      </div>
+
+      <div className="addPeritoH2">
         <h2>AÑADIR PERITO</h2>
       </div>
 
-      <Form
-        style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "5%" }}
-      >
+      <Form className="mainFormContainer">
         {/* Apellido y Nombre */}
         <FloatingLabel
           controlId="floatingInput"
@@ -78,25 +82,21 @@ function FormAddPeritos({
             name="celular"
           />
         </FloatingLabel>
-        {/* Vencimiento */}
+  
 
         <Form.Group>
+            <div className="rolLabel">
               <Form.Label>Rol: </Form.Label>
-          {/* <FloatingLabel
-            controlId="floatingInput"
-            label="Rol"
-            className="mb-3"
-            required
-          > */}
+            </div>
+
+          <Select
+            onChange={handleSelect}
+            name={"rol"}
+            options={rol}
+            placeholder="Seleccione un rol"
+            styles={customStyles}
+          />
           
-            <Select
-              onChange={handleSelect}
-              name={"rol"}
-              options={rol}
-              placeholder="Seleccione un rol"
-              styles={customStyles}
-            />
-          {/* </FloatingLabel> */}
         </Form.Group>
 
         <AddModals

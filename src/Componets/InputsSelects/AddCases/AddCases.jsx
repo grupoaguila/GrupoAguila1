@@ -247,7 +247,7 @@ function AddCases() {
         post={post}
         namePeritos={namePeritos}
         cases={body}
-        style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px",   backgroundColor:"opacity" }}
+        // style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px",   backgroundColor:"opacity" }}
       />
       <NotificationContainer />
     </div>

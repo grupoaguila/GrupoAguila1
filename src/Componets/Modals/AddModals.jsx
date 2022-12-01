@@ -44,7 +44,7 @@ function AddModals({
             {details && <div>{details}</div>}
             
               {body?.map((el) => {
-                return <ol className="orderedList" ><span>{el.split(':')[0]}:</span>{el.split(':')[1]}</ol>;
+                return <ol className="orderedList" ><span>{el.split(':')[0]}</span>{el.split(':')[1]}</ol>;
               })}
             
           </Modal.Body>
