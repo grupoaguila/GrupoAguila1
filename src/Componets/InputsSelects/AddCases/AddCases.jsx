@@ -162,7 +162,7 @@ function AddCases() {
           token: "ppxsdnbulhx73mnv",
           to: `${peritoWhatsap.celular}`,
           body: `${peritoWhatsap.nombre} se te ha asignado una nueva pericia:
-          N° de denuncia: ${editFormInput.Numero}`,
+          N° de denuncia: ${cases.Numero}`,
           priority: "10",
         };
         let bodyMsgAsegurado= {
