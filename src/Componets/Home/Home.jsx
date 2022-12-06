@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import SearchBar from "../SearchBar/SearchBar";
-import Logo2 from "../../assets/logoSinAguila.jpeg"
+import Logo2 from "../../assets/logoSinAguila.jpg"
 import Logo from '../../assets/logoCanva.jpg';
 import CarouselComponent from "../Carousel/CarouselComponent";
 import './Home.css'
