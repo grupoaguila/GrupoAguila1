@@ -15,6 +15,7 @@
   margin-bottom: 1.5rem;
   height: 200px;
   width: 500px;
+  box-shadow: -2px 1px 20px;
 }
 .welcomeTitleVersion2 {
   display:none;
