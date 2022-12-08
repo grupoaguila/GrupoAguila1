@@ -150,14 +150,17 @@ function AddCases() {
   //======= HANDLE SUBMIT ==================
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('e', e)
 
     let error = await validate(post);
 
     if (Object.keys(error).length === 0) {
       try {
         createCase(cases);
+        console.log('1')
       
         let peritoWhatsap = peritos.find((el) => el.nombre === post.perito);
+        console.log('2')
         let body = {
           token: "ppxsdnbulhx73mnv",
           to: `${peritoWhatsap.celular}`,
@@ -165,6 +168,7 @@ function AddCases() {
           N° de denuncia: ${cases.Numero}`,
           priority: "10",
         };
+        console.log('3==>', body)
         let bodyMsgAsegurado= {
           token: "ppxsdnbulhx73mnv", 
           to: `${cases.celular}`,
@@ -174,12 +178,15 @@ function AddCases() {
           priority: "10", 
 
         }
+        console.log('4===>',bodyMsgAsegurado)
         setCreated(cases.Numero);
+        console.log('5===>', created)
         setShow(true);
         dispatch(postWhatsapp(body));
         dispatch(postWhatsapp(bodyMsgAsegurado));
         NotificationManager.success('Bien Hecho!',"El caso fue añadido!", 3000);
         Actualizacion();
+        console.log('6===>')
 
         setPost({
           Nombre: "",
@@ -203,6 +210,7 @@ function AddCases() {
       }
     } else {
       let errorA = Object.values(error);
+      console.log('6===>', errorA)
       setShowE(true);
       setErr(errorA);
       // alert(`No se puede guardar el caso presenta el/los siguiente/s error/s:
