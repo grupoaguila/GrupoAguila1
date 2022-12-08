@@ -12,6 +12,9 @@
     width: 90%;
     margin: 0 auto;
 }
+.mainFormContainer .lastChildForm{
+    margin-bottom: 1rem;
+}
 
 .vencimientoContainer{
     /* border: 3px solid fuchsia; */

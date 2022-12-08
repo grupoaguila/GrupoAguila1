@@ -194,6 +194,7 @@ function FormAddCase2({
             <Form.Label>Perito: </Form.Label>
           </div>
           <Select
+            className="lastChildForm"
             onChange={handleSelect}
             name={"peritos"}
             options={namePeritos}
