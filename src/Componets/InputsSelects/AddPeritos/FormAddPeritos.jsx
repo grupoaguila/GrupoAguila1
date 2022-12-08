@@ -90,6 +90,7 @@ function FormAddPeritos({
             </div>
 
           <Select
+            className="lastChildForm"
             onChange={handleSelect}
             name={"rol"}
             options={rol}
