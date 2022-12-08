@@ -174,6 +174,7 @@ let body = [
               name="Vencimiento"
               value={editFormInput.Vencimiento}
               onChange={handleOnChange}
+                
             />
             <br />
             <Form.Control
@@ -287,7 +288,7 @@ let body = [
             {/* <Button variant="success" className="submitBtn" type="submit">
               Guardar
             </Button> */}
-            <AddModals 
+            <AddModals  
             body={body}
             agreeBotton={handleSubmit}
             nameBottom={"Confirmar"}
