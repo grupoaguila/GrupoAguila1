@@ -6,7 +6,9 @@ import {columns} from '../colums2'
 function PendingCases({rol}) {
     const cases1 = useSelector(state=>state.cases)
     const peritosByName = useSelector(state=>state.peritosByName)
-    const cases= cases1.filter(el=>el.estado!=='Pericia finalizada')
+    const cases2=cases1.filter(e=>!e.hasOwnProperty('bandera') || e.bandera==='false')
+
+    const cases= cases2.filter(el=>el.estado!=='Pericia finalizada')
     
     cases.sort((a,b)=>{
       const dayA=a.Vencimiento.split("-")

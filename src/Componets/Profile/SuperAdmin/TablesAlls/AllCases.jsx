@@ -7,7 +7,7 @@ import {columns} from '../colums2'
 function AllCases({rol}) {
     const cases1 = useSelector(state=>state.cases)
     const cases=cases1.filter(e=>!e.hasOwnProperty('bandera') || e.bandera==='false')
-    console.log('cases', cases)
+    // console.log('cases', cases)
     
     cases.sort((a,b)=>{
       const dayA=a.Vencimiento.split("-")
