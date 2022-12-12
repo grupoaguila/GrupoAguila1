@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import AddModals from "../../Modals/AddModals";
-import AddCases from "../../InputsSelects/AddCases/AddCases";
 import { Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-import EditModal from "../../Modals/EditModal";
+import { useNavigate } from "react-router-dom";
 import AllCases from "./TablesAlls/AllCases";
 import CompletedCases from "./TablesAlls/CompletedCases";
 import PendingCases from "./TablesAlls/PendingCases";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { GrAddCircle, GrProjects, GrTable } from "react-icons/gr";
+import { GrTable } from "react-icons/gr";
 import './Perito.css'
 
 function Perito({emailUser}) {
@@ -19,7 +16,8 @@ function Perito({emailUser}) {
   const peritos = useSelector(state=>state.peritos)
   let peritoAsig= peritos.find(el=>el.email===emailUser)
   //  console.log('peritoAsig', peritoAsig)
-  let cases1=cases.filter(el=>el.perito===peritoAsig.nombre)
+  const cases2=cases.filter(e=>!e.hasOwnProperty('bandera') || e.bandera==='false')
+  let cases1=cases2.filter(el=>el.perito===peritoAsig.nombre)
   //  console.log('cases1', cases1);
   
   cases1.sort((a,b)=>{

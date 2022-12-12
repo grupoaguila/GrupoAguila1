@@ -5,7 +5,9 @@ import {columns} from '../colums2'
 
 
 function AllCases({rol}) {
-    const cases = useSelector(state=>state.cases)
+    const cases1 = useSelector(state=>state.cases)
+    const cases=cases1.filter(e=>!e.hasOwnProperty('bandera') || e.bandera==='false')
+
   const peritosByName = useSelector(state=>state.peritosByName)
   
   cases.sort((a,b)=>{
