@@ -22,6 +22,15 @@ export function validate(input) {
   if (input.Patente.length < 1) {
     errors.Patente = "agregue patente por favor";
   }
+  if (input.dia.length < 1) {
+    errors.dia = "seleccione un día por favor";
+  }
+  if (input.mes.length < 1) {
+    errors.mes = "seleccione un mes por favor";
+  }
+  if (input.año.length < 1) {
+    errors.año = "seleccione un año por favor";
+  }
   if (input.Marca.length < 1) {
     errors.Marca = "agregue Marca del vehículo por favor";
   }
