@@ -15,6 +15,7 @@ import {
 } from "./utilsFunctions";
 
 import "./AddCases.css";
+import { useRef } from "react";
 
 function FormAddCase2({
   handleChange,
@@ -23,7 +24,9 @@ function FormAddCase2({
   post,
   namePeritos,
   cases,
+  
 }) {
+
   let style = { display: "flex", alignItems: "flex-end" };
   return (
     <div>
@@ -77,7 +80,7 @@ function FormAddCase2({
             </div>
             <div className="fechaCompletaContainer">
               <Select
-                onChange={handleSelect}
+                onChange={handleSelect}                
                 name={"day"}
                 options={day}
                 placeholder="Día"
