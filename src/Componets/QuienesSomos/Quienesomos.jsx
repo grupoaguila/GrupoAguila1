@@ -1,4 +1,5 @@
 import React from "react";
+import StaffGallery from "../StaffGallery/StaffGallery";
 import "./quienesSomos.css";
 
 function Quienesomos() {
@@ -93,6 +94,8 @@ function Quienesomos() {
         </div>
       </div>
     </div>
+   
+    <StaffGallery/>
     </>
   );
 }
