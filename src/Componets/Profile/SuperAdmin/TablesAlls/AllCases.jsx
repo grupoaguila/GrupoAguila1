@@ -6,7 +6,9 @@ import {columns} from '../colums2'
 
 function AllCases({rol}) {
     const cases = useSelector(state=>state.cases)
-
+    
+    console.log('cases', cases)
+    
     cases.sort((a,b)=>{
       const dayA=a.Vencimiento.split("-")
       const dayB=b.Vencimiento.split("-")

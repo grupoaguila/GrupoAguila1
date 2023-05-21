@@ -1,0 +1,31 @@
+
+.ButtonBack{
+   text-align: start;
+   margin: 0px 0px 15px 6%;
+}
+
+.addPeritoH2 h2{
+    text-shadow:  -1px -2px 6px;
+}
+
+
+.mainFormContainer{
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+.rolLabel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    width: 125px;
+    
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}

@@ -23,9 +23,10 @@ function AddModals({
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   // const handleSubmit=functionBottonAgree()
+  console.log('DETAILS==>',details);
   return (
     <>
-      <Button variant="primary" className="mt-2" onClick={handleShow}>
+      <Button variant="primary"  onClick={handleShow} className="addModalConfirmButton">
         {nameBottom}
       </Button>
      
@@ -41,10 +42,10 @@ function AddModals({
             <Modal.Title>{title}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            {details && <div>{details}</div>}
+            {details && <div >{details}</div>}
             
               {body?.map((el) => {
-                return <ol className="orderedList" ><span>{el.split(':')[0]}:</span>{el.split(':')[1]}</ol>;
+                return <ol className="orderedList" ><span>{el.split(':')[0]}</span>{el.split(':')[1]}</ol>;
               })}
             
           </Modal.Body>
@@ -56,6 +57,7 @@ function AddModals({
               }}
               variant="primary"
               type={type}
+              
             >
               {titleBotton}
             </Button>

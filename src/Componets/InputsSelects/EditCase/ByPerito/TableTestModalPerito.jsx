@@ -182,6 +182,7 @@ const TableTestModalPerito = (props) => {
               No puede modificar casos que no le fueron asignados
             </div>:
           <Form onSubmit={handleSubmit}>
+            <Form.Label className="tableTestModalLabel">Teléfono: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Teléfono: ${props.caseData[0]?.celular}`}
@@ -190,6 +191,7 @@ const TableTestModalPerito = (props) => {
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Estado: </Form.Label>
             <Select
                 onChange={handleSelect}
                 name={"estado"}
@@ -201,6 +203,7 @@ const TableTestModalPerito = (props) => {
               />
             
             <br />
+            <Form.Label className="tableTestModalLabel">Notas: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Notas: ${props.caseData[0]?.notas}`}
@@ -209,6 +212,7 @@ const TableTestModalPerito = (props) => {
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Repuestos/Taller: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Repuestos/Taller: ${props.caseData[0]?.taller}`}

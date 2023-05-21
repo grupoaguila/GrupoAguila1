@@ -6,6 +6,8 @@ import {columns} from '../colums2'
 
 function AllCases({rol}) {
     const cases = useSelector(state=>state.cases)
+  
+
   const peritosByName = useSelector(state=>state.peritosByName)
   
   cases.sort((a,b)=>{

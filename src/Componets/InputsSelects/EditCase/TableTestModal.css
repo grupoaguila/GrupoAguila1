@@ -4,3 +4,9 @@
 .closeBtn{
     margin-right: 10px;
 }
+
+.tableTestModalLabel{
+    font-family: monospace;
+    font-style: italic;
+    margin-left: 5px !important;
+}

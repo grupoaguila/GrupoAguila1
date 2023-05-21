@@ -3,8 +3,8 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import AddModals from "../../Modals/AddModals";
 import Select from "react-select";
-import {Button} from 'react-bootstrap'
-import {Link} from 'react-router-dom';
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import {
   day,
   month,
@@ -14,6 +14,9 @@ import {
   customStyles1,
 } from "./utilsFunctions";
 
+import "./AddCases.css";
+import { useRef } from "react";
+
 function FormAddCase2({
   handleChange,
   handleSubmit,
@@ -21,23 +24,23 @@ function FormAddCase2({
   post,
   namePeritos,
   cases,
-}) {
   
+}) {
+
   let style = { display: "flex", alignItems: "flex-end" };
   return (
     <div>
-      <Link to="/user">
-      <Button variant="secondary" style={{display:"flex"}}>
-        Volver
-      </Button>
-      </Link>
-      <div style={{ paddingRight: "30%", paddingLeft: "25%", color:"white" }}>
-        <h2 style={{color:"black"}}>AÑADIR CASOS</h2>
+      <div className="ButtonBack">
+        <Link to="/user">
+          <Button variant="secondary">Volver</Button>
+        </Link>
       </div>
-      
-      <Form
-        style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "5%", }}
-      >
+
+      <div className="addCasosH2">
+        <h2>AÑADIR CASOS</h2>
+      </div>
+
+      <Form className="mainFormContainer">
         {/* Número de Denuncia */}
         <FloatingLabel
           controlId="floatingInput"
@@ -68,54 +71,42 @@ function FormAddCase2({
             name="Compañia"
           />
         </FloatingLabel>
-        {/* Vencimiento */}
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label style={{backgroundColor:"rgb(225,225,225, 0.5"}}>Vencimiento</Form.Label>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              
-            }}
-          >
-            <Form.Label>Día: </Form.Label>
-            <div style={{ width: "80px", textAlign: "left",  backgroundColor:"rgb(225,225,225, 0.5" }}>
+
+        <div className="vencimientoContainer">
+          {/* Vencimiento */}
+          <Form.Group controlId="exampleForm.ControlInput1">
+            <div className="vencimientoLabel">
+              <Form.Label>Vencimiento</Form.Label>
+            </div>
+            <div className="fechaCompletaContainer">
               <Select
-                onChange={handleSelect}
+                onChange={handleSelect}                
                 name={"day"}
                 options={day}
                 placeholder="Día"
-                styles={customStyles}
                 hideSelectedOptions={true}
-                
+                className="selectAddCases"
               />
-            </div>
-            <Form.Label>Mes: </Form.Label>
-            <div style={{ width: "80px", textAlign: "left",  backgroundColor:"rgb(225,225,225, 0.5" }}>
+
               <Select
                 onChange={handleSelect}
                 name={"month"}
                 options={month}
                 placeholder="Mes"
-                styles={customStyles}
-               
+                className="selectAddCases"
               />
-            </div>
 
-            <Form.Label>Año: </Form.Label>
-            <div style={{ width: "95px", textAlign: "left",  backgroundColor:"rgb(225,225,225, 0.5" }}>
               <Select
                 onChange={handleSelect}
                 name={"year"}
                 options={years}
                 placeholder="Año"
-                styles={customStyles}
+                className="selectAddCases"
               />
-              
             </div>
-          </div>
-        </Form.Group>
+          </Form.Group>
+        </div>
+
         <Form.Group>
           <FloatingLabel
             controlId="floatingInput"
@@ -190,7 +181,9 @@ function FormAddCase2({
             />
           </FloatingLabel>
 
-          <Form.Label style={{ backgroundColor:"rgb(225,225,225, 0.5"}}>Localidad </Form.Label>
+          <div className="localidadLabel">
+            <Form.Label>Localidad </Form.Label>
+          </div>
           <Select
             onChange={handleSelect}
             name={"localidad"}
@@ -200,8 +193,11 @@ function FormAddCase2({
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label style={{ backgroundColor:"rgb(225,225,225, 0.5"}}>Perito: </Form.Label>
+          <div className="peritoLabel">
+            <Form.Label>Perito: </Form.Label>
+          </div>
           <Select
+            className="lastChildForm"
             onChange={handleSelect}
             name={"peritos"}
             options={namePeritos}
@@ -209,7 +205,7 @@ function FormAddCase2({
             styles={customStyles1}
           />
         </Form.Group>
-     
+
         <AddModals
           body={cases}
           agreeBotton={handleSubmit}
@@ -220,7 +216,6 @@ function FormAddCase2({
           style={style}
         />
       </Form>
-     
     </div>
   );
 }

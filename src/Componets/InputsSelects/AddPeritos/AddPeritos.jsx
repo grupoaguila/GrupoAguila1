@@ -7,26 +7,27 @@ import { postWhatsapp } from "../../../Store/Actions";
 import FormAddPeritos from "./FormAddPeritos";
 import { validate } from "./Validate";
 //Alert notifications
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+import "react-notifications/lib/notifications.css";
 
-
-// function validate(post){    
+// function validate(post){
 //   let erros = {};
 //   if (!post.email) erros.email = alert("email is required");
-  
+
 //   return erros;
 // }
- 
 
 function AddPeritos() {
   const dispatch = useDispatch();
   let namePeritos1 = useSelector((state) => state.peritosByName);
   let peritos = useSelector((state) => state.peritos);
-  const [created, setCreated]= useState('')
-  const [show,setShow]=useState(false)
-  const [showE, setShowE]=useState(false)
-  const [err, setErr]=useState({})
+  const [created, setCreated] = useState("");
+  const [show, setShow] = useState(false);
+  const [showE, setShowE] = useState(false);
+  const [err, setErr] = useState({});
   const [errors, setErrors] = useState({});
 
   const [post, setPost] = useState({
@@ -44,7 +45,7 @@ function AddPeritos() {
         rol: value.value,
       });
     }
-  }
+  };
   //================================================================
   const handleChange = (e) => {
     e.preventDefault();
@@ -52,13 +53,16 @@ function AddPeritos() {
       ...post,
       [e.target.name]: e.target.value,
     });
-    setErrors(validate({                 
-      ...post,                        
-    }));
+    setErrors(
+      validate({
+        ...post,
+      })
+    );
   };
   //===============================================================
   let newPerito = {
-    nombre: post.nombre?.split(' ')
+    nombre: post.nombre
+      ?.split(" ")
       .map((el) => el.charAt(0).toUpperCase() + el.toLowerCase().slice(1))
       .join(" "),
     celular: "+54" + post.celular,
@@ -102,12 +106,12 @@ function AddPeritos() {
           body: `${peritoWhatsap.nombre} ya puedes registrarte en el sistema`,
           priority: "10",
         };
-         dispatch(postWhatsapp(body)); 
-        setCreated(peritoWhatsap.nombre)
-        setShow(true)
-        const message= peritoWhatsap.nombre + 'Fue añadido correctamente'
-      
-        NotificationManager.success('Bien Hecho!', 'Perito Añadido',3000);
+        dispatch(postWhatsapp(body));
+        setCreated(peritoWhatsap.nombre);
+        setShow(true);
+        const message = peritoWhatsap.nombre + "Fue añadido correctamente";
+
+        NotificationManager.success("Bien Hecho!", "Perito Añadido", 3000);
         setPost({
           nombre: "",
           celular: "",
@@ -120,42 +124,46 @@ function AddPeritos() {
     } else {
       let errorA = Object.values(error);
       //console.log('errorA',errorA)
-      setShowE(true)
-      setErr(errorA)
-    //   alert(`No se puede guardar el caso presenta el/los siguiente/s error/s:
-    //        ${errorA}    
-    // `);
+      setShowE(true);
+      setErr(errorA);
+      //   alert(`No se puede guardar el caso presenta el/los siguiente/s error/s:
+      //        ${errorA}
+      // `);
     }
   };
   //console.log('created', created);
 
-  return(
-  <div style={{ paddingTop: "0%" }}>
-    
-{
-        showE &&
-        <div style={{     paddingRight: '10%',
-            paddingLeft: '25%',
-            marginTop: '10px',
-            fontSize: '20px',
-            display: 'flex',
-            justifyContent: 'space-between'}}>
-        <Alert variant="danger" onClose={() => setShowE(false)} dismissible style={{ paddingRight: "8%", paddingLeft: "5%" }}>
-        <Alert.Heading>
-            <p style={{color:'black', fontSize:'15px'}}>No se puede guardar el caso presenta el/los siguiente/s error/s:</p>
-                 {
-                 err?.map(el=>{
-                    return <ol style={{fontSize:'15px'}}>{el}</ol>
-                 })
-                 }
-            
-    </Alert.Heading>
-        
-      </Alert>
+  return (
+    <div style={{ paddingTop: "0%" }}>
+      {showE && (
+        <div
+          style={{
+            paddingRight: "10%",
+            paddingLeft: "25%",
+            marginTop: "10px",
+            fontSize: "20px",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Alert
+            variant="danger"
+            onClose={() => setShowE(false)}
+            dismissible
+            style={{ paddingRight: "8%", paddingLeft: "5%" }}
+          >
+            <Alert.Heading>
+              <p style={{ color: "black", fontSize: "15px" }}>
+                No se puede guardar el caso presenta el/los siguiente/s error/s:
+              </p>
+              {err?.map((el) => {
+                return <ol style={{ fontSize: "15px" }}>{el}</ol>;
+              })}
+            </Alert.Heading>
+          </Alert>
         </div>
+      )}
 
-}
-     
       <FormAddPeritos
         handleChange={handleChange}
         handleSubmit={handleSubmit}
@@ -163,13 +171,11 @@ function AddPeritos() {
         post={post}
         errors={errors}
         perito={body}
-        style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px" }}
+        // style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px" }}
       />
-      <NotificationContainer/> 
+      <NotificationContainer />
     </div>
-
-
-  )
+  );
 }
 
 export default AddPeritos;

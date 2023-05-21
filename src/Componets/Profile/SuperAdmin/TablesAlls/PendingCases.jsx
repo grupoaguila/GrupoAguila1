@@ -4,10 +4,12 @@ import TableResponsive from '../../../tableTest/TableTest';
 import {columns} from '../colums2'
 
 function PendingCases({rol}) {
-    const cases1 = useSelector(state=>state.cases)
+    const cases2 = useSelector(state=>state.cases)
+    // console.log('cases1 pendientes', cases1);
     const peritosByName = useSelector(state=>state.peritosByName)
-    const cases= cases1.filter(el=>el.estado!=='Pericia finalizada')
     
+    const cases= cases2.filter(el=>el.estado!=='Pericia finalizada')
+    // console.log('cases pendientes==>', cases1);
     cases.sort((a,b)=>{
         const dayA=a.Vencimiento.split("-")
         const dayB=b.Vencimiento.split("-")

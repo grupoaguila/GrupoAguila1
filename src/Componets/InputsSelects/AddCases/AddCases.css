@@ -1,0 +1,65 @@
+
+.ButtonBack{
+   text-align: start;
+   margin: 0px 0px 15px 6%;
+}
+
+.addCasosH2 h2{
+    text-shadow:  -1px -2px 6px;
+}
+
+.mainFormContainer{
+    width: 90%;
+    margin: 0 auto;
+}
+.mainFormContainer .lastChildForm{
+    margin-bottom: 1rem;
+}
+
+.vencimientoContainer{
+    /* border: 3px solid fuchsia; */
+    margin-bottom: 10px;
+}
+.vencimientoLabel,.localidadLabel,.peritoLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    width: 125px;
+    /* padding-top: 2px; */
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.fechaCompletaContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}     
+.css-b62m3t-container{
+    margin-left: 5px;
+    
+}
+.selectAddCases .css-1s2u09g-control{
+    border: 3px solid rgb(101, 101, 224)!important;
+    border-radius: 15px;
+  
+}
+.form-label{
+    margin:0 !important;
+}
+
+@media screen and (max-width: 300px) {
+    .fechaCompletaContainer{
+      flex-direction: column;
+      align-items: center;
+    }  
+    .selectAddCases{
+        min-width:150px !important;
+        margin-top: 15px!important;
+    }
+}

@@ -168,14 +168,17 @@ let body = [
         </Modal.Header>
         <Modal.Body>
           <Form onSubmit={handleSubmit}>
+            <Form.Label className="tableTestModalLabel">Vencimiento: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Vencimiento: ${props.caseData[0]?.Vencimiento}`}
               name="Vencimiento"
               value={editFormInput.Vencimiento}
               onChange={handleOnChange}
+
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Número de denuncia: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Denuncia: ${props.caseData[0]?.Numero}`}
@@ -184,6 +187,7 @@ let body = [
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Compañía: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Compañía: ${props.caseData[0]?.Compañia}`}
@@ -192,6 +196,7 @@ let body = [
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Nombre Completo: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Nombre Completo: ${props.caseData[0]?.Nombre}`}
@@ -200,6 +205,7 @@ let body = [
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Patente: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Patente: ${props.caseData[0]?.Patente}`}
@@ -208,6 +214,7 @@ let body = [
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Marca: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Marca: ${props.caseData[0]?.Marca}`}
@@ -216,6 +223,7 @@ let body = [
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Dirección: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Dirección: ${props.caseData[0]?.direccion}`}
@@ -224,6 +232,7 @@ let body = [
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Localidad: </Form.Label>
             <Select
             onChange={handleSelect}
             name={"localidad"}
@@ -233,6 +242,7 @@ let body = [
             defaultValue={{ label:caseData?.localidad, value:caseData?.localidad }}
           />
             <br />
+            <Form.Label className="tableTestModalLabel">Teléfono: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Teléfono: ${props.caseData[0]?.celular}`}
@@ -241,6 +251,7 @@ let body = [
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Estado: </Form.Label>
             <Select
                 onChange={handleSelect}
                 name={"estado"}
@@ -251,6 +262,7 @@ let body = [
                 defaultValue={{ label:caseData?.estado, value:caseData?.estado }}
               />
             <br />
+            <Form.Label className="tableTestModalLabel">Perito encargado: </Form.Label>
             <Select
             onChange={handleSelect}
             name={"peritos"}
@@ -260,6 +272,7 @@ let body = [
             styles={customStyles1}
           />
             <br />
+            <Form.Label className="tableTestModalLabel">Notas: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Notas: ${props.caseData[0]?.notas}`}
@@ -268,6 +281,7 @@ let body = [
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Taller: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Repuestos/Taller: ${props.caseData[0]?.taller}`}
@@ -287,7 +301,7 @@ let body = [
             {/* <Button variant="success" className="submitBtn" type="submit">
               Guardar
             </Button> */}
-            <AddModals 
+            <AddModals  
             body={body}
             agreeBotton={handleSubmit}
             nameBottom={"Confirmar"}

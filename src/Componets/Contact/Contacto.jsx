@@ -13,10 +13,10 @@ function Contacto() {
 
     emailjs
       .sendForm(
-        "service_d4n8uu8",
-        "template_b91p3lr",
+         "service_pj65xue",
+        "template_a0pnjyf",
         e.target,
-        "m161GBw_7jaymvDc3",
+        "My1YqzXZeGxlju7af",
         )
         .then((res) =>{
           e.target.reset()
@@ -101,7 +101,7 @@ function Contacto() {
               </li>
               <li className="d-flex">
                 <span className="wrap-icon icon-envelope mr-3"></span>
-                <span className="text">info@mywebsite.com</span>
+                <span className="text">informes@grupoaguilasrl.com</span>
               </li>
             </ul>
           </div>

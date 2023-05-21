@@ -16,11 +16,14 @@ import {
   NotificationManager,
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
+import { useRef } from "react";
 
 function AddCases() {
   const dispatch = useDispatch();
   let namePeritos1 = useSelector((state) => state.peritosByName);
   let peritos = useSelector((state) => state.peritos);
+  let casesAll = useSelector((state) => state.cases);
+  let casesFilter= casesAll.filter(e=>!e.hasOwnProperty('bandera') || e.bandera==='false')
   let namePeritos = namePeritos1.map((e) => {
     return { value: e, label: e };
   });
@@ -67,6 +70,7 @@ function AddCases() {
   };
   //======= HANDLE SELECT ==================
   let handleSelect = (value, action) => {
+    console.log('valor que llega', value )
     if (action.name === "day") {
       setPost({
         ...post,
@@ -146,24 +150,33 @@ function AddCases() {
     body = ["Faltan completar Datos"];
   }
   // console.log("body", body);
-
+ 
   //======= HANDLE SUBMIT ==================
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // console.log('e', e)
 
     let error = await validate(post);
-
+    if(casesFilter.some(e=>e.Numero===cases.Numero && e.Compañia===cases.Compañia)){
+      NotificationManager.error('ATENCION!',"El caso YA EXISTE!", 5000);
+      return  Actualizacion();
+    }
     if (Object.keys(error).length === 0) {
       try {
+          // console.log('entra al try???');
         createCase(cases);
+        // console.log('1')
       
         let peritoWhatsap = peritos.find((el) => el.nombre === post.perito);
+        // console.log('2')
         let body = {
           token: "ppxsdnbulhx73mnv",
           to: `${peritoWhatsap.celular}`,
-          body: `${peritoWhatsap.nombre} se te ha asignado una nueva pericia`,
+          body: `${peritoWhatsap.nombre} se te ha asignado una nueva pericia:
+          N° de denuncia: ${cases.Numero}`,
           priority: "10",
         };
+        // console.log('3==>', body)
         let bodyMsgAsegurado= {
           token: "ppxsdnbulhx73mnv", 
           to: `${cases.celular}`,
@@ -173,13 +186,16 @@ function AddCases() {
           priority: "10", 
 
         }
+        // console.log('4===>',bodyMsgAsegurado)
         setCreated(cases.Numero);
+        // console.log('5===>', created)
         setShow(true);
         dispatch(postWhatsapp(body));
         dispatch(postWhatsapp(bodyMsgAsegurado));
         NotificationManager.success('Bien Hecho!',"El caso fue añadido!", 3000);
         Actualizacion();
 
+        
         setPost({
           Nombre: "",
           Compañia: "",
@@ -202,6 +218,7 @@ function AddCases() {
       }
     } else {
       let errorA = Object.values(error);
+      console.log('6===>', errorA)
       setShowE(true);
       setErr(errorA);
       // alert(`No se puede guardar el caso presenta el/los siguiente/s error/s:
@@ -247,7 +264,9 @@ function AddCases() {
         post={post}
         namePeritos={namePeritos}
         cases={body}
-        style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px",   backgroundColor:"opacity" }}
+     
+        
+        // style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px",   backgroundColor:"opacity" }}
       />
       <NotificationContainer />
     </div>

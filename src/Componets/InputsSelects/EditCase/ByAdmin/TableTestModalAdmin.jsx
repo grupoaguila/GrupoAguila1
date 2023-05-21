@@ -161,7 +161,7 @@ const TableTestModalAdmin = (props) => {
     //it closes the Modal after submit
     props.close()
      //actualiza el estado con el cambio
-     props.actualizar()
+    props.actualizar()
       
 
     //this commando triggers the alert! 
@@ -186,7 +186,7 @@ const TableTestModalAdmin = (props) => {
 
 
           <Form onSubmit={handleSubmit}>
-            
+            <Form.Label className="tableTestModalLabel">Teléfono: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Teléfono: ${props.caseData[0]?.celular}`}
@@ -195,6 +195,7 @@ const TableTestModalAdmin = (props) => {
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Estado: </Form.Label>
             <Select
                 onChange={handleSelect}
                 name={"estado"}
@@ -205,6 +206,7 @@ const TableTestModalAdmin = (props) => {
                 defaultValue={{ label:caseData?.estado, value:caseData?.estado }}
               />
             <br />
+            <Form.Label className="tableTestModalLabel">Perito: </Form.Label>
             <Select
             onChange={handleSelect}
             name={"peritos"}
@@ -214,6 +216,7 @@ const TableTestModalAdmin = (props) => {
             styles={customStyles1}
           />
             <br />
+            <Form.Label className="tableTestModalLabel">Notas: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Notas: ${props.caseData[0]?.notas}`}
@@ -222,6 +225,7 @@ const TableTestModalAdmin = (props) => {
               onChange={handleOnChange}
             />
             <br />
+            <Form.Label className="tableTestModalLabel">Repuestos/Taller: </Form.Label>
             <Form.Control
               type="text"
               placeholder={`Repuestos/Taller: ${props.caseData[0]?.taller}`}

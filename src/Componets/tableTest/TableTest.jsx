@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import { TbEdit } from "react-icons/tb";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import TableTestModal from "../InputsSelects/EditCase/BySuperAdmin/TableTestModal";
 import TableTestModalAdmin from "../InputsSelects/EditCase/ByAdmin/TableTestModalAdmin";
 import TableTestModalPerito from "../InputsSelects/EditCase/ByPerito/TableTestModalPerito";
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import "./tabletest.css";
+import DeleteCase from "../InputsSelects/EditCase/BySuperAdmin/DeleteCase";
 
 function TableResponsive({ cases, columns, detail, title, rol }) {
 
@@ -15,7 +17,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
 
   //this function dispatches getPeritos(), getCases and PeritosByname
   function Actualizacion() {
-    // console.log('entré en Actualizacion');
+    console.log('entré en Actualizacion');
     dispatch(getPeritos())
     dispatch(getCasesAction())
     setTimeout(() => {
@@ -43,10 +45,15 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
 
   //modal state
   const [showModal, setShowModal] = React.useState(false);
+  const [showModalDelete, setShowModalDelete] = React.useState(false);
   //when Edit button is clicked
   function showModalEdit(id) {
     setCaseData(cases.length > 0 && cases.filter((el) => el.id === id));
     setShowModal(true);
+  }
+  function showModalDelete1(id) {
+    setCaseData(cases.length > 0 && cases.filter((el) => el.id === id));
+    setShowModalDelete(true);
   }
 
   //Filter method
@@ -105,15 +112,16 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                   })}
 
                   <Th className="thEdit">Editar</Th>
+                  { rol==='Administrador General'&&
+                    <Th className="thEdit">Eliminar</Th>
+                  }
                 </Tr>
               </Thead>
 
               <Tbody>
                 {casesFiltered.map(
                   (el) =>{
-                    // logica para la fecha que cambie de color el fondo
-                    // console.log('el',el)
-                    // console.log('casesFiltered',casesFiltered) 
+                    
                     let dayVto = el?.Vencimiento?.split("-")
                     let state1= ['Asignado', 'Próximo a visita', 'En proceso de cotización', 'En proceso de liquidación',"vacio"]
                     let state2="vacio"
@@ -121,13 +129,7 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                     
                     // console.log('state2', state2)
                      let state=state1.some(e=>e===state2)
-                    //  console.log('state==>',state);
-                    // console.log('dayVto[0]', +dayVto[0]);
-                    // console.log('nowDay',nowDay);
-                    // console.log('dayVto[1]', +dayVto[1]);
-                    // console.log('nowMonth', nowMonth);
-                    // console.log('dayVto[2]', +dayVto[2]);
-                    // console.log('nowYear',nowYear);
+                    
                     return(
                     ((+dayVto[0] <= +nowDay && +dayVto[1] <= +nowMonth && +dayVto[2] === +nowYear && state )|| (+dayVto[0]> +nowDay && +dayVto[1] < +nowMonth && +dayVto[2]=== +nowYear && state)|| (+dayVto[2]< +nowYear && state))?
                       <Tr>
@@ -145,9 +147,21 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                             className="editBtn"
                             onClick={() => showModalEdit(el.id)}
                           >
-                            <TbEdit />
+                         <TbEdit />
                           </div>
                         </Td>
+                         {
+                          rol==='Administrador General'&&
+                          <Td className="tdEdit" key={el.id}>
+                          <div
+                            className="editBtn"
+                            onClick={() => showModalDelete1(el.id)}
+                          >
+                         <RiDeleteBin6Line />
+                          </div>
+                        </Td>
+
+                         }
                       </Tr>
 
                     :
@@ -169,6 +183,18 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
                       <TbEdit />
                     </div>
                   </Td>
+                  {
+                          rol==='Administrador General'&&
+                          <Td className="tdEdit" key={el.id}>
+                          <div
+                            className="editBtn"
+                            onClick={() => showModalDelete1(el.id)}
+                          >
+                         <RiDeleteBin6Line />
+                          </div>
+                        </Td>
+
+                         }
                 </Tr>
 
                     )
@@ -192,6 +218,14 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
           actualizar={Actualizacion}
         />
       }
+      <DeleteCase
+      show={showModalDelete}
+      close={() => setShowModalDelete(false)}
+      caseData={caseData}
+      detail={detail}
+      actualizar={Actualizacion}
+      
+      />
       {
         rol === 'Administrador junior' &&
         <TableTestModalAdmin
