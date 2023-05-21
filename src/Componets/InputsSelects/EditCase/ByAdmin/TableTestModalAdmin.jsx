@@ -147,13 +147,26 @@ const TableTestModalAdmin = (props) => {
         (el) => el.nombre === editFormInput.perito
       );
     
-      let body = {
-        token: "ppxsdnbulhx73mnv",
-        to: `${peritoWhatsap.celular}`,
-        body:  `${peritoWhatsap.nombre} se ha modificado su caso: 
-        N° de denuncia: ${editFormInput.Numero}`,
-        priority: "10",
-      };
+      let body
+      if(caseData?.perito!==cases1[10]){
+        body = {
+          token: "ppxsdnbulhx73mnv",
+          to: `${peritoWhatsap.celular}`,
+          body:  `${peritoWhatsap.nombre} se le ha asignado el 
+          N° de denuncia: ${editFormInput.Numero}`,
+          priority: "10",
+        };
+
+      }
+      else{
+        body = {
+         token: "ppxsdnbulhx73mnv",
+         to: `${peritoWhatsap.celular}`,
+         body:  `${peritoWhatsap.nombre} se ha modificado el N° de denuncia: ${editFormInput.Numero}`,
+         priority: "10",
+       };
+
+      }
       dispatch(postWhatsapp(body));
  
  
