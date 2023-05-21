@@ -1,35 +1,47 @@
 import { collection, getFirestore, getDocs, query, doc, getDoc, addDoc, deleteDoc, updateDoc, setDoc, where} from "firebase/firestore";
 import { db } from "../Credentials/Index";
-
+import axios from "axios";
+const url=process.env.REACT_APP_DATABASE_URL
 
 // CREATE
 export const createPer = async(obj) => {
-    const colRef = collection(db, 'Peritos');
-    const data = await addDoc(colRef, obj);
-    return data.id;
+  console.log('objeto de creacion=>', obj)
+    const data= await axios.post(`${url}/perito`, obj)
+    console.log('informacion que trae==>', data)
+  //   // const colRef = collection(db, 'Peritos');
+  //   // const data = await addDoc(colRef, obj);
+    return data.message;
 }
 export const createCase = async(obj) => {
-    const colRef = collection(db, 'Casos');
-    const data = await addDoc(colRef, obj);
-    return data.id;
+  console.log('objeto de creacion=>', obj)
+  const data= await axios.post(`${url}/caso`, obj)
+  console.log('informacion que trae==>', data)
+  // // const colRef = collection(db, 'Peritos');
+  // // const data = await addDoc(colRef, obj);
+  return data.message;
 }
 // UPDATE
 export const updateCases = async (id, obj) => {
-    const colRef = collection(db, 'Casos');
-    await updateDoc(doc(colRef, id), obj)
+  console.log('entre a modificar caso==>', id);
+  const data= await axios.put(`${url}/caso/${id}`, obj)
+  console.log('respuesta si se MODIFICA Caso=>', data);
 }
 export const updatePeritos = async (id, obj) => {
-    const colRef = collection(db, 'Peritos');
-    await updateDoc(doc(colRef, id), obj)
+  console.log('entre a modificar perito==>', id);
+  const data= await axios.put(`${url}/perito/${id}`, obj)
+  console.log('respuesta si se MODIFICA PERITO=>', data);
    
 }
 
 
 // READ
 export const getPer= async ()  => {
-    const colRef =  collection(db, 'Peritos');
-    const result = await getDocs(query(colRef));
-    return getArrayFromCollection(result)
+  // console.log('=>')
+  // const data= await axios.get(`${url}/peritos`)
+  // console.log('informacion que trae==>', data)
+  // // const colRef = collection(db, 'Peritos');
+  // // const data = await addDoc(colRef, obj);
+  // return data;
 }
 
 export const getCases= async ()  => {
@@ -114,8 +126,11 @@ export const getItemById = async (id) => {
 
 // DELETE
 export const deletePerito = async (id) => {
-    const colRef = collection(db, 'Peritos');
-    await deleteDoc(doc(colRef, id));
+  console.log('entre a eliminar perito==>', id);
+  const data= await axios.delete(`${url}/perito/${id}`)
+  console.log('respuesta si se elimino=>', data);
+    // const colRef = collection(db, 'Peritos');
+    // await deleteDoc(doc(colRef, id));
 }
 
 const getArrayFromCollection = (collection) => {

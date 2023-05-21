@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import AllCases from "./TablesAlls/AllCases";
 import CompletedCases from "./TablesAlls/CompletedCases";
 import PendingCases from "./TablesAlls/PendingCases";
@@ -11,30 +10,6 @@ import { GrTable } from "react-icons/gr";
 import './Perito.css'
 
 function Perito({emailUser}) {
-
-    const cases = useSelector(state=>state.cases)
-  const peritos = useSelector(state=>state.peritos)
-  let peritoAsig= peritos.find(el=>el.email===emailUser)
-  //  console.log('peritoAsig', peritoAsig)
-  const cases2=cases.filter(e=>!e.hasOwnProperty('bandera') || e.bandera==='false')
-  let cases1=cases2.filter(el=>el.perito===peritoAsig.nombre)
-  //  console.log('cases1', cases1);
-  
-  cases1.sort((a,b)=>{
-    const dayA=a.Vencimiento.split("-")
-    const dayB=b.Vencimiento.split("-")
-    const VencimientoA= new Date(`${dayA[1]}/${dayA[0]}/${dayA[2]}`)
-    const VencimientoB= new Date(`${dayB[1]}/${dayB[0]}/${dayB[2]}`)
-    if(VencimientoA<VencimientoB){
-      return -1;
-    }
-    if(VencimientoA>VencimientoB){
-      return 1
-    }
-    return 0;
-
-  })
-  const navigate = useNavigate();
   const [all, setAll]=useState(false)
   const [completed, setCompleted]=useState(false)
   const [pending, setPending]=useState(false)
@@ -79,13 +54,13 @@ function Perito({emailUser}) {
 
 
       {all &&
-        <AllCases rol={'Tecnico'} cases={cases1} />
+        <AllCases rol={'Tecnico'} emailUser={emailUser} />
       }
       {completed &&
-        <CompletedCases rol={'Tecnico'} cases={cases1}/>
+        <CompletedCases rol={'Tecnico'}  emailUser={emailUser}/>
       }
       {pending &&
-        <PendingCases rol={'Tecnico'} cases={cases1}/>
+        <PendingCases rol={'Tecnico'} emailUser={emailUser}/>
       }
   
     </>

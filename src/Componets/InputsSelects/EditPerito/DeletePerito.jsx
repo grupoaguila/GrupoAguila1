@@ -40,6 +40,7 @@ function DeletePerito(props) {
     try {
 
       let edit = await deletePerito(props.caseData[0].id);
+      console.log('respuesta edit ==>', edit);
 
       props.close();
 

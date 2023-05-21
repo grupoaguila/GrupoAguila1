@@ -161,7 +161,7 @@ const TableTestModalAdmin = (props) => {
     //it closes the Modal after submit
     props.close()
      //actualiza el estado con el cambio
-     props.actualizar()
+    props.actualizar()
       
 
     //this commando triggers the alert! 

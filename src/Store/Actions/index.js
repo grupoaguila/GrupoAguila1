@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getPer, getCases } from "../../Controller/llamados";
+
 import {
   GET_PERITOS,
   POST_WHATSAPP,
@@ -13,23 +14,27 @@ import {
   POST_CASE,
   POST_PERITO,
 } from "../utils/constantes";
-
+const url=process.env.REACT_APP_DATABASE_URL
 export function getPeritos() {
+  console.log('/////////entra a action getPeritos url==>/////////', process.env.REACT_APP_DATABASE_URL);
   return async function (dispatch) {
-    const allPer = await getPer();
+    console.log('/////////entra a DISPATCH action getPeritos/////////');
+    
+  const data= await axios.get(`${url}/peritos`)
+  console.log('informacion que trae==>', data)
   
     return dispatch({
       type: GET_PERITOS,
-      payload: allPer,
+      payload: data.data,
     });
   };
 }
 export function getCasesAction() {
   return async function (dispatch) {
-    const allCases = await getCases();
+    const data= await axios.get(`${url}/casos`)
     return dispatch({
       type: GET_CASES,
-      payload: allCases,
+      payload: data.data,
     });
   };
 }
@@ -53,19 +58,19 @@ export function peritosByName() {
 
 export function postWhatsapp(body) {
   return async function (dispatch) {
-    try {
-      var json = await axios.post(
-        "https://api.ultramsg.com/instance23751/messages/chat",
-        body
-      );
+    // try {
+    //   var json = await axios.post(
+    //     "https://api.ultramsg.com/instance23751/messages/chat",
+    //     body
+    //   );
  
-      return dispatch({
-        type: POST_WHATSAPP,
-        payload: json.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    //   return dispatch({
+    //     type: POST_WHATSAPP,
+    //     payload: json.data,
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 }
 

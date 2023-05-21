@@ -42,7 +42,7 @@ function Login() {
 
 
   const submitHandlerGoogle = (e) => {
-    /* console.log('e.target', e.target) */
+   console.log('e.target', e.target) 
     let booll = peritos.some((el) => el.email === "email");
 
     try {
@@ -57,8 +57,8 @@ function Login() {
         console.log('user', user)
         let userPerito1 = peritos.some((el) => el.email === user.email)
 
-        //  console.log('userPerito1', userPerito1);
-        //  console.log('Perito1', peritos);
+         console.log('userPerito1', userPerito1);
+         console.log('Perito1', peritos);
         if (userPerito1) {
           setEmailUser(user.email)
           //GUARDAR EN EL LOCALSTORAGE USER.EMAIL

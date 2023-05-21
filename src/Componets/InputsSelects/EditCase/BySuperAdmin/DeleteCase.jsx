@@ -24,7 +24,8 @@ function DeleteCase(props) {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    caseData["bandera"] = "true";
+    caseData.bandera = "true";
+    console.log('ELIMINANDO CON BANDERA=>',caseData);
     try {
       await updateCases(props.caseData[0].id, caseData);
      

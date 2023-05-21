@@ -3,15 +3,37 @@ import { useSelector } from 'react-redux';
 import TableResponsive from '../../../tableTest/TableTest';
 import {columns} from '../colums2'
 
-function CompletedCases({rol, cases}) {
+function CompletedCases({rol, emailUser}) {
     
     const peritosByName = useSelector(state=>state.peritosByName)
-    const cases1= cases.filter(el=>el.estado==='Pericia finalizada')
+    const cases = useSelector(state=>state.cases)
+  const peritos = useSelector(state=>state.peritos)
+  let peritoAsig= peritos.find(el=>el.email===emailUser)
+  //  console.log('peritoAsig', peritoAsig)
+  
+  let cases1=cases.filter(el=>el.perito===peritoAsig.nombre)
+  //  console.log('cases1', cases1);
+  
+  cases1.sort((a,b)=>{
+    const dayA=a.Vencimiento.split("-")
+    const dayB=b.Vencimiento.split("-")
+    const VencimientoA= new Date(`${dayA[1]}/${dayA[0]}/${dayA[2]}`)
+    const VencimientoB= new Date(`${dayB[1]}/${dayB[0]}/${dayB[2]}`)
+    if(VencimientoA<VencimientoB){
+      return -1;
+    }
+    if(VencimientoA>VencimientoB){
+      return 1
+    }
+    return 0;
+
+  })
+    const cases2= cases1.filter(el=>el.estado==='Pericia finalizada')
     /* console.log('casesCompleted', cases);
     console.log('cases', cases1); */
     return (
       <div>
-          <TableResponsive cases={cases1} peritos={peritosByName} title={'PERICIAS FINALIZADAS'} columns={columns} rol={rol}/>
+          <TableResponsive cases={cases2} peritos={peritosByName} title={'PERICIAS FINALIZADAS'} columns={columns} rol={rol}/>
       </div>
   )
 }

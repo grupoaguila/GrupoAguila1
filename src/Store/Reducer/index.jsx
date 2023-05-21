@@ -31,12 +31,13 @@ const initialState = {
 let rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PERITOS:
-      
+      console.log('peritos=>', action.payload);
       return {
         ...state,
         peritos: action.payload,
       };
     case GET_CASES:
+      console.log('CASOS=>', action.payload);
       return {
         ...state,
         cases: action.payload,
