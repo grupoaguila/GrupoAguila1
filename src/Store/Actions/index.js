@@ -58,19 +58,19 @@ export function peritosByName() {
 
 export function postWhatsapp(body) {
   return async function (dispatch) {
-    // try {
-    //   var json = await axios.post(
-    //     "https://api.ultramsg.com/instance23751/messages/chat",
-    //     body
-    //   );
+    try {
+      var json = await axios.post(
+        "https://api.ultramsg.com/instance23751/messages/chat",
+        body
+      );
  
-    //   return dispatch({
-    //     type: POST_WHATSAPP,
-    //     payload: json.data,
-    //   });
-    // } catch (error) {
-    //   console.log(error);
-    // }
+      return dispatch({
+        type: POST_WHATSAPP,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 
