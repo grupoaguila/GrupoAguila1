@@ -167,6 +167,7 @@ const TableTestModalAdmin = (props) => {
        };
 
       }
+      console.log('body wsp==>', body);
       dispatch(postWhatsapp(body));
  
  
