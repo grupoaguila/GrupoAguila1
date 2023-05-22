@@ -38,9 +38,23 @@ let rootReducer = (state = initialState, action) => {
       };
     case GET_CASES:
       console.log('CASOS=>', action.payload);
+      let cases1=action.payload.sort((a,b)=>{
+        const dayA=a.Vencimiento.split("-")
+        const dayB=b.Vencimiento.split("-")
+        const VencimientoA= new Date(`${dayA[1]}/${dayA[0]}/${dayA[2]}`)
+        const VencimientoB= new Date(`${dayB[1]}/${dayB[0]}/${dayB[2]}`)
+        if(VencimientoA<VencimientoB){
+          return -1;
+        }
+        if(VencimientoA>VencimientoB){
+          return 1
+        }
+        return 0;
+  
+      })
       return {
         ...state,
-        cases: action.payload,
+        cases: cases1,
       };
     case GET_PERITOBYNAME:
       const per = [...state.peritos];
