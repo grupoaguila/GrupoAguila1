@@ -59,10 +59,12 @@ export function peritosByName() {
 export function postWhatsapp(body) {
   return async function (dispatch) {
     try {
+      console.log('mando wsp');
       var json = await axios.post(
         "https://api.ultramsg.com/instance23751/messages/chat",
         body
       );
+      console.log('respuesta json wsp==>', json);
  
       return dispatch({
         type: POST_WHATSAPP,
