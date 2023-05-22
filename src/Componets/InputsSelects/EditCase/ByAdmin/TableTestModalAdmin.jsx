@@ -152,8 +152,7 @@ const TableTestModalAdmin = (props) => {
         body = {
           token: "ppxsdnbulhx73mnv",
           to: `${peritoWhatsap.celular}`,
-          body:  `${peritoWhatsap.nombre} se le ha asignado el 
-          N° de denuncia: ${editFormInput.Numero}`,
+          body:  `${peritoWhatsap.nombre} se le ha asignado el N° de denuncia: ${editFormInput.Numero}`,
           priority: "10",
         };
 
