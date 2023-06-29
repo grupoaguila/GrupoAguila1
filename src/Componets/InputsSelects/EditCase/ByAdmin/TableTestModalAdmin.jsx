@@ -137,7 +137,9 @@ const TableTestModalAdmin = (props) => {
   /* console.log('editForm', editFormInput) */
  
   async function handleSubmit(e) {
+    console.log('entre al submit por arriba del prevent')
     e.preventDefault();
+    console.log('entre al submit por debajo del prevent')
     
     try {
       console.log('caseData[0].id',caseData[0].id)
