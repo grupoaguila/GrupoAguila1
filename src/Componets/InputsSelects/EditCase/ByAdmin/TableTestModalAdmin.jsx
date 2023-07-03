@@ -184,7 +184,7 @@ const TableTestModalAdmin = (props) => {
     NotificationManager.success('Bien Hecho!', 'Campo actualizado!',3000); 
 
 
-    } catch (error) {}
+    } catch (error) {console.log('error del try submit=>', error}
   }
 // console.log('userPErito', userPerito);
   return (
