@@ -31,13 +31,13 @@ const initialState = {
 let rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PERITOS:
-      console.log('peritos=>', action.payload);
+    //  console.log('peritos=>', action.payload);
       return {
         ...state,
         peritos: action.payload,
       };
     case GET_CASES:
-      console.log('CASOS=>', action.payload);
+     // console.log('CASOS=>', action.payload);
       let cases1=action.payload.sort((a,b)=>{
         const dayA=a.Vencimiento.split("-")
         const dayB=b.Vencimiento.split("-")

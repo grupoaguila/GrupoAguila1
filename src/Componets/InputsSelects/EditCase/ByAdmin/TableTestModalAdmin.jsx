@@ -16,7 +16,7 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
 const TableTestModalAdmin = (props) => {
-  console.log('props', props)
+ // console.log('props', props)
   let peritos = useSelector((state) => state.peritos);
   let namePeritos1 = useSelector((state) => state.peritosByName);
   let namePeritos = namePeritos1.map((e) => {
@@ -137,14 +137,14 @@ const TableTestModalAdmin = (props) => {
   /* console.log('editForm', editFormInput) */
  
   async function handleSubmit(e) {
-    console.log('entre al submit por arriba del prevent')
+  //  console.log('entre al submit por arriba del prevent')
     e.preventDefault();
-    console.log('entre al submit por debajo del prevent')
+ //   console.log('entre al submit por debajo del prevent')
     
     try {
-      console.log('caseData[0].id',caseData[0]?.id)
+   //   console.log('caseData[0].id',caseData[0]?.id)
       let edit = await updateCases(props.caseData[0]?.id, cases);
-      console.log('respuesta del submit=>', edit)
+   //   console.log('respuesta del submit=>', edit)
        
       let peritoWhatsap = peritos.find(
         (el) => el.nombre === editFormInput.perito
@@ -169,7 +169,7 @@ const TableTestModalAdmin = (props) => {
        };
 
       }
-      console.log('body wsp==>', body);
+   //   console.log('body wsp==>', body);
       dispatch(postWhatsapp(body));
  
  
