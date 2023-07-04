@@ -35,7 +35,7 @@ let rootReducer = (state = initialState, action) => {
       return {
         ...state,
         peritos: action.payload,
-      };
+      };   
     case GET_CASES:
       console.log('CASOS=>', action.payload);
       let cases1=action.payload.sort((a,b)=>{
