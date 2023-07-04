@@ -14,7 +14,7 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
 
   let dispatch= useDispatch()
   function Actualizacion1(){
-    console.log('entré en Actualizacion');
+  //  console.log('entré en Actualizacion');
       dispatch(getPeritos())
       dispatch(getCasesAction())
       setTimeout(()=>{ 
