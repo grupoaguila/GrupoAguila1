@@ -142,8 +142,8 @@ const TableTestModalAdmin = (props) => {
     console.log('entre al submit por debajo del prevent')
     
     try {
-      console.log('caseData[0].id',caseData[0].id)
-      let edit = await updateCases(props.caseData[0].id, cases);
+      console.log('caseData[0].id',caseData[0]?.id)
+      let edit = await updateCases(props.caseData[0]?.id, cases);
       console.log('respuesta del submit=>', edit)
        
       let peritoWhatsap = peritos.find(
