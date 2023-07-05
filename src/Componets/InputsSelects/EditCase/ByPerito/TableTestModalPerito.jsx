@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 import EditModal from "../../../Modals/EditModal";
 import AddModals from "../../../Modals/AddModals";
 import "../TableTestModal.css";
-import Loading from '../../../../assets/car.gif'
+import Loading from '../../../../assets/loading.gif'
 //Alert notifications
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';

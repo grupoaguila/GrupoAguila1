@@ -8,7 +8,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { GrTable } from "react-icons/gr";
 import './Admin.css'
-import Loading from '../../../assets/car.gif'
+import Loading from '../../../assets/loading.gif'
 import { useSelector } from "react-redux";
 function Admin() {
   const navigate = useNavigate();

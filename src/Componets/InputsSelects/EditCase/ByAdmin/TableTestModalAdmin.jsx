@@ -14,7 +14,7 @@ import "../TableTestModal.css";
 //Alert notifications
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import Loading from '../../../../assets/car.gif'
+import Loading from '../../../../assets/loading.gif'
 const TableTestModalAdmin = (props) => {
  // console.log('props', props)
   let peritos = useSelector((state) => state.peritos);
