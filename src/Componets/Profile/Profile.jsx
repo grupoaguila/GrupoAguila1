@@ -31,7 +31,7 @@ function Profile() {
             <SuperAdmin />
     }
      
-    {
+    { 
       peritoUser?.rol==='Administrador junior' &&
             <Admin />
     }

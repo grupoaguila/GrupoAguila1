@@ -26,7 +26,7 @@ function Home() {
 
       <div className="welcomeTitle">
         <img src={Logo} alt="logo Aguila" />
-      </div>
+      </div> 
       <div className="welcomeTitleVersion2">
         <img src={Logo2} alt="logo Aguila" />
       

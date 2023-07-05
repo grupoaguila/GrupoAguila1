@@ -11,7 +11,7 @@ import {
   DETAIL_CASE,
   DETAIL_PERITO,
   LOADING_CASE,
-  POST_CASE,
+  POST_CASE, 
   POST_PERITO,
 } from "../utils/constantes";
 const url=process.env.REACT_APP_DATABASE_URL

@@ -14,7 +14,7 @@ import {
 import "react-notifications/lib/notifications.css";
 
 // function validate(post){
-//   let erros = {};
+//   let erros = {}; 
 //   if (!post.email) erros.email = alert("email is required");
 
 //   return erros;

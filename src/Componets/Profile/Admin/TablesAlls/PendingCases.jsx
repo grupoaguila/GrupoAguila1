@@ -9,7 +9,7 @@ function PendingCases({rol}) {
     
 
     const cases= cases1.filter(el=>el.estado!=='Pericia finalizada')
-    
+     
     cases.sort((a,b)=>{
       const dayA=a.Vencimiento.split("-")
       const dayB=b.Vencimiento.split("-")

@@ -27,7 +27,7 @@ function AddCases() {
   let namePeritos = namePeritos1.map((e) => {
     return { value: e, label: e };
   });
-  function Actualizacion() {
+  function Actualizacion() { 
     // console.log('entré en Actualizacion');
     dispatch(getPeritos());
     dispatch(getCasesAction());

@@ -12,7 +12,7 @@ function CompletedCases({rol, emailUser}) {
   //  console.log('peritoAsig', peritoAsig)
   
   let cases1=cases.filter(el=>el.perito===peritoAsig.nombre)
-  //  console.log('cases1', cases1);
+  //  console.log('cases1', cases1); 
   
   cases1.sort((a,b)=>{
     const dayA=a.Vencimiento.split("-")

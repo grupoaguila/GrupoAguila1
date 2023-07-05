@@ -13,7 +13,7 @@ function NavBar() {
     <div className="logo-box">
       <a href="#">
       <img src={logo} width="130px" />
-         </a>
+         </a> 
     </div>
     <nav>
     <ul> 

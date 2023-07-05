@@ -13,7 +13,7 @@ function AddModals({
   nameBottom,
   type,
   style,
-}) {
+}) { 
   const [show, setShow] = useState(false);
   
   let bodyA;

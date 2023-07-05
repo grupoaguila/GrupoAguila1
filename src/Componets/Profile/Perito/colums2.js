@@ -14,7 +14,7 @@ export const columns=[
         // grow:1.5
           
         sort:true,
-    },
+    }, 
     {
         dataField:'Numero',
         text:'N° de Denuncia',

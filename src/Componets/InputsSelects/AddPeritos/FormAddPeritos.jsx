@@ -14,7 +14,7 @@ function FormAddPeritos({
   post,
   perito,
   errors,
-}) {
+}) { 
 
 
 

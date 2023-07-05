@@ -14,7 +14,7 @@ function AllCases({rol, emailUser}) {
   let cases1=cases.filter(el=>el.perito===peritoAsig.nombre)
   //  console.log('cases1', cases1);
   
-  cases1.sort((a,b)=>{
+  cases1.sort((a,b)=>{ 
     const dayA=a.Vencimiento.split("-")
     const dayB=b.Vencimiento.split("-")
     const VencimientoA= new Date(`${dayA[1]}/${dayA[0]}/${dayA[2]}`)

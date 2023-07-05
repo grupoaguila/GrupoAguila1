@@ -17,7 +17,7 @@ function Contacto() {
         "template_a0pnjyf",
         e.target,
         "My1YqzXZeGxlju7af",
-        )
+        ) 
         .then((res) =>{
           e.target.reset()
         } )

@@ -10,9 +10,11 @@ import TableTestModalPerito from "../InputsSelects/EditCase/ByPerito/TableTestMo
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import "./tabletest.css";
 import DeleteCase from "../InputsSelects/EditCase/BySuperAdmin/DeleteCase";
-
+import Loading from '../../assets/car.gif'
 function TableResponsive({ cases, columns, detail, title, rol }) {
-
+const peritos=useSelector(state=>state.peritos)
+const cases1=useSelector(state=>state.cases)
+const peritosByName1=useSelector(state=>state.peritosByName)
   let dispatch = useDispatch()
 
   //this function dispatches getPeritos(), getCases and PeritosByname
@@ -84,6 +86,13 @@ function TableResponsive({ cases, columns, detail, title, rol }) {
 
   return (
     <>
+    {
+      !peritos || !cases1 || !peritosByName1 &&(
+        <div>
+          <img src={Loading}/>
+        </div>
+      )
+    }
       <input
         id="filter"
         className="filterInput"

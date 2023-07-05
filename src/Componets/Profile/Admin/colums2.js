@@ -15,7 +15,7 @@ export const columns=[
           
         sort:true,
     },
-    {
+    { 
         dataField:'Numero',
         text:'N° de Denuncia',
         sortable:'false',

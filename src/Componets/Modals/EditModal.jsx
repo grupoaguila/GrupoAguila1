@@ -10,7 +10,7 @@ function EditModal({
   usuario,
 }) {
   function editarCasoModal() {
-    //obtener infor del formulario
+    //obtener infor del formulario 
     const Compañia = document.getElementById("Compañia").value;
     const Marca = document.getElementById("Marca").value;
     const Nombre = document.getElementById("Nombre").value;

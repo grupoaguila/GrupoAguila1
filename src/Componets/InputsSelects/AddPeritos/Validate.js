@@ -16,7 +16,7 @@ export function validate(input) {
   }
   if (!expresiones.celular.test(input.celular)) {
     errors.celular = "debe contener solo números, entre 1 y 11 dígitos";
-  }
+  } 
   if (!expresiones.email.test(input.email)) {
     errors.email = "verifique email";
   }

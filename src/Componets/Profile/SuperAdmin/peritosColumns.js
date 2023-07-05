@@ -14,7 +14,7 @@ export const columnsPeritos=[
         text:'Apellido y Nombre',
         // sortable:true, //permite que se ordene por este elemento
         // grow:1.5
-          
+           
         sort:true,
     },
     {

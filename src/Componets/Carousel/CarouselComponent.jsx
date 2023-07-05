@@ -15,7 +15,7 @@ function CarouselComponent() {
         </Carousel.Item>
 
 
-        <Carousel.Item>
+        <Carousel.Item> 
           {/* 2 */}
         </Carousel.Item>
 

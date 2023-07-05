@@ -12,7 +12,7 @@ import {
   NotificationManager,
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
-
+ 
 function DeletePerito(props) {
 
 
