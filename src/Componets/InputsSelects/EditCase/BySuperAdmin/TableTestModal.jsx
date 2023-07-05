@@ -14,7 +14,7 @@ import "../TableTestModal.css";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import AddModals from "../../../Modals/AddModals";
- 
+import Loading from '../../../../assets/car.gif'
 
 const TableTestModal = (props) => {
     let peritos = useSelector((state) => state.peritos);
@@ -161,7 +161,12 @@ let body = [
   
   return (
     <>
-      
+      {
+        !namePeritos.length &&(
+          <img src={Loading} width="50%"
+          height="70%" />
+        )
+      }
       <Modal show={props.show}>
         <Modal.Header closeButton onHide={props.close}>
           <Modal.Title>Edite la informacion del siniestro </Modal.Title>

@@ -17,7 +17,7 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { useRef } from "react";
-
+import Loading from '../../../assets/car.gif'
 function AddCases() {
   const dispatch = useDispatch();
   let namePeritos1 = useSelector((state) => state.peritosByName);
@@ -228,6 +228,12 @@ function AddCases() {
   };
   return (
     <div style={{ paddingTop: "0%" }}>
+      {
+        !namePeritos.length &&(
+          <img src={Loading} width="50%"
+          height="70%" />
+        )
+      }
       {showE && (
         <div
           style={{
