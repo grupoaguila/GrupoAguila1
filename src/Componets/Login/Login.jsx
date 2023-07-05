@@ -15,22 +15,28 @@ import { useLocalStorage } from "../../CustomHook/useLocalStorage";
 //Alert notifications
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
+import loading from '../../assets/car.gif'
 const auth = getAuth(firebaseApp);
 const googleProvider = new GoogleAuthProvider();
 
 function Login() {
   const [emailUser, setEmailUser] = useLocalStorage('emailUser', '')
+  const [loader, setLoader]=useState(false)
   let dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getPeritos());
-    dispatch(getCasesAction());
+    
+    setTimeout(()=>{
+      dispatch(getPeritos());
+      dispatch(getCasesAction());
+      
+    },20000)
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(peritosByName());
-    }, 2500);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     dispatch(peritosByName());
+  //   }, 2500);
+  // }, []);
   const firestore = getFirestore(firebaseApp);
   const navigate = useNavigate();
   const peritos = useSelector((state) => state.peritos);
@@ -42,9 +48,16 @@ function Login() {
 
 
   const submitHandlerGoogle = (e) => {
-   console.log('e.target', e.target) 
+  // console.log('e.target', e.target) 
     let booll = peritos.some((el) => el.email === "email");
-
+    while (peritos.length === 0 ){
+     
+      setLoader(true)
+      if(peritos.length > 0){
+        setLoader(false);
+        break
+      }
+    }
     try {
 
       signInWithPopup(auth, googleProvider).then((result) => {
@@ -54,11 +67,12 @@ function Login() {
         // const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        console.log('user', user)
+    //    console.log('user', user)
+    
         let userPerito1 = peritos.some((el) => el.email === user.email)
 
-         console.log('userPerito1', userPerito1);
-         console.log('Perito1', peritos);
+      //   console.log('userPerito1', userPerito1);
+     //    console.log('Perito1', peritos);
         if (userPerito1) {
           setEmailUser(user.email)
           //GUARDAR EN EL LOCALSTORAGE USER.EMAIL
@@ -78,11 +92,15 @@ function Login() {
 
   return (
     <>
-
-      <div onClick={(e) => submitHandlerGoogle(e)}>Iniciar Sesión</div>
+      { loader?(
+        <div >Cargando.....</div>
+      ):(
+        <>
+        <div onClick={(e) => submitHandlerGoogle(e)}>Iniciar Sesión</div>
        {/* alert after submit */}
        <NotificationContainer/> 
-
+        </>
+    )  }
     </>
   );
 }
