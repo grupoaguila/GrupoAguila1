@@ -18,6 +18,7 @@ import {
 import "react-notifications/lib/notifications.css";
 import { useRef } from "react";
 import Loading from '../../../assets/car.gif'
+import { useEffect } from "react";
 function AddCases() {
   const dispatch = useDispatch();
   let namePeritos1 = useSelector((state) => state.peritosByName);
@@ -27,6 +28,17 @@ function AddCases() {
   let namePeritos = namePeritos1.map((e) => {
     return { value: e, label: e };
   });
+
+  useEffect(()=>{
+  if(!peritos.length || !casesAll.length){
+      dispatch(getPeritos());
+     dispatch(getCasesAction());
+    setTimeout(() => {
+      dispatch(peritosByName());
+    }, 2500)
+    }},
+    []
+  )
   function Actualizacion() { 
     // console.log('entré en Actualizacion');
     dispatch(getPeritos());
