@@ -25,7 +25,7 @@ function FooterV3() {
           </a>
         </div>
         <div className="insta">
-          <a
+          <a 
             href="https://www.instagram.com/grupoaguilasrl/?hl=es-la" 
             target="_blank" 
           >

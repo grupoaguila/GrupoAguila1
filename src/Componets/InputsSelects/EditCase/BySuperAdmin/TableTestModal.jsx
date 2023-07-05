@@ -14,7 +14,7 @@ import "../TableTestModal.css";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import AddModals from "../../../Modals/AddModals";
-
+ 
 
 const TableTestModal = (props) => {
     let peritos = useSelector((state) => state.peritos);

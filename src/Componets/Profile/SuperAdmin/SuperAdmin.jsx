@@ -97,7 +97,7 @@ function SuperAdmin() {
       {allPeritos &&
         <AllPeritos rol={'Administrador General'}/>
       }
-      
+       
     </>
   );
 }

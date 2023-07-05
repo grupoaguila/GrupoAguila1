@@ -30,5 +30,5 @@ function AllCases({rol}) {
     </div>
   )
 }
-
+ 
 export default AllCases

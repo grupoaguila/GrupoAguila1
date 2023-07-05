@@ -12,7 +12,7 @@ function AllPeritos({rol}) {
  
  
  
-
+ 
   return (
     <div>
         <PeritosTableResponsive cases={peritos1} peritos={peritosByName} title={'TODOS LOS PERITOS'} columns={columnsPeritos}/>

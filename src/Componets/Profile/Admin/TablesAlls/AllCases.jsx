@@ -10,7 +10,7 @@ function AllCases({rol}) {
 
   const peritosByName = useSelector(state=>state.peritosByName)
   
-  cases.sort((a,b)=>{
+  cases.sort((a,b)=>{ 
     const dayA=a.Vencimiento.split("-")
     const dayB=b.Vencimiento.split("-")
     const VencimientoA= new Date(`${dayA[1]}/${dayA[0]}/${dayA[2]}`)

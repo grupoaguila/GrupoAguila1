@@ -7,7 +7,7 @@ function PendingCases({rol}) {
     const cases2 = useSelector(state=>state.cases)
     // console.log('cases1 pendientes', cases1);
     const peritosByName = useSelector(state=>state.peritosByName)
-    
+     
     const cases= cases2.filter(el=>el.estado!=='Pericia finalizada')
     // console.log('cases pendientes==>', cases1);
     cases.sort((a,b)=>{

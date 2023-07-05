@@ -14,7 +14,7 @@ function Card({ consult, clearConsult }) {
  // console.log(infoPerito)
 
   useEffect(() => {
-    setLoader(true)
+    setLoader(true) 
     setTimeout(() => {
       setLoader(false)
     }, 2000)

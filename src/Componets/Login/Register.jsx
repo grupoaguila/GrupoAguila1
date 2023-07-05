@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 
 const auth = getAuth(firebaseApp);
-
+ 
 function Register() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");

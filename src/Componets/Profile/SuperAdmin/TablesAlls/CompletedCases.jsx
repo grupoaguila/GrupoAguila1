@@ -10,7 +10,7 @@ function CompletedCases({rol}) {
     const cases= cases2.filter(el=>el.estado==='Pericia finalizada')
     /* console.log('casesCompleted', cases);
     console.log('cases', cases1); */
-    
+     
     cases.sort((a,b)=>{
       const dayA=a.Vencimiento.split("-")
       const dayB=b.Vencimiento.split("-")

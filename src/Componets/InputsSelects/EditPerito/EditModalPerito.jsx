@@ -14,7 +14,7 @@ import "../EditCase/TableTestModal.css"
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 
-
+ 
 const EditModalPerito = (props) => {
     let peritos = useSelector((state) => state.peritos);
     let namePeritos1 = useSelector((state) => state.peritosByName);

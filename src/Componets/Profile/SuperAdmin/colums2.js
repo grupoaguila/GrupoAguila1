@@ -7,7 +7,7 @@ export const defaultSorted = [{
    
   }];
 export const columns=[
-    {
+    { 
         dataField: 'Vencimiento',// es el identificador de la columna, asi que cada atributo debe coincidir con el dataField
         text:'Vencimiento',
         // sortable:true, //permite que se ordene por este elemento

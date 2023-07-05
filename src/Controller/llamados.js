@@ -32,7 +32,7 @@ export const updatePeritos = async (id, obj) => {
  // console.log('respuesta si se MODIFICA PERITO=>', data);
    
 }
-
+ 
 
 // READ
 export const getPer= async ()  => {

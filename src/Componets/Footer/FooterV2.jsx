@@ -25,7 +25,7 @@ function FooterV2() {
             </CDBBtn>
             <CDBBtn flat color="dark" className="mx-3">
               <CDBIcon fab icon="twitter" />
-            </CDBBtn>
+            </CDBBtn> 
             <CDBBtn flat color="dark" className="p-2">
               <CDBIcon fab icon="instagram" />
             </CDBBtn>

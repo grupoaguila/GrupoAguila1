@@ -12,7 +12,7 @@ export function validate(input) {
   if (input.Compañia.length < 3) {
     errors.Compañia = "Debe agregar Compañía";
   }
-  if (input.celular.length < 7) {
+  if (input.celular.length < 7) { 
     errors.celular = "Debe contener numero de teléfono";
   }
   if (!expresiones.celular.test(input.celular)) {
