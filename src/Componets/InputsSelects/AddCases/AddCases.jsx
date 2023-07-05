@@ -241,52 +241,55 @@ function AddCases() {
   return (
     <div style={{ paddingTop: "0%" }}>
       {
-        !namePeritos.length &&(
+        !namePeritos.length ?(
           <img src={Loading} width="50%"
           height="70%" />
+        ):(
+          <>
+          {showE && (
+            <div
+              style={{
+                paddingRight: "10%",
+                paddingLeft: "25%",
+                marginTop: "10px",
+                fontSize: "20px",
+                display: "flex",
+                justifyContent: "space-between",
+              
+              }}
+            >
+              <Alert
+                variant="danger"
+                onClose={() => setShow(false)}
+                dismissible
+                style={{ paddingRight: "8%", paddingLeft: "5%" }}
+              >
+                <Alert.Heading>
+                  <p style={{ color: "black", fontSize: "15px" }}>
+                    No se puede guardar el caso presenta el/los siguiente/s error/s:
+                  </p>
+                  {err?.map((el) => {
+                    return <ol style={{ fontSize: "15px" }}>{el}</ol>;
+                  })}
+                </Alert.Heading>
+              </Alert>
+            </div>
+          )}
+          <FormAddCase2
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            handleSelect={handleSelect}
+            post={post}
+            namePeritos={namePeritos}
+            cases={body}
+         
+            
+            // style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px",   backgroundColor:"opacity" }}
+          />
+          <NotificationContainer />
+          </>
         )
       }
-      {showE && (
-        <div
-          style={{
-            paddingRight: "10%",
-            paddingLeft: "25%",
-            marginTop: "10px",
-            fontSize: "20px",
-            display: "flex",
-            justifyContent: "space-between",
-          
-          }}
-        >
-          <Alert
-            variant="danger"
-            onClose={() => setShow(false)}
-            dismissible
-            style={{ paddingRight: "8%", paddingLeft: "5%" }}
-          >
-            <Alert.Heading>
-              <p style={{ color: "black", fontSize: "15px" }}>
-                No se puede guardar el caso presenta el/los siguiente/s error/s:
-              </p>
-              {err?.map((el) => {
-                return <ol style={{ fontSize: "15px" }}>{el}</ol>;
-              })}
-            </Alert.Heading>
-          </Alert>
-        </div>
-      )}
-      <FormAddCase2
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        handleSelect={handleSelect}
-        post={post}
-        namePeritos={namePeritos}
-        cases={body}
-     
-        
-        // style={{ paddingRight: "30%", paddingLeft: "25%", marginTop: "20px",   backgroundColor:"opacity" }}
-      />
-      <NotificationContainer />
     </div>
   );
 }
