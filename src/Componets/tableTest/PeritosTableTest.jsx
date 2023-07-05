@@ -69,6 +69,7 @@ function PeritosTableResponsive({ cases, columns, detail, title, rol }) {
   // console.log('casesFiltered', casesFiltered)
   return (
     <>
+   
       <input
         id="filter"
         className="filterInput"

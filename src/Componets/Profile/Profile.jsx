@@ -6,10 +6,12 @@ import { getAuth, signOut } from "firebase/auth";
 import firebaseApp from '../../Credentials/Index'
 import Admin from './Admin/Admin';
 import Perito from './Perito/Perito';
-
+import Loading from '../../assets/car.gif'
 const auth = getAuth(firebaseApp);
 function Profile() {
-
+  const peritos=useSelector(state=>state.peritos)
+  const cases1=useSelector(state=>state.cases)
+  const peritosByName1=useSelector(state=>state.peritosByName)
   let dispatch= useDispatch()
   useEffect(()=>{
     dispatch(getPeritos())
@@ -25,7 +27,14 @@ function Profile() {
 
   return (
     <>
-     
+     {
+      !peritos.length || !cases1.length || !peritosByName1.length &&(
+        <div>
+          <img src={Loading} width="50%"
+            height="70%"/>
+        </div>
+      )
+    }
     {
       peritoUser?.rol==='Administrador General' &&
             <SuperAdmin />

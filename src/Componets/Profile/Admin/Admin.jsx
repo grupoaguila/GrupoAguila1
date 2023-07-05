@@ -8,13 +8,16 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { GrTable } from "react-icons/gr";
 import './Admin.css'
-
+import Loading from '../../../assets/car.gif'
+import { useSelector } from "react-redux";
 function Admin() {
   const navigate = useNavigate();
   const [all, setAll]=useState(false)
   const [completed, setCompleted]=useState(false)
   const [pending, setPending]=useState(false)
- 
+  const peritos=useSelector(state=>state.peritos)
+  const cases1=useSelector(state=>state.cases)
+  const peritosByName1=useSelector(state=>state.peritosByName)
   const handleClick = (value) => {
    /*  console.log('admin handleClick -->', value)
  */
@@ -41,6 +44,7 @@ function Admin() {
 
   return (
     <> 
+    
     <div className="dropDownSuperAdmin">
       <Dropdown as={ButtonGroup}>
         <Button  className="buttonOptionsSuperAdmin">Opciones</Button>
