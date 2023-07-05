@@ -28,25 +28,29 @@ function Profile() {
   return (
     <>
      {
-      !peritos.length || !cases1.length || !peritosByName1.length &&(
+      !peritos.length || !cases1.length || !peritosByName1.length ?(
         <div>
           <img src={Loading} width="50%"
             height="70%"/>
         </div>
+      ):(
+        <>
+
+{
+  peritoUser?.rol==='Administrador General' &&
+        <SuperAdmin />
+}
+ 
+{ 
+  peritoUser?.rol==='Administrador junior' &&
+        <Admin />
+}
+{
+  peritoUser?.rol==='Tecnico' &&
+        <Perito emailUser={emailUser}/>
+}
+        </>
       )
-    }
-    {
-      peritoUser?.rol==='Administrador General' &&
-            <SuperAdmin />
-    }
-     
-    { 
-      peritoUser?.rol==='Administrador junior' &&
-            <Admin />
-    }
-    {
-      peritoUser?.rol==='Tecnico' &&
-            <Perito emailUser={emailUser}/>
     }
     </>
     
