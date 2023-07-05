@@ -38,7 +38,7 @@ let rootReducer = (state = initialState, action) => {
       };   
     case GET_CASES:
    //   console.log('CASOS=>', action.payload);
-      let cases1=action.payload.sort((a,b)=>{
+      let cases1=action.payload?.sort((a,b)=>{
         const dayA=a.Vencimiento.split("-")
         const dayB=b.Vencimiento.split("-")
         const VencimientoA= new Date(`${dayA[1]}/${dayA[0]}/${dayA[2]}`)
