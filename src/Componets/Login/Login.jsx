@@ -25,11 +25,11 @@ function Login() {
   let dispatch = useDispatch();
   useEffect(() => {
     
-    setTimeout(()=>{
+    
       dispatch(getPeritos());
       dispatch(getCasesAction());
       
-    },20000)
+    
   }, []);
 
   // useEffect(() => {
