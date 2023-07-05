@@ -10,7 +10,7 @@ import TableTestModalPerito from "../InputsSelects/EditCase/ByPerito/TableTestMo
 import { getCasesAction, getPeritos, peritosByName } from "../../Store/Actions";
 import "./tabletest.css";
 import DeleteCase from "../InputsSelects/EditCase/BySuperAdmin/DeleteCase";
-import Loading from '../../assets/car.gif'
+import Loading from '../../assets/loading.gif'
 function TableResponsive({ cases, columns, detail, title, rol }) {
 const peritos=useSelector(state=>state.peritos)
 const cases1=useSelector(state=>state.cases)

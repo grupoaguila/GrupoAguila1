@@ -6,7 +6,7 @@ import { getAuth, signOut } from "firebase/auth";
 import firebaseApp from '../../Credentials/Index'
 import Admin from './Admin/Admin';
 import Perito from './Perito/Perito';
-import Loading from '../../assets/car.gif'
+import Loading from '../../assets/loading.gif'
 const auth = getAuth(firebaseApp);
 function Profile() {
   const peritos=useSelector(state=>state.peritos)

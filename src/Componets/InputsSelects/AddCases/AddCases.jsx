@@ -17,7 +17,7 @@ import {
 } from "react-notifications";
 import "react-notifications/lib/notifications.css";
 import { useRef } from "react";
-import Loading from '../../../assets/car.gif'
+import Loading from '../../../assets/loading.gif'
 import { useEffect } from "react";
 function AddCases() {
   const dispatch = useDispatch();
