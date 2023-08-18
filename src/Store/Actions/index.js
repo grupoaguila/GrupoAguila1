@@ -15,8 +15,10 @@ import {
   POST_PERITO,
 } from "../utils/constantes";
 const url=process.env.REACT_APP_DATABASE_URL
+
 export function getPeritos() {
-//  console.log('/////////entra a action getPeritos url==>/////////', process.env.REACT_APP_DATABASE_URL);
+console.log('/////////entra a action getPeritos url==>/////////', url)
+  //  console.log('/////////entra a action getPeritos url==>/////////', process.env.REACT_APP_DATABASE_URL);
   return async function (dispatch) {
 //    console.log('/////////entra a DISPATCH action getPeritos/////////');
     
