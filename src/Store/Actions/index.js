@@ -14,7 +14,7 @@ import {
   POST_CASE, 
   POST_PERITO,
 } from "../utils/constantes";
-const url=process.env.REACT_APP_DATABASE_URL
+const url="https://aguilagrupo6.onrender.com"
 
 export function getPeritos() {
 console.log('/////////entra a action getPeritos url==>/////////', url)
